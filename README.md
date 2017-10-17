@@ -1,2 +1,2 @@
 # graduateschoolclasses
-A depository of my class projects
+A depository of reading material and assignments from my graudate classes at the University of Chicago.

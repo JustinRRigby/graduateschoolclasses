@@ -86,9 +86,8 @@ HH_on_flip <- 0
     }}
   return(HH_on_flip/n_trials)}
 
-
+#Getting two heads with a fair coin multiplied by the chance that the fair coin is selected
 prob_of_fair_coin = fair_coin_HH(100000) * 0.5 
-#getting two heads with a fair coin multiplied by the chance that the fair coin is selected
 prob_of_fair_coin
 
 
@@ -133,4 +132,81 @@ P(C|A) = P(C,A) / P(A) ==> P(C,A) = P(C|A)*P(A)
 
 #HW1.5
 
+A dianostic test for a disease return one of the following answers; Positive (Has the Disease) and Negative (does not have the disease)
 
+*The probabilities of the test outcomes are as follows*
+
+##For a patient with the disesase. 0.95 Positive / 0.05 Negative
+## For a patient that does not have the disease. 0.10 Positive / 0.90 Negative
+
+###*Assume 10% of the popualtion has the disease. If everyone is tested, what proportion of the test results are positive?*
+
+
+```{r}
+#Probabilities of achieving a positive result whether or not you have the disease
+with_disease_positive_result = 0.1 * 0.95
+without_disease_positive_result = 0.9 * 0.1
+
+prob_of_positive_result = with_disease_positive_result + without_disease_positive_result
+prob_of_positive_result
+```
+
+##*For a patient who gets a positive result, what is the probability of having the disease*
+
+Definition of conditional probability:
+
+P(A|C) = P(A,C) / P(C) = [P(A)*P(C|A)] / P(C)
+
+P(A): Having the Disease
+P(C): Getting a positive result
+
+
+```{r}
+#Known Terms
+with_disease_positive_result = 0.1 * 0.95
+  without_disease_positive_result = 0.9 * 0.1
+
+  #P(A)    
+prob_having_disease = 0.1
+
+#P(A^C)
+prob_not_having_disease = 0.9
+##########################################################################################################
+
+#P(C)      
+prob_getting_positive_result =  
+  without_disease_positive_result +
+            with_disease_positive_result
+#P(A,C)
+with_disease_positive_result
+
+#P(A|C) Gets a positive result - prob of having the disease
+
+prob_pos_res_and_having_dis = with_disease_positive_result / prob_getting_positive_result
+prob_pos_res_and_having_dis
+```
+
+
+*Now let d be the prevelance of the disease in the population*
+
+*Everyone in the population is screeened for the disease. For each person who got a positive result they are brought back for an additional screening. 25% of the returning population test positive. What is d?*
+
+Q : Second Test is Positive
+A : First Test is Positive
+
+Probability that you get both tests positive
+P(Q|A) = 0.25
+
+P(Q|A) = P(Q,A) / P(A) 
+
+P(Q|A) = [d(0.95)^2^+(1-d)(0.10)^2^] / [d(0.95) + (1-d)(0.1)]
+
+P(Q|A) = [d(0.9025) + (1-d)(0.01)] / [d(0.95) + (1-d)(0.1)]
+
+P(Q|A) = [d(0.9025) + (1-d)(0.01)] / [d(0.95) + (1-d)(0.1)]
+
+P(Q|A) = [0.9025d + 0.01 - 0.01d] / [0.95d + 0.1 - 0.1d]
+
+P(Q|A) = [0.925d + 0.01] / [0.85d + 0.1]
+
+d = 0.02105

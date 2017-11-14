@@ -127,8 +127,7 @@ P(A|C) = P(A,C) / P(C) = P(C,A) / P(C)
 
 P(C|A) = P(C,A) / P(A) ==> P(C,A) = P(C|A)*P(A)
 
-.'. 
-
+###Not sure how to proceeed.
 
 #HW1.5
 
@@ -194,19 +193,28 @@ prob_pos_res_and_having_dis
 Q : Second Test is Positive
 A : First Test is Positive
 
-Probability that you get both tests positive
-P(Q|A) = 0.25
+#Probability that you get both tests positive
 
-P(Q|A) = P(Q,A) / P(A) 
+$P(Q|A) = 0.25$
 
-P(Q|A) = [d(0.95)^2^+(1-d)(0.10)^2^] / [d(0.95) + (1-d)(0.1)]
+#Probability of getting a positive result times the probability of geeting a positive result
 
-P(Q|A) = [d(0.9025) + (1-d)(0.01)] / [d(0.95) + (1-d)(0.1)]
+$P(Q,A) = d(0.95)^{2} + (1-d)(0.1)^{2}$
 
-P(Q|A) = [d(0.9025) + (1-d)(0.01)] / [d(0.95) + (1-d)(0.1)]
+#Probability of getting a positive result (1st test)
 
-P(Q|A) = [0.9025d + 0.01 - 0.01d] / [0.95d + 0.1 - 0.1d]
+$P(A) = 0.95d + (1-d)(0.1)$
 
-P(Q|A) = [0.925d + 0.01] / [0.85d + 0.1]
+$P(Q|A) = P(Q,A) / P(A)$
 
-d = 0.02105
+$P(Q|A) = [d(0.95)^{2}+(1-d)(0.10)^{2}] / [d(0.95) + (1-d)(0.1)]$
+
+$P(Q|A) = [d(0.9025) + (1-d)(0.01)] / [d(0.95) + (1-d)(0.1)]$
+
+$P(Q|A) = [d(0.9025) + (1-d)(0.01)] / [d(0.95) + (1-d)(0.1)]$
+
+$P(Q|A) = [0.9025d + 0.01 - 0.01d] / [0.95d + 0.1 - 0.1d]$
+
+$P(Q|A) = [0.925d + 0.01] / [0.85d + 0.1]$
+
+$d = 0.02105$

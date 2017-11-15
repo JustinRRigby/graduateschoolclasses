@@ -123,6 +123,16 @@ $(document).ready(function () {
 
 <div id="hw2.1" class="section level1">
 <h1>HW2.1</h1>
+<pre class="r"><code>set.seed(1984)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: 'dplyr'</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
 <p>In the posted homework solutions, there is a 20% chance that there is an error in the posted solutions. If an error is present, then the number of students who send emails about the error follows a poisson(3) distrubution.</p>
 <p><em>If no emails were recieved, what is the probability that there was no error</em></p>
 <div id="we-must-first-define-our-information" class="section level4">
@@ -131,7 +141,8 @@ $(document).ready(function () {
 <span class="math inline">\(\therefore\)</span> <span class="math inline">\(prob.of.error.hw = P(E) = 0.20\)</span></p>
 <p>Also,<br />
 <span class="math inline">\(\therefore\)</span> <span class="math inline">\(prob.of.no.error.hw = P(E^{c}) = 0.80\)</span></p>
-<pre class="r"><code>hw_errors &lt;- function(n){
+<pre class="r"><code>set.seed(1984)
+hw_errors &lt;- function(n){
   num_of_emails.df &lt;- data.frame() #Creation of Empty Data Frame
 for(i in 1:n){x_ind &lt;- 0 #Indicator Variable
   x_ind &lt;- sample(c(0,1),1,replace = TRUE, prob = c(0.8,0.2)) #Probability of Error in HW
@@ -143,7 +154,7 @@ return(no_emails_with_error/n) #Sum of the number of 0 emails weighted by the to
 
 #Therefore, the probability of an error being in the solutions, yet no email received about it, is about. . .  
 hw_errors(50000)</code></pre>
-<pre><code>## [1] 0.00946</code></pre>
+<pre><code>## [1] 0.00958</code></pre>
 </div>
 </div>
 <div id="hw2.2" class="section level1">
@@ -154,7 +165,22 @@ hw_errors(50000)</code></pre>
 (c) First let Y ~ N(0,1), and then let X be the answer you get when you round Y to the nearest integer.<br />
 ###########################################################################################</p>
 <ol style="list-style-type: lower-alpha">
-<li></li>
+<li>X ~ Geometric(0.7)</li>
+</ol>
+<pre class="r"><code>set.seed(1984)
+library(dplyr)
+
+geom.binary &lt;- function(n, p){
+  geom.df &lt;- data.frame((rgeom(n, p))/2)
+  colnames(geom.df) &lt;- c(&quot;Binary&quot;)
+    geom.binary.df &lt;- (1 *(geom.df%%1==0))
+return(1 - (sum(geom.binary.df)/n))  
+}
+
+geom.binary(500000, 0.7)</code></pre>
+<pre><code>## [1] 0.231108</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Binomial(101, 0.5)</li>
 </ol>
 </div>
 

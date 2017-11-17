@@ -49,11 +49,10 @@ Calculate P(X is odd) in each setting below.
   (a) X ~ Geometric(0.7)  
   (b) X ~ Binomial(101, 0.5)  
   (c) First let Y ~ N(0,1), and then let X be the answer you get when you round Y to the nearest integer.  
-###########################################################################################
+##################################################################################################################
 
 a) X ~ Geometric(0.7)
-
- 
+   
 ```{r}
 #Function to determine if number is odd
 is.odd <- function(x){ x%%2!=0
@@ -101,3 +100,5 @@ return(1 - (sum(norm.round.binary.df)/n))
   }
 prob_norm_odd(50000)
 ```
+
+

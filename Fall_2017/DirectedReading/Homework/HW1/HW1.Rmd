@@ -87,7 +87,7 @@ HH_on_flip <- 0
   return(HH_on_flip/n_trials)}
 
 #Getting two heads with a fair coin multiplied by the chance that the fair coin is selected
-prob_of_fair_coin = fair_coin_HH(100000) * 0.5 
+prob_of_fair_coin = fair_coin_HH(50000) * 0.5 
 prob_of_fair_coin
 
 
@@ -113,21 +113,36 @@ prob_next_flip_is_heads
 
 *Let A and C be events where . . .*
 
-###P(A) = 0.4
+P(A) = 0.4
 
-###P(A|C)= 0.1
+P(A|C)= 0.1
 
-##Explain why it is not possible to have P(C) = 0.8 -- more specifically can you prove an upper or lower bound on P(C)?
+Explain why it is not possible to have P(C) = 0.8 -- more specifically can you prove an upper or lower bound on P(C)?
 
+$P(A) = P(A, C) + P(A,C_c) \leq P(A,C) + P(C_c)$  
+[Which is equilivent to $P(A,C_c) \leq P(C_c)$]
+  
+$P(A) \leq P(A,C) + (1 - P(C))$  
+  
+$P(A) \leq P(A|C)P(C) + (1 - P(C))$    
+  
+$P(A) \leq P(A|C)P(C) + 1 - P(C)$    
+  
+$P(A) \leq (0.1)P(C) - P(C)+1$  
+  
+$P(A) \leq (0.9)P(C) + 1$  
+  
+$(0.4 - 1) \leq (0.9)P(C)$  
+  
+$-\frac{0.6}{0.9} \leq P(C)$  
+  
+$P(C) \leq \frac{0.6}{0.9}$  
+  
+$\therefore P(C) \leq \frac{2}{3}$
+  
+Thus $P(C) =/= 0.8$, but instead is bounded by,  
+$0 < P(C) \leq \frac{2}{3}$
 
-P(A|C) = P(A,C) / P(C) = P(C,A) / P(C)
-
- = > P(C,A) = P(A|C)*P(C)
-
-
-P(C|A) = P(C,A) / P(A) ==> P(C,A) = P(C|A)*P(A)
-
-###Not sure how to proceeed.
 
 #HW1.5
 
@@ -135,10 +150,10 @@ A dianostic test for a disease return one of the following answers; Positive (Ha
 
 *The probabilities of the test outcomes are as follows*
 
-##For a patient with the disesase. 0.95 Positive / 0.05 Negative
-## For a patient that does not have the disease. 0.10 Positive / 0.90 Negative
-
-###*Assume 10% of the popualtion has the disease. If everyone is tested, what proportion of the test results are positive?*
+For a patient with the disesase. 0.95 Positive / 0.05 Negative
+For a patient that does not have the disease. 0.10 Positive / 0.90 Negative
+  
+*Assume 10% of the popualtion has the disease. If everyone is tested, what proportion of the test results are positive?*
 
 
 ```{r}
@@ -150,7 +165,7 @@ prob_of_positive_result = with_disease_positive_result + without_disease_positiv
 prob_of_positive_result
 ```
 
-##*For a patient who gets a positive result, what is the probability of having the disease*
+*For a patient who gets a positive result, what is the probability of having the disease*
 
 Definition of conditional probability:
 
@@ -195,14 +210,14 @@ A : First Test is Positive
 
 #Probability that you get both tests positive
 
-$P(Q|A) = 0.25$
+$P(Q|A) = 0.25$  
+  
+Probability of getting a positive result times the probability of geeting a positive result
+  
+$P(Q,A) = d(0.95)^{2} + (1-d)(0.1)^{2}$  
 
-#Probability of getting a positive result times the probability of geeting a positive result
-
-$P(Q,A) = d(0.95)^{2} + (1-d)(0.1)^{2}$
-
-#Probability of getting a positive result (1st test)
-
+Probability of getting a positive result (1st test)  
+  
 $P(A) = 0.95d + (1-d)(0.1)$
 
 $P(Q|A) = P(Q,A) / P(A)$

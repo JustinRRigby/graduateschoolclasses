@@ -19,24 +19,24 @@ set.seed(1964)
 ```{r}
 
 red_dice_roll <- function(n){
-rolls <- sample(1:6, size = n, replace = TRUE)
+rolls <- sample(1:6, size = n, replace = TRUE) #Drawing a number between 1-6
 return(rolls)}
 
-blue_dice_roll <- function(n){
-rolls <- sample(1:6, size = n, replace = TRUE)
+blue_dice_roll <- function(n){ 
+rolls <- sample(1:6, size = n, replace = TRUE) #Drawing a number between 1-6
 return(rolls)}
 ```
-
-
+  
+Since we are looking for the probability that B > R we can assume that the blue die can be larger except when a six is rolled by the red die (because even if the blue die is 6 it fails).  
 
 
 #Determine the probability that the result from the blue die is larger than that of the red die.
 ```{r}
 roll_dice_B_Greater_R <- function(n){
 blue_is_greater <- 0
-    for (i in 1:n){
-if(blue_dice_roll(1) > red_dice_roll(1)){ 
-blue_is_greater <- blue_is_greater + 1
+    for (i in 1:n){ #As many throws of both dice
+if(blue_dice_roll(1) > red_dice_roll(1)){  #Checking if the blue die is bigger than the red die
+blue_is_greater <- blue_is_greater + 1 #Couting occurances where blue d is bigger than red die
 }}
   return(blue_is_greater/n)}
 
@@ -102,12 +102,6 @@ prob_next_flip_is_heads <-
 
 prob_next_flip_is_heads
 ```
-
-
-
-
-
-
 
 #HW1.4
 

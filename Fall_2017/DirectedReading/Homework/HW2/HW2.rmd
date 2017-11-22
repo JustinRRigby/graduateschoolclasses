@@ -20,7 +20,7 @@ The probability of an error in the posted solutions is 20%
 $\therefore$ $prob.of.error.hw = P(E) = 0.20$  
   
 Also,  
-$\therefore$ $prob.of.no.error.hw = P(E^{c}) = 0.80$ 
+$\therefore$ $prob.of.no.error.hw = P(E_c) = 0.80$ 
 
 
 ```{r}
@@ -64,12 +64,12 @@ return(1-sum(geom.binary.df)/n) #returning the probability
 prob_geom_odd(500000, 0.7)
 ```
   
-$P(X is odd) = P(X = 1) + P(X = 3) + P(X = 5) + ... + P(X = i) = \sum_{k=1}^{\infty} q(1-p)^{(K+2)-1} = (0.7)(1-0.7)^{0} + (0.7)(1-0.7)^{2} + ...$  
+$P(X is odd) = P(X = 1) + P(X = 3) + P(X = 5) + ... + P(X = i) = \sum_{k=1}^{\infty} q(1-p)^{2n-2} = (0.7)(1-0.7)^{0} + (0.7)(1-0.7)^{2} + ...$  
 The sum of a geometric series is equal to...  
 
-$Sum = \frac{S1}{1-r^{2}}$  
+$Sum = \frac{S_1}{1-r^{2}}$  
 
-$\therefore P(X is Odd) = \frac{0.7}{1-(0.3)^{2}} = \frac{0.7}{0.91}= 0.76923= 0.77$  
+$\therefore P(X~is~Odd) = \frac{0.7}{1-(0.3)^{2}} = \frac{0.7}{0.91}= 0.76923= 0.77$  
   
   
 ####b) Binomial(101, 0.5)
@@ -77,7 +77,7 @@ $\therefore P(X is Odd) = \frac{0.7}{1-(0.3)^{2}} = \frac{0.7}{0.91}= 0.76923= 0
 $P(X is odd) = P(X = 1) + P(X = 3) + P(X = 5) + ... + P(X = i)$ 
   
   
-However, the : $P(X = 1) = P(X = 3) = P(X = 100)$  
+However, the probabilities are equal because there is an equal chance each draw: $P(X = 1) = P(X = 3) = P(X = 100)$  
   
   
 $\therefore P(X is Odd) = 0.5$
@@ -91,7 +91,7 @@ We know that we are are sampling from the normal distrubution,
 curve(dnorm(x), from = -5, to = 5, ylab = "Density")
 ```
   
-Which has a range of about -5 to 5 approximately. Thus is if we integrate between the areas which will be rounded to an odd number we can take one minus that values to figure out the probability of getting an odd number.
+Which has a range of about -5 to 5 approximately. Thus is if we integrate between the areas which will not be rounded to an odd number we can take one minus that values to figure out the probability of getting an odd number.
 
 $P(X is Odd) = 1- 2(\int_{0}^{0.5} \frac{1}{\sqrt{2\pi}}~e^{-\frac{x^{2}}{2}}~dx + \int_{1.5}^{2.5} \frac{1}{\sqrt{2\pi}}~e^{-\frac{x^{2}}{2}}~dx + \int_{3.5}^{4.5} \frac{1}{\sqrt{2\pi}}~e^{-\frac{x^{2}}{2}}~dx)$
   
@@ -110,3 +110,21 @@ prob_3.5_4.5 <- integrate(intergrand, 3.5, 4.5) #from 3.5 to 4.5
 
 ```
     
+#HW2.3
+
+One person draws from a full deck while a second person draws from a deck only cotaining only red suit cards (meaning hearts and diamonds only). For these next problems, determine if the distrubution of X and Y are the same.
+
+*X/Y are indicator variables for drawing a face card (in this case Ace, Jacks, Queens, and Kings) with no replacements.*
+```{r}
+
+```
+  
+*X/Y are the number of face cards drawn from each respective deck without replacement.*
+```{r}
+
+
+```
+
+
+
+

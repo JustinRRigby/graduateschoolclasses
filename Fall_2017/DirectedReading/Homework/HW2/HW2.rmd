@@ -110,34 +110,40 @@ prob_3.5_4.5 <- integrate(intergrand, 3.5, 4.5) #from 3.5 to 4.5
 
 ```
     
-#HW2.3
-
-One person draws from a full deck while a second person draws from a deck only cotaining only red suit cards (meaning hearts and diamonds only). For these next problems, determine if the distrubution of X and Y are the same.
-
-*X/Y are indicator variables for drawing a face card (in this case Ace, Jacks, Queens, and Kings) with no replacements.*
-
+#HW2.3  
+  
+One person draws from a full deck while a second person draws from a deck only cotaining only red suit cards (meaning hearts and diamonds only). For these next problems, determine if the distrubution of X and Y are the same.  
+  
+*X/Y are indicator variables for drawing a face card (in this case Ace, Jacks, Queens, and Kings) with no replacements.*  
+  
 $P(X = 1) = \frac{16}{52} = \frac{2}{7}$  
 $P(X = 0) = \frac{36}{52} = \frac{5}{7}$  
   
 $P(Y = 1) = \frac{8}{28} = \frac{2}{7}$  
 $P(Y = 0) = \frac{20}{28} = \frac{5}{7}$  
-
-$\therefore P(X = 1) = P(Y = 1)~~and~~P(X = 0) = P(Y = 0)$  
-They must have the distrubution -- whatever that is.
-```{r}
-
-
-
-
-
-```
   
-*X/Y are the number of face cards drawn from each respective deck without replacement.*
-```{r}
+$\therefore P(X = 1) = P(Y = 1)~~and~~P(X = 0) = P(Y = 0)$  
+They must have the distrubution -- whatever that is.  
+  
+*X/Y are the number of face cards drawn from each respective deck without replacement if ten cards are drawn.*      
+$P(X = 10) = \frac{16}{52} * \frac{15}{51} * \frac{14}{50} * \frac{13}{49} * ... * \frac{7}{42} * \frac{6}{43}$   
+$P(Y = 10) < 0$ Since there is only 8 face cards in the red deck  
+  
+Thus they have a different distrubution
 
+```{r}
+library(data.table)
+set.seed(1984)
+  reps <- 500
+
+  dist_of_face_cards.df <- data.frame(replicate(reps, {draw_ten(red_deck)}))
+
+data <- data.frame(red_deck = c('Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card'), full_deck = c('Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card'))
+
+a <- data.frame(sample(data$red_deck, 10, replace = FALSE))
+
+red_deck_draw <- data.frame(reddeck = replicate(reps, {data.frame(red_deck_sample = sample(data$red_deck, 10, replace = FALSE))}))
+data.table(red_deck_draw)
 
 ```
-
-
-
 

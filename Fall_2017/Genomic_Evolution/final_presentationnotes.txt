@@ -1,0 +1,112 @@
+Notes for 5' and 10
+
+Evolution under canalization . . .
+
+[|]	Canalization
+	[] The process by which pheontypes are stabilizaed within species
+		-	This is similar to buffering (which is the ability to keep the expression of a gene near the mean) but on an evolutionary scale.
+	[] Previous research has showed that canalization is not apparent in certian regulatory networks (for the D. melanogaster abdomen patternning)
+		-	However this shows nothing since it was just one observation
+		
+	
+[|]	miRNA's
+	[] The paradox of miRNA's is that they are both dispensable (meaning one could knock them out and not expect a serious phenotypic effect) and they are highly conserved.
+		-	This also raises the issue that due to their redundancy they should have selection act upon them more so than usual --- due to the reduced level of purifying selection.
+		-	Even if the miRNA's themselves are highly conserved -- their ability to target similar or the same genes is reduced.
+		
+--------------------------------------------------------------------------------------
+The dual functions of miRNAs . . . 
+
+[|] Models for miRNAs interactions
+  []Expression-tuning motifs
+	] Simple expression
+		- miR --l (GoI) Literally the repression of a gene by miRNA expression
+	] Coherent feed forward loop
+		- A --| (GoI)
+		  |        _
+		  -        |      Essentially one gene represses another gene-- but also activates miR that repress the same target
+		  miR ----/
+	
+	] Double negative feedback loop
+		-	miR l-----l (GoI)
+
+  []Expression-buffering motifs
+	] Incoherent feed forward loop	
+		- A --> (GoI)
+		  |        _
+		  v        |      Essentially one gene activates another gene-- but also activates miR that repress the same target
+		  miR ----/       Definitely a model that agrees with the buffering hypothesis
+
+	] Negative feedback loop	
+		-	miRNA <---| (GoI)   The expression of itself will repress itself.
+		
+	] Incoherent feed forward loop
+		-(GoI2)-->(GoI)
+		  _        _
+		  |        |      miRNA targets two genes which regulate another genes both up and down.
+		  miR ---| (GoI1)
+	
+miRNAs and expression buffering—Evidence from . . . .
+
+[|] Ways to control gene expression
+	[] Tuning
+		] The ability to adjust the MEAN expression of a gene.
+			- not the same as buffering
+	[] Buffering
+		] Is about reducing the variance that occurs -- less noise
+		] Is thought to reduce noise and stabilize the entire genome
+	[*] These two controllers are focused on the gene interactiosn and not the phenotype | hard to tell canal genes in the lab due to the reduced noises needed by researchers.
+	
+	
+miRNAs and expression buffering—Evidence from recent experiments . . 
+[|]	Figure 2
+
+- Overall the expression changes in the miRNA310 knock out has a great degree of effects on the entire genome with many significantly disregualted genes.
+- The change in the expected region was minor comapred to what was see overall -- even if it was significant.
+
+[|] Figure 3
+
+- We can see some variation in the level of target expression dependant on the level of miRNA expressed -- however it is still very noisy and not convicible.
+- Still no relationship.
+
+[|] Figure 4
+
+- The minimum 8 seed section of miRNA is highly conserved, but no evidence for completely conservation is found
+- The entire 18 bp itself has a lowerr level of conservation, but still follows a similar trend.
+- The rate at which miRNA hone in on a target is a small time frame, but follows the neutral model of evolution.
+##########################################################################################################################
+Coupled Evolution of Transcription and mRNA Degradation
+
+[|] Figure 1
+	- a) Both species tend to have degregation occur at the same rate.
+	- b) Both species tended to have the same level of correlation with their mRNA degredation rates, alongside
+	- c) Scatterplot showing their relatively degredation rates to one another.
+	- d) There was a differnce in the level of oxidative phosphorylation genes - meaning there is regulation occuring in these genes between these two species.
+	
+	Figure 2
+	- a) We can gleam from this plot that the red section contains regulatory noise and the red section contains bioliogicaly relevant genes -- this is a sliding window look at expression.,
+	- b) I have trouble interpretting this
+	- c) Same idea as a) but with opposite effects
+	- d) the degridation rates of degredation and transcription are diffferent.
+	
+	Figure 3
+	- a) Compares the relative levels of gene degredation between C cer/ C par
+		' We can begin to tease out the cis reg and trans reg individual genes which are disregualted between the species to find their connections to mRNA degredation
+	- b) Zoomed in view of what 
+	
+	Figure 4
+	- There is a weird difference in degregation when comparing all cis and trans effects in a matrice.
+	
+	Figure 5
+	- Finding cis/trans coupled genes.
+	
+	
+
+
+
+
+
+
+
+
+

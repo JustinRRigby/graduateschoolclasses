@@ -134,16 +134,28 @@ Thus they have a different distrubution
 ```{r}
 library(data.table)
 set.seed(1984)
-  reps <- 500
+    Face_card <- 1
+      Non_face_card <- 0
+      
+data <- data.frame(red_deck = c(1, 1, 1, 1, 1, 1 ,1, 1, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), full_deck = c(1, 1, 1, 1, 1, 1 ,1, 1, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1 ,1, 1, 0 , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
+  
 
-  dist_of_face_cards.df <- data.frame(replicate(reps, {draw_ten(red_deck)}))
+red_deck_draw <- function(reps){data.frame(red_deck = replicate(reps, {data.frame(red_deck_sample = sample(data$red_deck, 10, replace = FALSE))}))
+}
 
-data <- data.frame(red_deck = c('Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card'), full_deck = c('Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Face_card', 'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card',  'Non_face_card'))
+red_deck_results.df  <- colSums(data.frame(red_deck_draw(10000)))
 
-a <- data.frame(sample(data$red_deck, 10, replace = FALSE))
 
-red_deck_draw <- data.frame(reddeck = replicate(reps, {data.frame(red_deck_sample = sample(data$red_deck, 10, replace = FALSE))}))
-data.table(red_deck_draw)
+full_deck_draw <- function(reps){
+  data.frame(full_deck = replicate(reps, {data.frame(full_deck_sample = sample(data$full_deck, 10, replace = FALSE))}))
+}
 
+full_deck_results.df <- colSums(data.frame(full_deck_draw(10000)))
+
+#Histogram of Red Deck Distrubution
+hist(red_deck_results.df)
+  
+#Histogram of Full Deck Distrubution
+hist(full_deck_results.df)
 ```
 

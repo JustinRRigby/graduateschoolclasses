@@ -1,10 +1,105 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+```{Setup}
+library(dplyr)
+set.seed(1929)
+```
 
 #HW3
 
-
-
-
+####HW3.1  
+  
+The distrubution of photons emitted by by X ($X \sim Poisson(100)$) and Y is the number of photons which pass through an object.  
+If we know the amount of protons emitted by the x-ray beam we can describe the number of photons phasing through the object by using the distrubution $Y|X \sim Binomial(X,0.4)$  
+  
+*Calculate the probability mass function for (X,Y) [eg $p(k,l) = P((X = k, Y = l))$]*
 
 ```{r}
+set.seed(1929)
+  n_reps = 1
 
-````
+#Creating a data frame containing random draws from the Poisson distrubution
+photons_emitted.df <- data.frame(rpois(n_reps, 100))
+  names(photons_emitted.df) <-c('Photons')
+    #Number of photons emitted  
+    photons <- sum(photons_emitted.df$Photons)
+      #Number of photons from one draw of the Poisson distrubution which passes through the material
+      photons_pass_through_material.str <- rbinom(1, photons, 0.4)
+      #Probability that a photon is emitted from the x-ray and passes through the object
+      photons_pass_through_material.str/photons
+```
+  
+$p(k,l)=P(X =k, Y=l) = P(X = k)~*~P(Y=l|X=k)$
+  
+$P(X=k) * P(Y=l|X=k) = \frac{100^{k}e^{-100}}{k!} * kCl*(0.4)^{l}(0.6)^{k-l}$
+  
+  
+  
+  
+####HW3.5
+  
+*Flip a coin 10 times and let X be the sequence 'HT'. What is $P(X=0)$ ?*  
+  
+```{r}
+library(stringr)
+#Assigning variables
+coin_sides <- c('H', 'T')
+  pat <- setNames(nm = "HT") #Pattern which we are looking for
+    prob <- c(0.5, 0.5) #The coin is fair
+      n_reps <- 50000 #Replicaitons of the Experiment
+        all_flips.df <- 0 #Zeroing out the data frame
+
+        
+#A simple program which will toss the coin 'flips' times and record the results, creates a 
+# string from that data, and returns the number of times the pattern 'HT' is seen in the data
+coin_pattern_toss <-function(flips){
+all_flips.df <- data.frame(sample(coin_sides, flips, replace = TRUE, prob), stringsAsFactors = TRUE)
+  names(all_flips.df) <- c('Coin') 
+  
+all_flips.str <- paste(unlist(all_flips.df),collapse = '') 
+  pat_results.df <- data.frame(lapply(pat, str_count, string=all_flips.str))
+return(pat_results.df)
+}
+
+#A large amount of 10 flip trials
+pat_results_final.df <- data.frame(replicate(n_reps, coin_pattern_toss(10))) 
+
+#Histogram of the distrubuiton of pattern sucesses
+hist(unlist(pat_results_final.df))
+  #Tabulation of the number of successes in the pattern
+  pat_results_final.ls <- data.frame(table(unlist(pat_results_final.df))) 
+    #Probability that P(X = 0)        
+    (pat_results_final.ls[1,2]/n_reps) 
+```
+
+*What is the expectation [ $E[X]$ ]?*
+
+
+The probability that the pattern 'HT' comes up once in the coin tosses is;  
+$P(Heads~and~Tails) = \frac{1}{2}~*~\frac{1}{2}~=~\frac{1}{4}~=~E_i$ Where i is 1-9
+and if one was to calculate the expected value by weighing each coin toss by the probability and itterations we would see;
+$E(X) = E_1 + E_2 + ... +E_9~=~\sum_{i=1}^{9}~E_i~=~9*E_i~=~9*\frac{1}{4}~=~ 2.25$
+
+```{r}
+#Can be found using the weighted.mean function
+x <- c(0, 1, 2, 3, 4, 5) #Number of patterns seen in ten flips
+  wt <- (pat_results_final.ls$Freq)/n_reps #Weighted rate of patterns seen
+
+#Expected number of patterns
+weighted.mean(pat_results_final.df)
+```
+  
+*If you were to draw one card at a time from a full deck wihtout replacement what is the probability that you will NOT have the pattern 'RB'?*
+
+
+
+
+Use a hypergeometric distrubution in order to determine the chance of drawing only black cards first.
+
+
+Pseudocode; Perform this drawing action 50000 times using a string of R's and B's, do the same pattern searching as above, and then find the proability by density.

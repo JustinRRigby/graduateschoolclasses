@@ -5,7 +5,7 @@ output:
 ---
 
 
-```{Setup}
+```{r}
 library(dplyr)
 set.seed(1929)
 ```
@@ -38,7 +38,35 @@ $p(k,l)=P(X =k, Y=l) = P(X = k)~*~P(Y=l|X=k)$
   
 $P(X=k) * P(Y=l|X=k) = \frac{100^{k}e^{-100}}{k!} * kCl*(0.4)^{l}(0.6)^{k-l}$
   
-  
+####HW3.3
+
+You have n random number generators where the ith draw from the generator is from the interval [0, $t_i$] where $t_i$'s are positive integers. Let $X_i$ be the number drawn by the ith random number generator
+
+*What is the expected sum. S = $X_1 + ... + X_n$ ?*
+
+*What is the expected value of Y, which is an indicator variable that counts for all $X_i$'s <= 1?*
+
+
+
+####HW3.4
+
+Let X ~ Exponential($\lambda$) and let t be a constant where: 0 < t < $\lambda$ 
+
+*What is $E[e^{tX}]?*
+
+
+
+*Use the Markov inequality to prove a bound on P($e^{tx} => \alpha$) where $\alpha$ is a positive number*
+
+*Now reformulate this into a bound on $P(X >= b)$*
+  *How does this compare to the true value of the probability P(X >= b)* 
+
+
+
+
+
+
+
   
   
 ####HW3.5
@@ -47,6 +75,7 @@ $P(X=k) * P(Y=l|X=k) = \frac{100^{k}e^{-100}}{k!} * kCl*(0.4)^{l}(0.6)^{k-l}$
   
 ```{r}
 library(stringr)
+  set.seed(1929)
 #Assigning variables
 coin_sides <- c('H', 'T')
   pat <- setNames(nm = "HT") #Pattern which we are looking for
@@ -94,12 +123,75 @@ x <- c(0, 1, 2, 3, 4, 5) #Number of patterns seen in ten flips
 weighted.mean(pat_results_final.df)
 ```
   
-*If you were to draw one card at a time from a full deck wihtout replacement what is the probability that you will NOT have the pattern 'RB'?*
+*If you were to draw one card at a time from a full deck wihtout replacement what is the probability that you will NOT have the pattern 'RB'?*  
+  
 
 
 
+Use a hypergeometric distrubution in order to determine the chance of drawing only black cards first.  
+  
+$P(X = 0) = \frac{\binom{K}{k}~\binom{N-K}{n-k}}{\binom{N}{n}}$  
+Where;  
+k = 26 | Successes    
+n = 26 | Draws  
+N = 52 | Number of objects in the Urn 
+K = 26 | Number of Desired Object in the 'Urn'[Black Cards]    
 
-Use a hypergeometric distrubution in order to determine the chance of drawing only black cards first.
+$\therefore \frac{\binom{26}{26}~\binom{26}{0}}{\binom{52}{26}} = 2.0164e^{-15}$
+
 
 
 Pseudocode; Perform this drawing action 50000 times using a string of R's and B's, do the same pattern searching as above, and then find the proability by density.
+
+Notes: There is only one way for P(Y = 0) and that is when all Black cards are drawn first.
+
+
+```{r}
+library(stringr)
+  set.seed(1929)
+    pat <- setNames(nm = 'RB')  #Pattern that we wish to observe
+      deck_attributes <- c(rep(c('R', 'B'), 26)) #Creaation of a variable containing the card colours
+        n_reps <- 50000 #Number of reps for the simulation
+          cards_to_draw <- 52 #Number of cards to draw from the deck    
+  
+#Creation of a colour deck data frame [Red and Black]
+full_deck.df <- data.frame(deck_attributes)
+
+#Function to draw cards from the deck and to record the number of times the pattern is seen
+card_draw <- function(cards_to_draw){
+draw_results.df <-
+  data.frame(
+  sample(full_deck.df$deck_attributes, cards_to_draw, replace = FALSE), stringsAsFactors = TRUE)
+names(draw_results.df) <- c('Cards')
+  
+draw_results.str <- paste(unlist(draw_results.df), collapse = '')
+  
+pattern_results.df <- data.frame(lapply(pat, str_count, string = draw_results.str))
+                                   
+return(pattern_results.df)
+}
+
+#Drawing the entire deck a large number of times
+pattern_results_final.df <- data.frame(replicate(n_reps, card_draw(cards_to_draw))) 
+
+#Histogram of the results
+hist(unlist(pattern_results_final.df)) 
+
+#Transforming the data frame into a list
+pattern_results_final.ls <- data.frame(table(unlist(pattern_results_final.df)))
+  #Probability that P(Y = 0) --- must have one trial come up as P(Y = 0) in the sim to use this
+  (pattern_results_final.ls[1,2]/n_reps)
+```
+As stated above using the hypergeometric distrubution the chance of this being true is very low ($2.0164~e^{-15}$) so it may take $10^{15}$ trials until one comes up as P(Y = 0).  
+
+
+*What is E(Y)?*
+Since the probability of achieving a 'RB' pattern is computed without replace one needs take this into account. From the data obtained above from the simulation we can see that the weighted mean (according to the number of trials performed [50,000]) sits around 14 -- so we should expected to see a similar or comprobable result from using the rules for discrete estimation.
+   
+  
+$E[Y] = \sum^{51}_{i=1} 51\frac{26}{52}\frac{26}{51} = 13$  
+  
+This answer is close to mean of 14 from the experiment above  
+
+
+

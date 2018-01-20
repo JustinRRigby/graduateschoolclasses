@@ -1,0 +1,76 @@
+---
+title: "Homework_1"
+author: "Justin Rigby"
+date: "20 January 2018"
+output:
+  html_document: default
+  pdf_document: default
+pandoc_args: --latex-engine=xelatex
+---
+  
+#Review 1 
+  
+##R1. You flip what you think is a fair coin ten times and get heads every time.
+  
+(a) (1pt) What is the probability of this result if the coin’s true probability
+of landing heads p = 0.5  
+  
+$Pr(k; n, p) = Pr(10; 10, 0.5) = \binom{10}{10}{0.5}^{10}(1-(0.5))^{10-10}=0.0009765625$  
+  
+  
+(b) (1pt) What p would make this outcome (ten out of ten heads) have
+probability 0.01  
+  
+$Pr(k; n, p) = Pr(10; 10, P) = \binom{10}{10}{p}^{10}(1 - p)^{10-10}=p^{10} = 0.01$
+  
+$p^{10} = 0.01$ => $10*ln(p) = ln (0.01)$ => $ln(p) = \frac{ln(0.01)}{10}$ => $ln(p) = -0.460517$  
+  
+$\therefore p = 0.6309573$  
+  
+(c) (1pt) What is the mean of a binomial distribution with n trials and
+outcome probability p? Simplify as much as possible.  
+  
+  
+$\mu = \sum k \binom{n}{k}p^{k}(1-p)^{n-k} = \sum k \frac{n!}{k!(n-k)!}p^{k}(1-p)^{n-k}=\sum \frac{n!p^{k}(1-p)^{n-k}}{(k-1)!(n-k)!}$  
+  
+##R2. Your favorite bacterium generates a Poisson-distributed number of progeny
+with λ = 1.5 average number of progeny per hour.   
+(a) (1pt) What is the probability that a bacterium generates zero offspring
+in an hour?  
+  
+$Pr(k; \lambda)=Pr(0;1.5)=\frac{\lambda^{k}e^{-\lambda}}{k!}=\frac{1.5^{0}e^{-1.5}}{0!} = 0.2231302$  
+  
+(b) (1pt) What is the probability that it generates at least one offspring?  
+ 
+$Pr(k; \lambda)=Pr(1;1.5)=\frac{\lambda^{k}e^{-\lambda}}{k!}=\frac{1.5^{1}e^{-1.5}}{1!} = 0.3346952$
+  
+(c) (1pt) What are the mean and standard deviation of the number of
+offspring per hour, both in terms of λ and in actual numbers for this
+bacterium?  
+  
+For actual numbers
+  
+$\sum kPr(k) = 1.5$
+  
+In Terms of $\lambda$  
+
+
+##R3. A yeast cell buds to produce a daughter cell every two hours. Assume that,
+in a population of 10 8 cells synchronized to bud simultaneously, this process
+is well-described by the function n(t + 1) = Rn(t) where n(t) is the number
+of cells at time t (in hours) and R is the rate of growth.  
+  
+  
+(a) (1pt) What is R?
+R is the ratio of growth in the population to its original size.
+  
+$R = \frac{n(t+1)}{n(t)}$
+
+(b) (1pt) If we now ask for the instantaneous rate of growth r rather than
+the per-unit-time rate of growth, we have that dn(t)
+dt = rn(t). What is
+r in terms of R? Hint: write out the solution for n(t) in each case.
+  
+$r = \frac{dtR}{n(t+1)}$
+  
+

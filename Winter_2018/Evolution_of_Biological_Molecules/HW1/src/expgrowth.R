@@ -3,9 +3,9 @@ output.type = 'pdf'
 
 # Plot trajectories for exponential growth, given Poisson reproduction.
 
-n0 <- 100 # initial number of individuals
+n0 <- 1000 # initial number of individuals
 max.n <- 1e6 # total (maximum) number of individuals before we quit (to guard against horrible slowdowns)
-max.gen <- 100 #n0 # maximum number of generations we'll track
+max.gen <- 1000 #n0 # maximum number of generations we'll track
 n.reps <- 100 # the number of replicate populations to run and accumulate into a single set of statistics
 n.super.reps <- 1 # if you'd like to run multiple sets of n.reps replicates, and compute statistics on each one
 

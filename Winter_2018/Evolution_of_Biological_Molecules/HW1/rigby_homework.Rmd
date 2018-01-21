@@ -10,7 +10,7 @@ pandoc_args: --latex-engine=xelatex
   
 #Review 1 
   
-##R1. You flip what you think is a fair coin ten times and get heads every time.
+###R1. You flip what you think is a fair coin ten times and get heads every time.
   
 (a) (1pt) What is the probability of this result if the coin’s true probability
 of landing heads p = 0.5  
@@ -33,7 +33,7 @@ outcome probability p? Simplify as much as possible.
   
 $\mu = \sum k \binom{n}{k}p^{k}(1-p)^{n-k} = \sum k \frac{n!}{k!(n-k)!}p^{k}(1-p)^{n-k}=\sum \frac{n!p^{k}(1-p)^{n-k}}{(k-1)!(n-k)!}$  
   
-##R2. Your favorite bacterium generates a Poisson-distributed number of progeny
+###R2. Your favorite bacterium generates a Poisson-distributed number of progeny
 with λ = 1.5 average number of progeny per hour.   
 (a) (1pt) What is the probability that a bacterium generates zero offspring
 in an hour?  
@@ -55,13 +55,13 @@ $\sum kPr(k) = 1.5$
 In Terms of $\lambda$  
 
 
-##R3. A yeast cell buds to produce a daughter cell every two hours. Assume that,
+###R3. A yeast cell buds to produce a daughter cell every two hours. Assume that,
 in a population of 10 8 cells synchronized to bud simultaneously, this process
 is well-described by the function n(t + 1) = Rn(t) where n(t) is the number
 of cells at time t (in hours) and R is the rate of growth.  
   
   
-(a) (1pt) What is R?
+(a) (1pt) What is R?  
 R is the ratio of growth in the population to its original size.
   
 $R = \frac{n(t+1)}{n(t)}$
@@ -72,5 +72,49 @@ dt = rn(t). What is
 r in terms of R? Hint: write out the solution for n(t) in each case.
   
 $r = \frac{dtR}{n(t+1)}$
+    
   
+  
+###1. As discussed in class, organisms struggle for survival against statistics as well as each other. Download the expgrowth.R script from the Canvas site (Assignments/HW1/src) and run it in RStudio. Manipulate the population parameters near the top: n0, the number of starting organisms, and max.gen, the number of generations to track. (Feel free to explore further and alter the fitness and so on.)
+  
+  
+(a) (2pts) Run 100 replicates for 100 generations with initial population
+sizes of n0 = 1, 10, 100, and 1000. At each n0, after 100 generations,
+what fraction of the populations have died out (i.e., have n = 0)?
+  
+n0 = 1      | Fraction of dead populations after 100 generations = 0.12   
+n0 = 10     | Fraction of dead populations after 100 generations = 0.83  
+n0 = 100    | Fraction of dead populations after 100 generations = 0.17   
+n0 = 1000   | Fraction of dead populations after 100 generations = 0   
+  
+  
+  
+  
+(b) (2pts) Now run 100 replicates with initial population sizes of n0 = 1,
+10, 100, and 1000, but run for n0 generations (1 generation for n0 = 1,
+100 generations for n0 = 100, etc.). What do you notice? 
+  
+n0 = 1      | Fraction of dead populations after 1 generations = 0.39  
+n0 = 10     | Fraction of dead populations after 10 generations = 0.15  
+n0 = 100    | Fraction of dead populations after 100 generations = 0.18  
+n0 = 1000   | Fraction of dead populations after 1000 generations = 0.07  
+  
+As you increase the amount of generations the rate at which the allele is lost in the popualtion tends to go up -- but this is also a function of the starting size of the intial population which grows with a positive slope when plotted with the number of generations. Another way to look at the results is to remember that with every generation it is a conditional probability of retaining the allele in the next generation based upon the allele frequency in the prior generation -- which is not modified by a selection coefficent.  
+  
+  
+###2. In $\beta$ lactamases, several sites commonly accumulate changes that alter resistance to various $\beta$-lactam antibiotics. We would like to know where these residues are relative to the antibiotic itself. Download the TEM1-imipenemfrom-1BT5.pse file from the Canvas site (Assignments/HW1/data). Do a little preparation: show the TEM-1 molecule as a gray cartoon on a white background, show the $\beta$-lactam inhibitor imipenem, and orient the view:
+load your_file_path/TEM1-imipenem-from-1BT5.pse  
+hide everything  
+bg_color white  
+show cartoon, TEM-1  
+color gray70, TEM-1  
+orient TEM-1  
+show sticks, imipenem  
+  
+
+
+  
+
+
+
 

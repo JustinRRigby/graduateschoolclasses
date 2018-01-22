@@ -112,9 +112,53 @@ orient TEM-1
 show sticks, imipenem  
   
 
+(a) (2pts) Select residues M69, S70, R164, M182 and G238, which have been inferred to play important roles in the evolution of drug resistance:  
+select resi 69+70+164+182+238  
+Show these residues as red spheres:  
+show spheres, sele; color red, sele  
+Raytrace the result and print/paste it into your answers:
+ray; png your_file_path/tem1-residues-highlighted.png  
+  
+[See the folder]  
+   
+   
+(b) (2pts) Which of these residues is closest to the substrate? Which is farthest away?
+  
+The residue 182 seems to be the closest to the substrate since the space around it has an opening (an area without $\beta$-sheets and $\alpha$-helixes) which would allow for an antibiotic to dock. The residue 70 is the futherest away residue relative to the implied substrate site. 
+  
+  
+###3. Highly conserved amino acid sites are often assumed to be functionally important. Let’s use Python to study the diversity at amino acid sites in TEM-1 β-lactamases. Download the CalculateNumAaPerSite.py script and the tem1-alignment.fasta file from the Canvas site. If you haven’t done so already, read the “Program-mng and Installation” guide document we’ve written, install Python and the required modules (biopython), and organize your homework directory structure accordingly.   
+###The multiple sequence alignment contains 125 TEM-1 β-lactamase se-quences ceah of which is 287 amino acids long.  
+###Open up CalculateNumAaPerSite.py in Spyder. Change the base_directory variable to your homework directory’s path. Note that you need to have your directories set up correctly, as we detail in the Programming Tips guide. Read the script and comments carefully to understand what it will do. Run the script.  
+  
+  
+a) (1pt) Examine the output histogram SiteDiversityHist.png in your hw1/results folder. How many invariant sites did you find?  
+  
+There are forteen invariant sites reported by the program.
+  
+(b) (2pts) Which sites are invariant? Modify the script to identify these invariant sites.  
+
+66 F  
+70 S  
+73 K  
+81 L  
+107 P  
+125 A  
+131 D  
+134 A  
+136 N  
+157 D  
+166 E  
+179 D  
+199 L  
+236 G  
+  
+
+(c) (1pt) Return to PyMol, as in the previous question. Show these invariant sites as blue spheres. Print/paste the result.  
+  [See folder]
+  
+(d) (2pts) What is the relationship between the absolutely conserved sites and those found to be functionally important in the evolution of resistance?   
 
   
 
-
-
-
+  

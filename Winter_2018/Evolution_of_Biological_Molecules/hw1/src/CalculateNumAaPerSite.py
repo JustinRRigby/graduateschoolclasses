@@ -25,7 +25,7 @@ from matplotlib import pyplot
 # or /Users/Mo/Dropbox/evol-biol-mol/homeworks (mac/linux users)
 # you can write the path above as ~/Mo/Dropbox/evol-biol-mol/homeworks
 
-base_directory = "/Users/yeonwoopark/Desktop/tmp/"
+base_directory = "/home/justin/Desktop/graduateschoolclasses/Winter_2018/Evolution_of_Biological_Molecules/"
 os.chdir(base_directory)
 
 # Define a variable for each of your input and output files.
@@ -133,14 +133,14 @@ for site_number in range(aligned_seq_length):
         # ask how big (long) the set is.
         number_of_unique_aas = len(set(site_aas))
         if number_of_unique_aas == 1:
-            print(published_site_number)
+          print(published_site_number)
         # ...and add 1 to the histogram at that number.
         histogram[number_of_unique_aas] += 1
         site_counts += [number_of_unique_aas]
 
         # identify sites with only one unique AA
-        #if number_of_unique_aas == 1:
-        #    print published_site_number, site_aas[published_sequence_index]
+	if number_of_unique_aas == 1:
+		print published_site_number, site_aas[published_sequence_index]
 
             
 results_file.write("number.of.aas\tnumber.of.sites\n")

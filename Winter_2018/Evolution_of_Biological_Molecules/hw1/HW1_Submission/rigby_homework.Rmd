@@ -160,6 +160,39 @@ There are forteen invariant sites reported by the program.
 (d) (2pts) What is the relationship between the absolutely conserved sites and those found to be functionally important in the evolution of resistance?   
   
 Only one residue (number 70) is found in the invariant sites, along with the residues, and is assumed to have an impact on the evolution of drug resistance from the previous question. Otherwise, the majority of the invariant residues tend to culminate in the section of the protein where the antibiotic would reside. Thus, we can infer that the substrate area of the protein is generally conserved, but it only takes a few residues to mutate to cause a change which leads to antibiotic resitstance.  
+    
+   
+4. Hydrolysis of β-lactam antibiotics allows bacteria to grow. Suppose we have the chemical reaction describing the spontaneous hydrolysis of ampicillin:kA −−→ ∅ with k = 0.01 s −1    
   
+(a) (1pt) On average, how fast does 10 μM ampicillin degrade sponta-eously (in μM per second) at the beginning of the reaction?  
+  
+Use a simple rate calculation (in terms of velocity).
+$v = [S]*k= 10~\mu M * 0.01~s^{-1}=0.1$
+  
+(b) (1pt) Plot [A](t) as a function of time in R (see tip below).  
+  
+```{r}
+#Time in seconds
+t <- 1:100
+#Spontaneous hydrolysis of Ampicillin
+k <- 0.1
 
+plot(t, exp(k*t), type='l', col = 'black', 
+     xlab = 'Time (s)', ylab = "Amount (uM/s)")
+```
+  
+(c) (1pt) Suppose a β-lactamase L catalyzes this hydrolysis: when bound to β-lactamase, ampicillin hydrolyzes 10,000 times faster than its spontaneous rate. What is k cat ?
+  
+$K_cat =10,000 * k = 10,000 * 0.1~s^{-1}= 100 s^{-1}$
+
+(d) (2pts)Michaelis constant K M for this reaction?  
+  
+$K_m = \frac{K_{off} + K_{cat}}{K_{on}} = \frac{10 s^{-1}+ 100 s^{-1}}{1,000 (\mu M)^{-1}}= 0.110 ~\frac{\mu M}{s}$
+  
+(e) (2pts) On average, how fast is the degradation of A at the beginning of a reaction that again starts with an initial concentration of 10 μM ampicillin, along with an effective concentration of 1 μM β-lactamase?
+   
+  
+$v_0 = \frac{V_{max}~[S]}{K_m + [S]}= \frac{E_0 K_{cat}[S]}{K_m + [S]}= \frac{1\mu M*100 s^{-1}*10\mu M}{0.110 \frac{\mu M}{s}+10\mu M}=98.912\frac{\mu M}{s}$
+    
+  
   

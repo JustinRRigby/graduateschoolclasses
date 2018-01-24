@@ -155,10 +155,11 @@ There are forteen invariant sites reported by the program.
   
 
 (c) (1pt) Return to PyMol, as in the previous question. Show these invariant sites as blue spheres. Print/paste the result.  
-  [See folder]
+  [See folder]  
   
 (d) (2pts) What is the relationship between the absolutely conserved sites and those found to be functionally important in the evolution of resistance?   
-
+  
+Only one residue (number 70) is found in the invariant sites, along with the residues, and is assumed to have an impact on the evolution of drug resistance from the previous question. Otherwise, the majority of the invariant residues tend to culminate in the section of the protein where the antibiotic would reside. Thus, we can infer that the substrate area of the protein is generally conserved, but it only takes a few residues to mutate to cause a change which leads to antibiotic resitstance.  
   
 
   

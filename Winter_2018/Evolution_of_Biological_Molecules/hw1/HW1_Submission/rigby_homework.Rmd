@@ -112,9 +112,87 @@ orient TEM-1
 show sticks, imipenem  
   
 
+(a) (2pts) Select residues M69, S70, R164, M182 and G238, which have been inferred to play important roles in the evolution of drug resistance:  
+select resi 69+70+164+182+238  
+Show these residues as red spheres:  
+show spheres, sele; color red, sele  
+Raytrace the result and print/paste it into your answers:
+ray; png your_file_path/tem1-residues-highlighted.png  
+  
+[See the folder]  
+   
+   
+(b) (2pts) Which of these residues is closest to the substrate? Which is farthest away?
+  
+The residue 182 seems to be the closest to the substrate since the space around it has an opening (an area without $\beta$-sheets and $\alpha$-helixes) which would allow for an antibiotic to dock. The residue 70 is the futherest away residue relative to the implied substrate site. 
+  
+  
+###3. Highly conserved amino acid sites are often assumed to be functionally important. Let’s use Python to study the diversity at amino acid sites in TEM-1 β-lactamases. Download the CalculateNumAaPerSite.py script and the tem1-alignment.fasta file from the Canvas site. If you haven’t done so already, read the “Program-mng and Installation” guide document we’ve written, install Python and the required modules (biopython), and organize your homework directory structure accordingly.   
+###The multiple sequence alignment contains 125 TEM-1 β-lactamase se-quences ceah of which is 287 amino acids long.  
+###Open up CalculateNumAaPerSite.py in Spyder. Change the base_directory variable to your homework directory’s path. Note that you need to have your directories set up correctly, as we detail in the Programming Tips guide. Read the script and comments carefully to understand what it will do. Run the script.  
+  
+  
+a) (1pt) Examine the output histogram SiteDiversityHist.png in your hw1/results folder. How many invariant sites did you find?  
+  
+There are forteen invariant sites reported by the program.
+  
+(b) (2pts) Which sites are invariant? Modify the script to identify these invariant sites.  
 
+66 F  
+70 S  
+73 K  
+81 L  
+107 P  
+125 A  
+131 D  
+134 A  
+136 N  
+157 D  
+166 E  
+179 D  
+199 L  
+236 G  
   
 
+(c) (1pt) Return to PyMol, as in the previous question. Show these invariant sites as blue spheres. Print/paste the result.  
+  [See folder]  
+  
+(d) (2pts) What is the relationship between the absolutely conserved sites and those found to be functionally important in the evolution of resistance?   
+  
+Only one residue (number 70) is found in the invariant sites, along with the residues, and is assumed to have an impact on the evolution of drug resistance from the previous question. Otherwise, the majority of the invariant residues tend to culminate in the section of the protein where the antibiotic would reside. Thus, we can infer that the substrate area of the protein is generally conserved, but it only takes a few residues to mutate to cause a change which leads to antibiotic resitstance.  
+    
+   
+4. Hydrolysis of β-lactam antibiotics allows bacteria to grow. Suppose we have the chemical reaction describing the spontaneous hydrolysis of ampicillin:kA −−→ ∅ with k = 0.01 s −1    
+  
+(a) (1pt) On average, how fast does 10 μM ampicillin degrade sponta-eously (in μM per second) at the beginning of the reaction?  
+  
+Use a simple rate calculation (in terms of velocity).
+$v = [S]*k= 10~\mu M * 0.01~s^{-1}=0.1$
+  
+(b) (1pt) Plot [A](t) as a function of time in R (see tip below).  
+  
+```{r}
+#Time in seconds
+t <- 1:100
+#Spontaneous hydrolysis of Ampicillin
+k <- 0.1
 
+plot(t, exp(k*t), type='l', col = 'black', 
+     xlab = 'Time (s)', ylab = "Amount (uM/s)")
+```
+  
+(c) (1pt) Suppose a β-lactamase L catalyzes this hydrolysis: when bound to β-lactamase, ampicillin hydrolyzes 10,000 times faster than its spontaneous rate. What is k cat ?
+  
+$K_cat =10,000 * k = 10,000 * 0.1~s^{-1}= 100 s^{-1}$
 
-
+(d) (2pts)Michaelis constant K M for this reaction?  
+  
+$K_m = \frac{K_{off} + K_{cat}}{K_{on}} = \frac{10 s^{-1}+ 100 s^{-1}}{1,000 (\mu M)^{-1}}= 0.110 ~\frac{\mu M}{s}$
+  
+(e) (2pts) On average, how fast is the degradation of A at the beginning of a reaction that again starts with an initial concentration of 10 μM ampicillin, along with an effective concentration of 1 μM β-lactamase?
+   
+  
+$v_0 = \frac{V_{max}~[S]}{K_m + [S]}= \frac{E_0 K_{cat}[S]}{K_m + [S]}= \frac{1\mu M*100 s^{-1}*10\mu M}{0.110 \frac{\mu M}{s}+10\mu M}=98.912\frac{\mu M}{s}$
+    
+  
+  

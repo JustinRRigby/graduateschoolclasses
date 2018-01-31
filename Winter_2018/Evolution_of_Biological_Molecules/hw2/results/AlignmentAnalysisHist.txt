@@ -1,0 +1,24 @@
+# Alignment length: 227
+# Number of sequences in the alignment: 215
+number.of.aas	number.of.sites
+0	0
+1	3
+2	13
+3	8
+4	15
+5	21
+6	15
+7	20
+8	17
+9	17
+10	10
+11	16
+12	18
+13	10
+14	11
+15	11
+16	8
+17	4
+18	2
+19	1
+20	0

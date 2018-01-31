@@ -1,0 +1,183 @@
+---
+title: "Hw2[EBM]"
+author: "Justin Rigby"
+date: "January 27, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Consider a diploid population with a constant effective population size of 1000 individuals. The haploid genome size is $10^9$ bp. Suppose that the mutation rate in this species is assessed in the laboratory and is shown to be 1 mutation per $10^6$ bp per generation. Suppose that 20% of these mutations are neutral and 80% are deleterious. Mating is random and all individuals have equal fitness.  
+  
+  
+a. How many new neutral and total mutations are expected to arise each generation in the population as a whole? (1pt)  
+  
+$~N_e = 1000$  
+$\mu = \frac{10^9bp}{10^6\frac{gen~bp}{mut}}=1000 \frac{mut}{gen}$  
+New neutraul muations is 800 per a generation and 1000 total.  
+  
+b. After 1000 generations, what is the expected number of fixed sequence differences between the ancestral haploid genome and the derived set of genomes? Calculate ignoring the time to fixation. Describe how taking time to fixation into account will change your answer. (2pt)  
+  
+$D = 2t\lambda = 2t\mu_0 = 2(1000)(1000) = 2,000,000~~fixed~differences$  
+Adding the time to fixation in the model would increase the total time since the alleles do not always fix immediately in the population and instead have a lot of lag and variance in the time expected to fix in a population.
+  
+c. What fraction of nucleotide sites in an average individual are expected to be heterozygous? (1pt)  
+  
+$H =  \frac{4N\mu_{0}}{1+4n\mu_{0}} = \frac{4(1000)(1000)}{1+4(1000)(1000)}= 0.99999975$  
+
+  
+d. Suppose a new neutral allele arises by mutation in an individual. What is the probability that this allele will someday be fixed in the population? (1pt)
+    
+$P_{fix} = \frac{1}{2N} = \frac{1}{2000} = 0.0005$  
+  
+e. Departing from neutrality, suppose a new beneficial dominant allele arises in an individual that increases its fitness by s = 0.01. What is the probability that it will ultimately be fixed? What is the most likely fate for this allele? What is the probability of this most likely fate? (1pt)
+  
+$s= 0.01 ~~~ N_e = 1000 ~~~ P_0 = \frac{1}{2000} = \frac{1}{2N} ~~~ P_t = 1.0$  
+  
+$P_{fix} = \frac{1- e^{-4Nsp}}{1-e^{-4Ns}} = \frac{1-e^{-2(1000)(0.01)}}{1-e^{-4(1000)(0.01)}} = \frac{1-e^{-20}}{1-e^{-40}} = 0.9999999979$  
+  
+It will be fixed since the probability is extremely high for it to be fixed. It is around 0.99999.  
+  
+  
+  2. For the following fragment of coding alignment, please do the calculations requested below by hand (or in R as noted), and show your work. For interpretation, please ignore the fact that the variance on parameter estimates is very large when such short sequences are used.  
+Reminder: with D the observed number of protein differences and K the estimated number of actual sequence differences:  
+• Poisson correction: K = −ln (1 − D)  
+• Generic Jukes-Cantor correction, where s is the number of possible states:  
+
+$K = -\frac{s-1}{s}ln(1-\frac{s}{s-1}D)$
+
+Seq1 AAG CCC GCC TTT CTT ATG GTA CTA  
+Seq2 AAA CCC ACC TTA CTA AGG GTG CTA  
+  
+Seq1 Lys Pro Ala Phe Leu Met Val Leu  
+Seq2 Lys Pro The Leu Leu Arg Val Leu  
+  
+$Syn = \frac{1}{3} + \frac{3}{3} + \frac{3}{3} + \frac{1}{3} + \frac{3}{3} + \frac{3}{3} + \frac{1}{3} + \frac{3}{3} = \frac{18}{3}$
+  
+  
+$Syn = \frac{8}{3} + \frac{6}{3} + \frac{6}{3} + \frac{8}{3} + \frac{6}{3} + \frac{9}{3} + \frac{6}{3} + \frac{5}{3} = \frac{54}{3}$
+
+
+  
+  
+a. Translate both sequences by hand using a standard genetic code table. Then calculate the Poisson-corrected protein distance for these two sequences. You can define a function in R to make the correction. Writing your own functions allows you to re-use them. For example,  
+  
+PoisCorr <- function( D ){ K <- -log(1-D)  
+return( K )  
+}  
+
+What is the estimate of K for this pair of proteins? Please put into words the meaning of this statistic. (2pt)  
+$D = \frac{3}{8}$
+  
+```{r}
+PoisCorr <- function (D){ K <- -log(1-D)
+return(K)
+}
+
+PoisCorr(3/8)
+```
+K is the probability of substitution between two sequences. Thus there is a 47% chance of a substitution between the two sites.  
+  
+  
+b. For the DNA sequences, calculate D and then K, using both the Poisson and Jukes-Cantor correction. Why are the Poisson-corrected values and J-C-corrected values different? In particular, what did one method correct for that the other method did not? (2pt)  
+  
+Poisson Correction
+```{r}
+PoisCorr <- function (D){ K <- -log(1-D)
+return(K)
+}
+
+PoisCorr(3/8)
+```
+  
+  
+Jukes-Cantor Correction
+```{r}
+JCCorr <- function(D){K <- -(0.75)*log(1-(4/3)*D)
+return(K)
+}
+
+JCCorr(3/8)
+
+```
+  
+The Jukes-Cantor correction is acounting for convergence reversal in the amino acid sequences.  
+  
+  
+c. Use the standard genetic code to determine the number of synonymous and nonsynonymous sites in Seq1. Remember that each position in the sequence can mutate to any of the other three remaining DNA bases, so each position in the DNA sequence contains 0, 1/3, 2/3, or 1 synonymous sites, depending on the degeneracy of the code, and ( 1 - # synonymous sites) nonsynonymous sites. Then calculate the following values between Seq1 and Seq2 (2pt):  
+  
+• Da (the number of observed nonsynonymous differences per nonsynonymous site)  
+  
+$D_A = \frac{3}{54}$
+  
+• Ds (the number of observed synonymous differences per synonymous site)  
+  
+$D_S = \frac{3}{18}$
+
+• $\frac{D_a}{D_s}$
+  
+$\frac{D_a}{D_s} = \frac{\frac{3}{54}}{\frac{3}{18}} = \frac{1}{3} $
+   
+• Ka and Ks, using the appropriate Jukes-Cantor correction for both Da and Ds  
+  
+```{r}
+JCKappa <- function(D){K <- -(19/20)*log(1-(20/19)*D)
+return(K)}
+
+Ka <- JCKappa(3/54)
+Ka
+```
+  
+```{r}
+Ks <- JCKappa(3/18)
+Ks
+``` 
+  
+• The JC-corrected Ka/Ks ratio.  
+
+$\frac{K_a}{K_s} = \frac{0.05724623}{0.1832585} = 0.3123797$
+
+d. Are these data consistent with the hypothesis that the sequences were evolving by drift alone? (Ignore the sampling problem of short sequences and pretend that the Ka/Ks estimate is precise.) (2pt)
+  
+There is no evidence of positive selection from the $\frac{K_a}{K_s}$ ratios. There is more evidence for purifying selection.  
+  
+e. Are these data consistent with the Neutral Theory of molecular evolution? (2pt)  
+  
+The data does not show neutral evolution occuring between these sequences. 
+    
+   
+  
+  
+3. Acquire the file SR214-plus-1GWRa.fasta from Canvas. This is a file of aligned steroid hormone receptor ligand-binding domain (LBD) protein sequences, including both orthologs and paralogs. We would like to examine how sitewise diversity in the alignment maps on to the protein structure.  
+  
+  
+a. Calculate amino acid diversity at each site for the protein alignment.
+Download and modify the CalculateNumAaPerSite_hw2.py (a variant on the script from hw1) to do this. Your output file should have a column with the site number and a column for the number of different amino acids at each site. Read through the script and remove/modify those parts that you need to get the correct output. Hints: Which variables have the information that you need to extract, and what kind of command can you include to extract that information? Other hints are contained in the script itstmpelf, in the comments flagged by ‘##2’.
+  
+  
+b. Integrate this sitewise diversity data into the protein structure file 1GWRa.pdb, which gives coordinates and other information for the crystal structure of the human estrogen receptor hESR1. To do this, use the Python script ModifyBfactor.py to modify 1GWRa.pdb. This script will replace the data in the b-factor column of the pdb with your site-wise diversity information from part a.
+(The b-factor column of a pdb file represents the thermal fluctuations of atoms in the solved structure; a standard hack amongst structural biologists is to replace this column with some variable of interest in order to color illustrations of the structure.)  
+Be sure to read and understand the script before running it. Don't forget to change the input/output directories and files to those you need for the analysis and results. Hint: you may need to comment out header lines in your data file with “#”.  
+  
+  
+c. Now load your new pdb file into PyMol (in this example, the new object is named 1GWRa_New_B_Factor). Show the receptor structure as a gray cartoon on a white background. Show the hormone estradiol (EST) as black spheres. (Go to the Display option and click on Sequence On. Scroll to the end and find EST.)  
+The protein was crystallized with its coactivator peptide, a portion of a protein that binds to the activated receptor and mediates its transcriptional activity; you can find this sequence, extract it, and name it chain C. Show the coactivator as white sticks    
+(show sticks, chain c and color white, chain c).
+    
+  
+• Create a new object called CA, which contains only the alpha carbon atoms from the object 1GWRa_New_B_Factor:  
+create CA, 1GWRa_New_B_Factor and name ca
+  
+  
+• Now show these atoms as spheres. The spheres are so big they clutter the representation. So change their size:   
+set sphere_scale=0.5, CA
+  
+  
+• Color the atoms in the CA object according to the diversity data (occupyingthe column called “b” in the file) according to the following color scale bar, where blue represents highly conserved sites, and green represents highly variable sites:
+spectrum b, blue_white_green, CA  
+  
+  
+• Find a suitable angle by rotating the molecule to maximize the visual information. (This is a subjective judgment.) Produce a high-quality rendering (called a “ray trace”) using the command ray. Save the image as a png, (png filename.png) ,and paste the image into your homework. (Note that if you change anything in the session after doing the ray trace but before saving the png, the working image reverts to a non-rendered, low-quality version.) (6pt for a – c)
+  

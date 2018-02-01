@@ -1,0 +1,249 @@
+---
+title: "Hw2[EBM]"
+author: "Justin Rigby"
+date: "January 27, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Consider a diploid population with a constant effective population size of 1000 individuals. The haploid genome size is $10^9$ bp. Suppose that the mutation rate in this species is assessed in the laboratory and is shown to be 1 mutation per $10^6$ bp per generation. Suppose that 20% of these mutations are neutral and 80% are deleterious. Mating is random and all individuals have equal fitness.  
+  
+  
+a. How many new neutral and total mutations are expected to arise each generation in the population as a whole? (1pt)  
+  
+$~N_e = 1000$  
+$\mu = \frac{1}{10^6\frac{gen~bp}{mut}}=10^{-6} \frac{mut}{gen}$  
+New neutraul muations is $2*10^{-6}$ per a generation and $10^{-6}$ total.  
+  
+b. After 1000 generations, what is the expected number of fixed sequence differences between the ancestral haploid genome and the derived set of genomes? Calculate ignoring the time to fixation. Describe how taking time to fixation into account will change your answer. (2pt)  
+  
+$D = 2t\lambda = 2t\mu_0 = 2(1000)(10^{-6}) = 2*10^{-3}~~fixed~differences$  
+Adding the time to fixation in the model would increase the total time since the alleles do not always fix immediately in the population and instead have a lot of lag and variance in the time expected to fix in a population.
+  
+c. What fraction of nucleotide sites in an average individual are expected to be heterozygous? (1pt)  
+  
+$H =  \frac{4N\mu_{0}}{1+4n\mu_{0}} = \frac{4(1000)(10^{-6})}{1+4(10^{-6})}= 0.000999001$  
+
+  
+d. Suppose a new neutral allele arises by mutation in an individual. What is the probability that this allele will someday be fixed in the population? (1pt)
+    
+$P_{fix} = \frac{1}{2N} = \frac{1}{2000} = 0.0005$  
+  
+e. Departing from neutrality, suppose a new beneficial dominant allele arises in an individual that increases its fitness by s = 0.01. What is the probability that it will ultimately be fixed? What is the most likely fate for this allele? What is the probability of this most likely fate? (1pt)
+  
+$s= 0.01 ~~~ N_e = 1000 ~~~ P_0 = \frac{1}{2000} = \frac{1}{2N} ~~~ P_t = 1.0$  
+  
+$P_{fix} = \frac{1- e^{-4Nsp}}{1-e^{-4Ns}} = \frac{1-e^{-2(1000)(0.01)}}{1-e^{-4(1000)(0.01)}} = \frac{1-e^{-20}}{1-e^{-40}} = 0.9999999979$  
+  
+It will be fixed since the probability is extremely high for it to be fixed. It is around 0.99999.  
+  
+  
+  2. For the following fragment of coding alignment, please do the calculations requested below by hand (or in R as noted), and show your work. For interpretation, please ignore the fact that the variance on parameter estimates is very large when such short sequences are used.  
+Reminder: with D the observed number of protein differences and K the estimated number of actual sequence differences:  
+• Poisson correction: K = −ln (1 − D)  
+• Generic Jukes-Cantor correction, where s is the number of possible states:  
+
+$K = -\frac{s-1}{s}ln(1-\frac{s}{s-1}D)$
+
+Seq1 AAG CCC GCC TTT CTT ATG GTA CTA  
+Seq2 AAA CCC ACC TTA CTA AGG GTG CTA  
+  
+Seq1 Lys Pro Ala Phe Leu Met Val Leu  
+Seq2 Lys Pro The Leu Leu Arg Val Leu  
+  
+$Syn = \frac{1}{3} + \frac{3}{3} + \frac{3}{3} + \frac{1}{3} + \frac{3}{3} + \frac{3}{3} + \frac{1}{3} + \frac{3}{3} = \frac{18}{3}$
+  
+  
+$Syn = \frac{8}{3} + \frac{6}{3} + \frac{6}{3} + \frac{8}{3} + \frac{6}{3} + \frac{9}{3} + \frac{6}{3} + \frac{5}{3} = \frac{54}{3}$
+
+
+  
+  
+a. Translate both sequences by hand using a standard genetic code table. Then calculate the Poisson-corrected protein distance for these two sequences. You can define a function in R to make the correction. Writing your own functions allows you to re-use them. For example,  
+  
+PoisCorr <- function( D ){ K <- -log(1-D)  
+return( K )  
+}  
+
+What is the estimate of K for this pair of proteins? Please put into words the meaning of this statistic. (2pt)  
+$D = \frac{3}{8}$
+  
+```{r}
+PoisCorr <- function (D){ K <- -log(1-D)
+return(K)
+}
+
+PoisCorr(3/8)
+```
+K is the probability of substitution between two sequences. Thus there is a 47% chance of a substitution between the two sites.  
+  
+  
+b. For the DNA sequences, calculate D and then K, using both the Poisson and Jukes-Cantor correction. Why are the Poisson-corrected values and J-C-corrected values different? In particular, what did one method correct for that the other method did not? (2pt)  
+  
+Poisson Correction
+```{r}
+PoisCorr <- function (D){ K <- -log(1-D)
+return(K)
+}
+
+PoisCorr(3/8)
+```
+  
+  
+Jukes-Cantor Correction
+```{r}
+JCCorr <- function(D){K <- -(0.75)*log(1-(4/3)*D)
+return(K)
+}
+
+JCCorr(3/8)
+
+```
+  
+The Jukes-Cantor correction is acounting for convergence reversal in the amino acid sequences.  
+  
+  
+c. Use the standard genetic code to determine the number of synonymous and nonsynonymous sites in Seq1. Remember that each position in the sequence can mutate to any of the other three remaining DNA bases, so each position in the DNA sequence contains 0, 1/3, 2/3, or 1 synonymous sites, depending on the degeneracy of the code, and ( 1 - # synonymous sites) nonsynonymous sites. Then calculate the following values between Seq1 and Seq2 (2pt):  
+  
+• Da (the number of observed nonsynonymous differences per nonsynonymous site)  
+  
+$D_A = \frac{3}{54}$
+  
+• Ds (the number of observed synonymous differences per synonymous site)  
+  
+$D_S = \frac{3}{18}$
+
+• $\frac{D_a}{D_s}$
+  
+$\frac{D_a}{D_s} = \frac{\frac{3}{54}}{\frac{3}{18}} = \frac{1}{3} $
+   
+• Ka and Ks, using the appropriate Jukes-Cantor correction for both Da and Ds  
+  
+```{r}
+JCKappa <- function(D){K <- -(19/20)*log(1-(20/19)*D)
+return(K)}
+
+Ka <- JCKappa(3/54)
+Ka
+```
+  
+```{r}
+Ks <- JCKappa(3/18)
+Ks
+``` 
+  
+• The JC-corrected Ka/Ks ratio.  
+
+$\frac{K_a}{K_s} = \frac{0.05724623}{0.1832585} = 0.3123797$
+
+d. Are these data consistent with the hypothesis that the sequences were evolving by drift alone? (Ignore the sampling problem of short sequences and pretend that the Ka/Ks estimate is precise.) (2pt)
+  
+There is no evidence of positive selection from the $\frac{K_a}{K_s}$ ratios. There is more evidence for purifying selection.  
+  
+e. Are these data consistent with the Neutral Theory of molecular evolution? (2pt)  
+  
+Yes because there is negative selection occuring in this sequence. 
+   
+  
+  
+3. Acquire the file SR214-plus-1GWRa.fasta from Canvas. This is a file of aligned steroid hormone receptor ligand-binding domain (LBD) protein sequences, including both orthologs and paralogs. We would like to examine how sitewise diversity in the alignment maps on to the protein structure.  
+  
+a. 
+  
+See 'results' folder  
+  
+b.  
+  
+See 'results' folder  
+  
+c.  
+  
+hide everything   
+bg_color white  
+show cartoon, 1GWRa  
+color gray70, 1GWRa  
+sele 600  
+show spheres, sele; color black, sele  
+sele 742 + 746  
+set_name sele,chain_c  
+show sticks, chain_c  
+color white, chain_c  
+cd ../results  
+create CA, 1GWRa_New_B_Factor  
+set sphere_scale=0.5, CA  
+show spheres, CA; color red, CA  
+set sphere_scale=0.5, CA  
+spectrum b, blue_white_green, CA  
+ray; png 1GWRa_finished.png  
+  
+See results folder  
+  
+d. Please describe any major patterns that relate site diversity to the protein structure. Do sites in certain regions appear to be more conserved or variable thanothers? Consider, for example, sites near the ligand, sites involved in packing between helices, and sites on the surface (both in general and on specific regions of the surface). Briefly describe three qualitative patterns you detect in the data.  
+(3pt)  
+  
+  
+The co-activator peptide is the highest conserved portion of this protein (due to the dark blue spheres) which is logical because this portion of the protein is responsible for the input the protein recieves, and without it the protein would cease function. The outside area of the protein itself is not as conserved as the inner portion of the protein which makes since because the inner portion is where the majority of the mechanism lie for the protein to function.
+
+
+
+e. Are these data consistent with the Neutral Theory? Please explain. (2pt)
+  
+Yes, we see many different sites on the protein changing amino acids due to a mutation more so than the inner portion of the protein. The outside of the protein is less important than the inner mechanisms, so the seleciton against changes is amino acids is more relaxed and allows for non-deleterious mutations to occur.
+  
+  
+  
+  
+4. Finally, let’s learn how to align and compare structures in PyMol. First, load into PyMol two steroid receptor LBD structures -- the unmodified structure files 1GWRa.pdb and 2AA7a.pdb. These are the human estrogen receptor alpha and the human mineralocorticoid receptor, two paralogous LBDs that diverged by gene duplication over 500 million years ago, before the ancestral chordate.  
+  
+load 1GWRa.pdb  
+load 2AA7a.pdb  
+show ribbon, 1GWRa; color grey70, 1GWRa  
+show ribbon, 2AA7a; color grey40, 2AA7a  
+sele 742 + 746; set_name sele,chain_c; select chain C; remove sele  
+align 1GWRa and name n+ca+c, 2AA7a; name n+ca+c  
+  
+  
+a. What types of atoms did you include in the structural alignment process, and what types did you exclude? What rationale might justify that choice? (2pt)  
+  
+The included sequences were the center of the protein (where the main mechanistic strucutres lie) along with some of the structural components. However, there were a few removed chains near the outside of the protein. This is possibly because those chains were not essential for the protein to function (or became uneeded).
+  
+  
+b. What is the RMSD for these atoms? Please translate the meaning of this parameter into a sentence of prose. (1pt)  
+  
+It is 1.308.  
+The RMSD is the Root Mean Square Deviation, and in this particular, instance it refers to the variation in alignment of the two proteins.  
+  
+    
+c. Now let’s create a visual representation using color to show where the greatest deviations between the structures are. Download the PyMol script colorbyrmsd.py at the PyMol wiki (http://www.PyMolwiki.org, an incredibly useful resource). This file is a Python script, which can be loaded into PyMol. It will calculate the residue-specific RMSD for aligned atoms in a structure and then treat this as if it were the B-factor information for those atoms. (This script does not permanently overwrite your original pdb file.) Itwill then color the representation by the RMSD. All commands are executed in the PyMol prompt.  
+  
+run colorbyrmsd.py  
+colorbyrmsd 1GWRa, 2AA7a, doAlign=0, doPretty=1,guide=1, method=super, quiet=0   
+cd ../results
+ray; png 1GWRa_2AA7a_Aligned_finished.png  
+  
+  
+  
+d.Paste a ray-traced image of your final aligned and colored structures into your homework. Now examine the structures.  
+  
+See results folder.
+  
+  
+What do the colored and gray regions represent? Characterize any patterns you see in the RMSD with respect to the structure. Are certain regions or types of regions more structurally divergent than others? (3pt)  
+  
+  
+The gray regions are regions which are not found between the two sequences and thus cannot be measured for RMSD. The colored regions indicate the level of structural divergence between the two sequences with red being more divergent and blue being less divergent. There are regions which are more structually divergent than others.  
+  
+  
+Is there a relationship between the structural RMSD and the patterns of site variability you identified in the previous question. In a brief paragraph, please explain your observations. (3pt)  
+  
+   
+Some of the major divergences can be seen in the two alpha helices near the outside of the protein which are visible in the photo.  The center of the protein is the most conserved portion of the protein and this is logical because the center of the protein, especially enzymes, is generally where the the mechanistic structure which gives the protein it ability to function. The outer edges of the protein see more divergence in their structure possibly due to neutral evolution occuring in non-essential areas of the protein. It follows with the logic that sequences which are more conserved would tend to have similar structure in the evolution of a protein.
+  
+  
+  
+  
+  
+  

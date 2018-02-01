@@ -15,17 +15,17 @@ knitr::opts_chunk$set(echo = TRUE)
 a. How many new neutral and total mutations are expected to arise each generation in the population as a whole? (1pt)  
   
 $~N_e = 1000$  
-$\mu = \frac{10^9bp}{10^6\frac{gen~bp}{mut}}=1000 \frac{mut}{gen}$  
-New neutraul muations is 800 per a generation and 1000 total.  
+$\mu = \frac{1}{10^6\frac{gen~bp}{mut}}=10^{-6} \frac{mut}{gen}$  
+New neutraul muations is $2*10^{-6}$ per a generation and $10^{-6}$ total.  
   
 b. After 1000 generations, what is the expected number of fixed sequence differences between the ancestral haploid genome and the derived set of genomes? Calculate ignoring the time to fixation. Describe how taking time to fixation into account will change your answer. (2pt)  
   
-$D = 2t\lambda = 2t\mu_0 = 2(1000)(1000) = 2,000,000~~fixed~differences$  
+$D = 2t\lambda = 2t\mu_0 = 2(1000)(10^{-6}) = 2*10^{-3}~~fixed~differences$  
 Adding the time to fixation in the model would increase the total time since the alleles do not always fix immediately in the population and instead have a lot of lag and variance in the time expected to fix in a population.
   
 c. What fraction of nucleotide sites in an average individual are expected to be heterozygous? (1pt)  
   
-$H =  \frac{4N\mu_{0}}{1+4n\mu_{0}} = \frac{4(1000)(1000)}{1+4(1000)(1000)}= 0.99999975$  
+$H =  \frac{4N\mu_{0}}{1+4n\mu_{0}} = \frac{4(1000)(10^{-6})}{1+4(10^{-6})}= 0.000999001$  
 
   
 d. Suppose a new neutral allele arises by mutation in an individual. What is the probability that this allele will someday be fixed in the population? (1pt)
@@ -145,39 +145,105 @@ There is no evidence of positive selection from the $\frac{K_a}{K_s}$ ratios. Th
   
 e. Are these data consistent with the Neutral Theory of molecular evolution? (2pt)  
   
-The data does not show neutral evolution occuring between these sequences. 
-    
+Yes because there is negative selection occuring in this sequence. 
    
   
   
 3. Acquire the file SR214-plus-1GWRa.fasta from Canvas. This is a file of aligned steroid hormone receptor ligand-binding domain (LBD) protein sequences, including both orthologs and paralogs. We would like to examine how sitewise diversity in the alignment maps on to the protein structure.  
   
+a. 
   
-a. Calculate amino acid diversity at each site for the protein alignment.
-Download and modify the CalculateNumAaPerSite_hw2.py (a variant on the script from hw1) to do this. Your output file should have a column with the site number and a column for the number of different amino acids at each site. Read through the script and remove/modify those parts that you need to get the correct output. Hints: Which variables have the information that you need to extract, and what kind of command can you include to extract that information? Other hints are contained in the script itstmpelf, in the comments flagged by ‘##2’.
+See 'results' folder  
   
+b.  
   
-b. Integrate this sitewise diversity data into the protein structure file 1GWRa.pdb, which gives coordinates and other information for the crystal structure of the human estrogen receptor hESR1. To do this, use the Python script ModifyBfactor.py to modify 1GWRa.pdb. This script will replace the data in the b-factor column of the pdb with your site-wise diversity information from part a.
-(The b-factor column of a pdb file represents the thermal fluctuations of atoms in the solved structure; a standard hack amongst structural biologists is to replace this column with some variable of interest in order to color illustrations of the structure.)  
-Be sure to read and understand the script before running it. Don't forget to change the input/output directories and files to those you need for the analysis and results. Hint: you may need to comment out header lines in your data file with “#”.  
+See 'results' folder  
   
+c.  
   
-c. Now load your new pdb file into PyMol (in this example, the new object is named 1GWRa_New_B_Factor). Show the receptor structure as a gray cartoon on a white background. Show the hormone estradiol (EST) as black spheres. (Go to the Display option and click on Sequence On. Scroll to the end and find EST.)  
-The protein was crystallized with its coactivator peptide, a portion of a protein that binds to the activated receptor and mediates its transcriptional activity; you can find this sequence, extract it, and name it chain C. Show the coactivator as white sticks    
-(show sticks, chain c and color white, chain c).
-    
-  
-• Create a new object called CA, which contains only the alpha carbon atoms from the object 1GWRa_New_B_Factor:  
-create CA, 1GWRa_New_B_Factor and name ca
-  
-  
-• Now show these atoms as spheres. The spheres are so big they clutter the representation. So change their size:   
-set sphere_scale=0.5, CA
-  
-  
-• Color the atoms in the CA object according to the diversity data (occupyingthe column called “b” in the file) according to the following color scale bar, where blue represents highly conserved sites, and green represents highly variable sites:
+hide everything   
+bg_color white  
+show cartoon, 1GWRa  
+color gray70, 1GWRa  
+sele 600  
+show spheres, sele; color black, sele  
+sele 742 + 746  
+set_name sele,chain_c  
+show sticks, chain_c  
+color white, chain_c  
+cd ../results  
+create CA, 1GWRa_New_B_Factor  
+set sphere_scale=0.5, CA  
+show spheres, CA; color red, CA  
+set sphere_scale=0.5, CA  
 spectrum b, blue_white_green, CA  
+ray; png 1GWRa_finished.png  
+  
+See results folder  
+  
+d. Please describe any major patterns that relate site diversity to the protein structure. Do sites in certain regions appear to be more conserved or variable thanothers? Consider, for example, sites near the ligand, sites involved in packing between helices, and sites on the surface (both in general and on specific regions of the surface). Briefly describe three qualitative patterns you detect in the data.  
+(3pt)  
   
   
-• Find a suitable angle by rotating the molecule to maximize the visual information. (This is a subjective judgment.) Produce a high-quality rendering (called a “ray trace”) using the command ray. Save the image as a png, (png filename.png) ,and paste the image into your homework. (Note that if you change anything in the session after doing the ray trace but before saving the png, the working image reverts to a non-rendered, low-quality version.) (6pt for a – c)
+The co-activator peptide is the highest conserved portion of this protein (due to the dark blue spheres) which is logical because this portion of the protein is responsible for the input the protein recieves, and without it the protein would cease function. The outside area of the protein itself is not as conserved as the inner portion of the protein which makes since because the inner portion is where the majority of the mechanism lie for the protein to function.
+
+
+
+e. Are these data consistent with the Neutral Theory? Please explain. (2pt)
+  
+Yes, we see many different sites on the protein changing amino acids due to a mutation more so than the inner portion of the protein. The outside of the protein is less important than the inner mechanisms, so the seleciton against changes is amino acids is more relaxed and allows for non-deleterious mutations to occur.
+  
+  
+  
+  
+4. Finally, let’s learn how to align and compare structures in PyMol. First, load into PyMol two steroid receptor LBD structures -- the unmodified structure files 1GWRa.pdb and 2AA7a.pdb. These are the human estrogen receptor alpha and the human mineralocorticoid receptor, two paralogous LBDs that diverged by gene duplication over 500 million years ago, before the ancestral chordate.  
+  
+load 1GWRa.pdb  
+load 2AA7a.pdb  
+show ribbon, 1GWRa; color grey70, 1GWRa  
+show ribbon, 2AA7a; color grey40, 2AA7a  
+sele 742 + 746; set_name sele,chain_c; select chain C; remove sele  
+align 1GWRa and name n+ca+c, 2AA7a; name n+ca+c  
+  
+  
+a. What types of atoms did you include in the structural alignment process, and what types did you exclude? What rationale might justify that choice? (2pt)  
+  
+The included sequences were the center of the protein (where the main mechanistic strucutres lie) along with some of the structural components. However, there were a few removed chains near the outside of the protein. This is possibly because those chains were not essential for the protein to function (or became uneeded).
+  
+  
+b. What is the RMSD for these atoms? Please translate the meaning of this parameter into a sentence of prose. (1pt)  
+  
+It is 1.308.  
+The RMSD is the Root Mean Square Deviation, and in this particular, instance it refers to the variation in alignment of the two proteins.  
+  
+    
+c. Now let’s create a visual representation using color to show where the greatest deviations between the structures are. Download the PyMol script colorbyrmsd.py at the PyMol wiki (http://www.PyMolwiki.org, an incredibly useful resource). This file is a Python script, which can be loaded into PyMol. It will calculate the residue-specific RMSD for aligned atoms in a structure and then treat this as if it were the B-factor information for those atoms. (This script does not permanently overwrite your original pdb file.) Itwill then color the representation by the RMSD. All commands are executed in the PyMol prompt.  
+  
+run colorbyrmsd.py  
+colorbyrmsd 1GWRa, 2AA7a, doAlign=0, doPretty=1,guide=1, method=super, quiet=0   
+cd ../results
+ray; png 1GWRa_2AA7a_Aligned_finished.png  
+  
+  
+  
+d.Paste a ray-traced image of your final aligned and colored structures into your homework. Now examine the structures.  
+  
+See results folder.
+  
+  
+What do the colored and gray regions represent? Characterize any patterns you see in the RMSD with respect to the structure. Are certain regions or types of regions more structurally divergent than others? (3pt)  
+  
+  
+The gray regions are regions which are not found between the two sequences and thus cannot be measured for RMSD. The colored regions indicate the level of structural divergence between the two sequences with red being more divergent and blue being less divergent. There are regions which are more structually divergent than others.  
+  
+  
+Is there a relationship between the structural RMSD and the patterns of site variability you identified in the previous question. In a brief paragraph, please explain your observations. (3pt)  
+  
+   
+Some of the major divergences can be seen in the two alpha helices near the outside of the protein which are visible in the photo.  The center of the protein is the most conserved portion of the protein and this is logical because the center of the protein, especially enzymes, is generally where the the mechanistic structure which gives the protein it ability to function. The outer edges of the protein see more divergence in their structure possibly due to neutral evolution occuring in non-essential areas of the protein. It follows with the logic that sequences which are more conserved would tend to have similar structure in the evolution of a protein.
+  
+  
+  
+  
+  
   

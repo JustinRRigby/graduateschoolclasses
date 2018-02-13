@@ -1,0 +1,50 @@
+a. How many extra degrees of freedom does this model have compared to JC69 (1pt)?  
+  
+It has four degrees of freedom (HKY85) while the JC69 model has zero degrees of freedom since the allele frequencies are fixed to 0.25. Thus it is 4 extra degrees of freedom.  
+  
+b . What is the ln-likelihood of the model? Calculate the LRS relative to JC69 and determine which is the better model (2pt).  
+  
+HYK85  
+Ln-likelihood = -5232.71671  
+  
+JC69  
+Ln-likelihood = -5455.90164  
+  
+$LR~=~\frac{L(M_{HYK85}}{M_{JC69}} = \frac{-5232.71671}{-5455.90164} = 0.9590929$  
+  
+The simpilar model (JC69) is more likely since the ratio is less than 1.
+
+c. What is the sister-group of chimps in this analysis? What is the value of the approximate likelihood ratio statistic supporting this grouping (1pt)?  
+  
+The sister group to chimpanzees is Humans like before. The likelihood ratio statistic is 0.0549 which is only slightly higher than the JC69 model.  
+  
+  
+d. Examine the _stat file. What is the maximum likelihood estimate of the frequency of the four nucleotides in the dataset (1pt)?  
+  
+f(A)= 0.31363  
+f(C)= 0.29735  
+f(G)= 0.10337  
+f(T)= 0.28565  
+  
+  
+a. How does this model differ from the model you used in the last problem? How many extra degrees of freedom does it have (2pt)?  
+  
+It differs due to the use of a gamma distrubution in conjunction with a standard HKY85 model. It also gains one additional degree of freedom.
+  
+b . Calculate the LRS and evaluate whether which of the three models you have evaluated is the best model (1pt).  
+  
+  
+$LR~=~\frac{L(M_{HYK85}}{M_{JC69}} = \frac{-5232.71671}{-5455.90164} = 0.9590929$  
+  
+$LR~=~\frac{L(M_{HYK85_Gamma}}{M_{JC69}} = \frac{-5030.81367}{-5455.90164} = 0.9220866$  
+  
+$LR~=~\frac{L(M_{HYK85}}{M_{HYK85_Gamma}} = \frac{-5232.71671}{-5030.81367} = 1.040133$  
+    
+From the log likelihood ratios we can see that the best model for this systems is the JC69 model
+  
+c. What is the sister-group of chimps in this analysis? What is the support for this grouping (1pt)?  
+  
+d. Examine the _stat file. What is the estimate of alpha, the shape parameter of the gamma distribution? What is the approximate shape of the distribution? (You can use a reference here or plot the distribution given alpha. An approximate shape is sufficient.) (1pt)  
+  
+  
+  

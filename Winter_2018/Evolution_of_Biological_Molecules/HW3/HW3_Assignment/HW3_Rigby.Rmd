@@ -1,0 +1,25 @@
+---
+title: "HW3_Submission"
+author: "Justin Rigby"
+date: "11 February 2018"
+output: html_document
+---
+  
+2. Run the analysis for the JC69 model.  
+  
+a. What is the ln-likelihood of the tree and JC69 model? Write the generalized expression for the likelihood (don't try to calculate it: it's too small!). Why is it so small? Does this mean the tree is almost certainly incorrect (2pt)?  
+  
+$L(JC69) = \frac{1}{3}*P_{diff} = \frac{1}{4} -  \frac{1}{4}e^{-\frac{4}{3}b}$  
+b = Branch Length  
+  
+Log-likelihood = -5455.9  
+The very small value for the log-likelihood just indicates that the model used was not appropiate for the situation -- thus the negative large value.
+  
+b. What is the sister-group of chimpanzee in this analysis? What is the value of the approximate likelihood ratio statistic supporting this grouping (1pt)?  
+  
+The sister group is humans.  
+Log-likelihood value = 0.0556
+  
+  
+  
+  

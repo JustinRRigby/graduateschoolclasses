@@ -4,6 +4,32 @@ author: "Justin Rigby"
 date: "11 February 2018"
 output: html_document
 ---
+1.  
+  
+a.  
+  
+$L_{JC69} = (0.25)^{3} + (0.25)^{3} + (0.25)^{2} + (0.25)^{2} =  0.15625$  
+  
+  
+b.  
+  
+pi_A = 0.3 pi_T = 0.3 pi_G =0.2 pi_C =0.2   
+  
+$L_{84} = (0.3)^3 + (0.3)^3 + (0.2)^2 + (0.2)^2 = 0.134$
+  
+c.  
+  
+$\frac{L(M_{69})}{L(M_{84})} = \frac{0.15625}{0.134} = 1.166045$  
+From this we can see that the JC69 model is a better fit for the sequence.  
+  
+$2*ln(1.166045) = 0.3072354$
+  
+Degrees of Freedom = 4  
+$\chi^2 : 0.3072354 < 0.484 [0.995]$  
+$\therefore P-value>0.995$  
+Since the null model was not refuted the most likely model is the simplest -- the JC69 model.  
+  
+  
   
 2. Run the analysis for the JC69 model.  
   
@@ -89,3 +115,43 @@ From the log-likelihood ratios I find that the JC69 is best suited for this part
   
 In every tree created in this analysis we have seen that humans and chimpanzees are found to be sister taxa. However, the bootstrap values for the relationship are poor (sub 0.100) so the relationship is not that strong.  
   
+  
+1. At sites in the DNA-binding domain, what is the mean posterior probability across sites for AncSR1? And for AncSR2? (Hint: this information is labeled as “Overall accuracy of the 204 ancestral sequences ... for a site” near the bottom of the rst file) (1pt).   
+  
+AncSR1 = 0.87747  
+AncSR2 = 0.90754   
+  
+  
+2. What is the posterior probability of the entire sequence for AncSR1 and for AncSR2? That is, given the model, data, and tree, what is the probability that these are the correct sequences? How does this number relate numerically to the mean PP across sites reported in question 1? (Hint: this information is labeled as “Overall accuracy of the 204 ancestral sequences ... for the sequence” near the bottom of the rst file) (1pt).  
+  
+AncSR1 = 0.0012  
+AncSR2 = 0.00134  
+  
+  
+3. AncSR1 has 7 ambiguously reconstructed sites and AncSR2 has 1 ambiguous site, if we define ambiguous as having a second-best reconstruction with posterior probability >0.2. Which position in AncSR2 is ambiguously reconstructed, and what are the two ancestral states with reasonable statistical support? (Hint: the “Prob distribution at node xxx, by site”block lists the PP of each of the 20 amino acids at each position in the reconstructed sequence) (1pt).  
+  
+Ancr2  
+Site 38 is the site at which there is more than P>0.2 where p = 1.0000. Sites 1 and 2 both have very low p's sitting around zero so they have resonable statistical support.  
+  
+  
+  4. How many replacements occurred in the DBD between AncSR1 and AncSR2? (Hint: this information is nicely summarized in the section of the rst file designated by Branch xxx:yyy..zzz where yyy represents the node label of AncSR1, and zzz represents the node label of AncSR2) (1pt).  
+   
+There was a total of six amino acid substituions between the two sequences.
+   
+5. How many of these are conserved in one state in most or all of the descendants of AncSR2? (Hint: this can most easily be diagnosed by opening the SR220.phy file in an alignment editor such as Seaview, Aliview, Jalview or Mesquite, or even by writing a simple script given the Python tools you have used previously) (2pt)  
+    
+Sites 16 and 62 are more conserved in the proteins than the other sites.
+  
+6. Load 2C7A.pdb into pymol. This is the structure of the progesterone receptor DNA-binding domain bound to DNA (as a dimer, on a palindromic response element). Show the structure as a cartoon. Make an object consisting of the residues that changed between AncSR1 and AncSR2; show these side chains and give them a unique color (2pt).  
+  
+See Folder
+  
+
+7. Formulate a hypothesis for which replacements caused the shift in specificity. Justify your answer (3pt).  
+  
+It is possible that these residues actually confered a more stable confirmation for the double helix portion of the protein which reduced the amount of time that it spent in the other confirmations.  
+  
+  
+8. Propose an experiment (or experiments) to test that hypothesis (3pt).  
+  
+First, the sequences should be tranformed into a plasmid junctioned by an overexpressing promoter. The next step would be to change those residues by exposing the plasmids to a mutagenizing agent in order to cause single basepair changes in the sequences. Afterwhich, using PCR and sanger sequencing, identify the proteins which had mutations occur in the same region as the residues (may require multiple mutagenizing events). Once that is done and you have the proper mutate sequences the next step is to purify the protein and analyze its crystal structure. From there you can decifer if the mutations are casuing a confirmation change from the crystal strucutres recorded -- or you could just run a folidng algorythym on the sequences on a cluster.

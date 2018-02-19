@@ -1,0 +1,38 @@
+---
+title: "Untitled"
+author: "Justin Rigby"
+date: "18 February 2018"
+output: html_document
+---
+1.  
+  
+  
+  
+  
+  
+  
+2.  
+  
+  
+  
+a)  
+  
+  
+  
+b)  
+  
+  
+  
+  
+3  
+  
+  
+a)  
+  
+  
+b)  
+  
+  
+c)  
+  
+  

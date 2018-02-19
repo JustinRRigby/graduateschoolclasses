@@ -1,0 +1,69 @@
+---
+title: "Midterm_Rigby"
+author: "Justin Rigby"
+date: "February 19, 2018"
+output: html_document
+---
+Open-everything with one exception: closed-classmates. Include units in your
+answers where appropriate.  
+  
+1. Consider the protein drummondase from the bacterium Escherichia allania, which is involved in the cell-surface expression of a tiny but useful protuberance which looks very much like a gate scar. Acquire the coordinates for this protein 1DAD.pdb from the course website. (This protein has a structure coincidentally similar to that of staphylococcal nuclease.)  
+Folding of drummondase is energetically favorable by 2:5 kcal/mol.  
+  
+(a) At 4◦C, the natural temperature of E. allania, what is the expected equilibrium ratio of folded to unfolded protein?   
+  
+Known Quantities  
+$T = 4 C = 277.15 K$  
+$\Delta G = \frac{2}{5}~\frac{kcal}{mol}$  
+$R = K = 8.314472 \frac{m^2kg}{s^2Kmol}$
+    
+Equation  
+$\Delta G = -KTln(K_{eq})~~~=>~~ K_{eq} = e^{\frac{\Delta G }{-RT}}$  
+$K_{eq} = e^{\frac{0.4}{-8.314472*277.15}} = 0.9998264$
+  
+  
+Consider a mutation of Arg35Ala in drummondase. This has been shown experimentally to destabilize the protein, changing the enthalpy of folding by -2:1 kcal/mol (and having no effect on entropy).   
+  
+  
+(b) At 4◦C, how do you expect the mutation to affect the relative concentrations of folded and unfolded protein?  
+  
+Known Quantities  
+$T = 4 C = 277.15 K$  
+$\Delta G = -\frac{2}{1}~\frac{kcal}{mol} = -2 ~\frac{kcal}{mol}$  
+$R = K = 8.314472 \frac{m^2kg}{s^2Kmol}$  
+  
+Equation  
+$K_{eq} = e^{\frac{-2}{-8.314472*277.15}} = 1.00868$
+  
+  
+    
+(c) Consult the structure. Please rationalize the observed effect of this mutation given what you know about the properties of amino acids and the forces that determine folding. Finally, consider the mutation Thr62Ala, which destabilizes the protein, changing the free energy of unfolding by -1:1 kcal/mol. This mutation is not found in E. allania but is found naturally in the drummondase of the related species species E. siddiquious.  
+
+  
+(d) Please provide three reasonable explanations for the existence of this destabilizing state, referring to concepts from the course when appropriate.  
+  
+2. Alanine at site 42 in drummondase is beneficial relative to all other amino acids. Each of those other amino acids cause the bacterium to grow at a constant instantaneous rate of 1 generation per hour. How fast must the alanine-bearing variant grow in order to cause A42 to be found fixed in the population half of the time? Assume N = 1000. How will this answer change if N is larger?  
+  
+3. Growth rate r for E. allania depends on the cellular level of free drummondase [D], r = α[D] where α = 1 (h·µM)-1 captures the proportionality. The drummondase variant you’re studying is expressed at an intracellular concentration of 1µM. A potent inhibitor to the drummondase variant you’re studying is the secreted peptide thorntonin (T):  
+  
+  
+  
+(a) You measure kon = 1000 (µM · s)-1and koff = 10 s-1, and you note that bacteria grow half as fast when exposed to levels of thorntonin found in their native environment than in the absence of thorntonin. What concentration of thorntonin is present in their environment?  
+  
+  
+(b) A mutant arises which has kon = 10-9 (µM·s)-1. What is the selection coefficient for this mutation in the presence of thorntonin?  
+  
+  
+(c) Estimate the probability that this mutation will go to fixation in a haploid E. allania population of size N = 10; 000 when the inhibitor is present.  
+  
+  
+(d) What is the ratio of the probability that this mutation fixes in the thorntonin-infused environment compared to an environment in which there is no thorntonin?  
+  
+  
+(e) The mutations A22S and A22F decrease the proportion of free drummondase by 0.01% and 0.02%, respectively, in the presence of the inhibitor. All 17 other amino acids cause complete unfolding of the protein. What is the expected frequency of these mutations and the wild type (A22) to be found fixed in a population of size 10,000 at evolutionary steady state, in the presence of thorntonin?  
+  
+  
+(f) Mutations between each of these amino acids (A, S and F) occur with equal rates. What is the expected rate of amino-acid substitutions at site 22 in the presence of thorntonin relative to the substitution rate in the absence of the inhibitor?  
+  
+  
+4. Choose a hard concept that you did not understand (or understand well) at the beginning of the course (such as fitness, Michaelis-Menten kinetics, fixation, free energy of unfolding, selection coefficient, ...). Clearly describe that concept in one paragraph using the 1000 most-common words in English, using the text editor at http://splasho.com/upgoer5/ to write/check your description. (The site also includes the list of words, and examples.)   

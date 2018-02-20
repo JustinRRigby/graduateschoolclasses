@@ -97,7 +97,7 @@ $K_a = \frac{[DT]}{[D][T]} => [T] = \frac{[DT]}{[D]K_a} = \frac{0.5 \mu M}{1 \mu
 $r_a = \frac{1}{2}*\alpha[D] = \frac{1}{2} * 1 (h\mu M)^{-1} * 1 \mu M = 0.5 (h)^{-1}$ 
   
 $K_a = \frac{K_{on}}{K_{off}} = 10^{-9}$
-$[D] = \frac{[DT]}{[T]K_a2} = \frac{}{}$
+$[D] = \frac{[DT]}{[T]K_{a2}} = \frac{0.5}{0.005*10^{-9}} = 10^{10} \mu M$  
   
   
   

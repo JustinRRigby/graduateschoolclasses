@@ -7,10 +7,10 @@ output: html_document
 Open-everything with one exception: closed-classmates. Include units in your
 answers where appropriate.  
   
-1. Consider the protein drummondase from the bacterium Escherichia allania, which is involved in the cell-surface expression of a tiny but useful protuberance which looks very much like a gate scar. Acquire the coordinates for this protein 1DAD.pdb from the course website. (This protein has a structure coincidentally similar to that of staphylococcal nuclease.)  
+##1. Consider the protein drummondase from the bacterium Escherichia allania, which is involved in the cell-surface expression of a tiny but useful protuberance which looks very much like a gate scar. Acquire the coordinates for this protein 1DAD.pdb from the course website. (This protein has a structure coincidentally similar to that of staphylococcal nuclease.)  
 Folding of drummondase is energetically favorable by 2:5 kcal/mol.  
   
-(a) At 4◦C, the natural temperature of E. allania, what is the expected equilibrium ratio of folded to unfolded protein?   
+###(a) At 4◦C, the natural temperature of E. allania, what is the expected equilibrium ratio of folded to unfolded protein?   
   
 Known Quantities  
 $T = 4 C = 277.15 K$  
@@ -18,40 +18,87 @@ $\Delta G = \frac{2}{5}~\frac{kcal}{mol}$
 $R = K = 8.314472 \frac{m^2kg}{s^2Kmol}$
     
 Equation  
-$\Delta G = -KTln(K_{eq})~~~=>~~ K_{eq} = e^{\frac{\Delta G }{-RT}}$  
-$K_{eq} = e^{\frac{0.4}{-8.314472*277.15}} = 0.9998264$
+$K_{eq} = \frac{K_u}{K_f}$  
+$\Delta G = -RTlnK_{eq}$  
+$K_{eq} = e^{\frac{- \Delta G}{RT}}$   
+$K_{eq} = e^{\frac{- 0.4}{277.15*8.314472}} = $  
   
   
-Consider a mutation of Arg35Ala in drummondase. This has been shown experimentally to destabilize the protein, changing the enthalpy of folding by -2:1 kcal/mol (and having no effect on entropy).   
+###Consider a mutation of Arg35Ala in drummondase. This has been shown experimentally to destabilize the protein, changing the enthalpy of folding by -2:1 kcal/mol (and having no effect on entropy).   
   
   
-(b) At 4◦C, how do you expect the mutation to affect the relative concentrations of folded and unfolded protein?  
+###(b) At 4◦C, how do you expect the mutation to affect the relative concentrations of folded and unfolded protein?  
   
 Known Quantities  
 $T = 4 C = 277.15 K$  
-$\Delta G = -\frac{2}{1}~\frac{kcal}{mol} = -2 ~\frac{kcal}{mol}$  
+$H = -\frac{2}{1}~\frac{kcal}{mol} = -2 ~\frac{kcal}{mol}$  
 $R = K = 8.314472 \frac{m^2kg}{s^2Kmol}$  
   
 Equation  
-$K_{eq} = e^{\frac{-2}{-8.314472*277.15}} = 1.00868$
+$\Delta \Delta G = H - Ts$  
+There is no enthalpy so,  
+$\Delta \Delta G = H = -2 \frac{kcal}{mol}$  
+$\Delta G^{"} = \Delta \Delta G + \Delta G = -2 \frac{kcal}{mol} + 0.4 \frac{kcal}{mol} = -1.6 \frac{kcal}{mol}$  
+$K_{eq} = e^{\frac{-1.6}{277.15*8.314472}} = $  
   
-  
+Emperically it does not affect the p0rotein. If the protein were to be at a higher temperature there would be grounds for a change.  
     
-(c) Consult the structure. Please rationalize the observed effect of this mutation given what you know about the properties of amino acids and the forces that determine folding. Finally, consider the mutation Thr62Ala, which destabilizes the protein, changing the free energy of unfolding by -1:1 kcal/mol. This mutation is not found in E. allania but is found naturally in the drummondase of the related species species E. siddiquious.  
+###(c) Consult the structure. Please rationalize the observed effect of this mutation given what you know about the properties of amino acids and the forces that determine folding. Finally, consider the mutation Thr62Ala, which destabilizes the protein, changing the free energy of unfolding by -1:1 kcal/mol. This mutation is not found in E. allania but is found naturally in the drummondase of the related species species E. siddiquious.  
+  
+Arginine to Alanine Residue 35  
+The initial mutation at residue 35 is interesting primarily due to its change from a positively charged amino acid (Arginine) to a non-polar noncharged amino acid (Alanine). Its location is near the end of a beta sheet, but it does not seem to be involved in the acutal structure of the sheet since it is not a common amino acid to be found in beta sheets. Thus, it may have a slight impact on folding just due to the replacement of a charged amino acid with a non polar one.  
+  
+Threonine to Alanine Residue 62  
+This mutation is very detrimental to the folding nature and shape of the protein. Threonine is a polar amino acid and has involvements in the stability of the protein -- as seen in pymol where in is in the center of an alpha helix. The change from a polar molecule to a non-polar molecule could end up changing the secondary structure of the alpha helix and prevent it from forming -- thus causing the protein to be misformed.  
+  
+  
+###(d) Please provide three reasonable explanations for the existence of this destabilizing state, referring to concepts from the course when appropriate.  
+  
+- The change of a polar amino acid to a non-polar can directly change how the residue interacts with the rest of the protein -- thus compromising structure.
 
+- The addition of a non-polar molecule to the outer edges of a protein can affect how the residue interacts with the cytoplasm and water present in cells -- which could affect the structure of the protein.  
   
-(d) Please provide three reasonable explanations for the existence of this destabilizing state, referring to concepts from the course when appropriate.  
-  
-2. Alanine at site 42 in drummondase is beneficial relative to all other amino acids. Each of those other amino acids cause the bacterium to grow at a constant instantaneous rate of 1 generation per hour. How fast must the alanine-bearing variant grow in order to cause A42 to be found fixed in the population half of the time? Assume N = 1000. How will this answer change if N is larger?  
-  
-3. Growth rate r for E. allania depends on the cellular level of free drummondase [D], r = α[D] where α = 1 (h·µM)-1 captures the proportionality. The drummondase variant you’re studying is expressed at an intracellular concentration of 1µM. A potent inhibitor to the drummondase variant you’re studying is the secreted peptide thorntonin (T):  
+- The changing of an amino acid within a secondary structure, such as the alpha helix, can cause the bonds and interactions therein to cease. This may end up causing the protein to improperly fold, which would impead the ability for the protein to fold in a proper fashion which could drastically afect the fuction of the protein.   
   
   
+##2. Alanine at site 42 in drummondase is beneficial relative to all other amino acids. Each of those other amino acids cause the bacterium to grow at a constant instantaneous rate of 1 generation per hour. How fast must the alanine-bearing variant grow in order to cause A42 to be found fixed in the population half of the time? Assume N = 1000. How will this answer change if N is larger?  
   
-(a) You measure kon = 1000 (µM · s)-1and koff = 10 s-1, and you note that bacteria grow half as fast when exposed to levels of thorntonin found in their native environment than in the absence of thorntonin. What concentration of thorntonin is present in their environment?  
+For this answer we assume that N = 1000 is the effective population size where $N_e = 1000$. We also have to assume that there is no selection since it was not given. Without these assumptions it is hard to get an accurate answer.   
+  
+The rate of replication must be one replication every thirty minutes in order to fix faster in the population than the other vairants. 
+  
+$T_{fix} = 4*N_e = 4 *1000 = 4000$ generations  
+Therefore the time required to fixation will be;  
+$4000~gen * 0.5 \frac{hours}{gen} = 2000~hours$ for it to become fixed in a population.  
+  
+If the population was increased (assuming it is the same number as the effective population size) it would take longer for the the mutation to fix in the population if only genentic drift was acting upon it.  
+    
+###3. Growth rate r for E. allania depends on the cellular level of free drummondase [D], r = α[D] where α = 1 (h·µM)-1 captures the proportionality. The drummondase variant you’re studying is expressed at an intracellular concentration of 1µM. A potent inhibitor to the drummondase variant you’re studying is the secreted peptide thorntonin (T):  
   
   
-(b) A mutant arises which has kon = 10-9 (µM·s)-1. What is the selection coefficient for this mutation in the presence of thorntonin?  
+  
+###(a) You measure kon = 1000 (µM · s)-1and koff = 10 s-1, and you note that bacteria grow half as fast when exposed to levels of thorntonin found in their native environment than in the absence of thorntonin. What concentration of thorntonin is present in their environment?  
+  
+Since the growth rate for the cells is cut in half, we can assume that only half of the drummondase is left within a cell.  
+[DT] = 0.5 $\mu M$  
+
+Known constants    
+[D] = 1 $\mu M$  
+$K_{on} = 1000 \frac{1}{\mu M s}$  
+$K_{off} = 10 s^{-1}$  
+$r_a = \frac{1}{2}*\alpha[D] = \frac{1}{2} * 1 (h\mu M)^{-1} * 1 \mu M = 0.5 (h)^{-1}$ 
+$K_a = \frac{K_{on}}{K_{off}} = 100$
+
+Association Equation  
+$K_a = \frac{[DT]}{[D][T]} => [T] = \frac{[DT]}{[D]K_a} = \frac{0.5 \mu M}{1 \mu M * 100~(\mu M s)^{-1}} = 0.005 \mu M$  
+  
+###(b) A mutant arises which has kon = 10-9 (µM·s)-1. What is the selection coefficient for this mutation in the presence of thorntonin?  
+  
+$r_a = \frac{1}{2}*\alpha[D] = \frac{1}{2} * 1 (h\mu M)^{-1} * 1 \mu M = 0.5 (h)^{-1}$ 
+  
+$K_a = \frac{K_{on}}{K_{off}} = 10^{-9}$
+$[D] = \frac{[DT]}{[T]K_a2} = \frac{}{}$
+  
   
   
 (c) Estimate the probability that this mutation will go to fixation in a haploid E. allania population of size N = 10; 000 when the inhibitor is present.  

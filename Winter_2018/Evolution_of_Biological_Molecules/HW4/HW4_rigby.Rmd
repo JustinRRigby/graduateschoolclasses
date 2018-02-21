@@ -6,9 +6,13 @@ output: html_document
 ---
 1.  
   
+Known Quantities
+P(Polar) = 0.4
+$\mu_0 = 10^{-6}$  
+$S_{NP} = 0.1$  
+$\mu_{pol} = 0.4 * 10^{-6} = 4*10^{-7}$  
   
-  
-  
+$q = \sqrt{\frac{\mu_{pol}}{S{np}}} = \sqrt{\frac{4*10^{-7}}{0.1}} = 0.0063$    
   
   
 2.  
@@ -84,10 +88,21 @@ b)
   
 a)  
   
+RMSD = 0.832 Angstrom  
+  
+It is $\frac{0.832}{0.5} = 1.664$ the size of a hydrogen atom.  
   
 b)  
   
+Least Stable Substitution  
+H18K: $\Delta \Delta G^{urea}_u = 1.19 \frac{kcal}{mol}$  
+Solvent exposed residue surface = 46%  
+  
+Most Stable Substitution  
+Q15I: $\Delta \Delta G^{urea}_u = -0.96 \frac{kcal}{mol}$
+Solvent exposed residue surface = 31%  
   
 c)  
   
-  
+It is surprising to see that these amino acid changes are eliciting almost equal numbers of stabilizing and destalizing substituions (8 Stabilizing and 9 destabilizing) in the protein itself. Seeing as it is a relatively small protein (only about 110 amino acids in length) one would be even more surpirsed to see that these mutations have close to equal rates of stabilizing and destabilizing effects. Generally, I think that a larger protein would have an equal mixture of destabilizing and stabilizing proteins since there are more amino acids to work with and that overall it should not have a major impact in stability of the structure unless it was in the critical portions of the protein.  
+That being said, it would have been nice to see the activity of the protein for eahc mutant in order to see the actual effects it has on the mechanism.  

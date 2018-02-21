@@ -41,12 +41,12 @@ $\Delta \Delta G = H = -2 \frac{kcal}{mol}$
 $\Delta G^{"} = \Delta \Delta G + \Delta G = -2 \frac{kcal}{mol} + 0.4 \frac{kcal}{mol} = -1.6 \frac{kcal}{mol}$  
 $K_{eq} = e^{\frac{1.6}{277.15*8.314472}} = 1.000695$  
   
-Emperically it does not affect the p0rotein. If the protein were to be at a higher temperature there would be grounds for a change.  
+Empirically it does not affect the p0protein. If the protein were to be at a higher temperature there would be grounds for a change.  
     
 ###(c) Consult the structure. Please rationalize the observed effect of this mutation given what you know about the properties of amino acids and the forces that determine folding. Finally, consider the mutation Thr62Ala, which destabilizes the protein, changing the free energy of unfolding by -1:1 kcal/mol. This mutation is not found in E. allania but is found naturally in the drummondase of the related species species E. siddiquious.  
   
 Arginine to Alanine Residue 35  
-The initial mutation at residue 35 is interesting primarily due to its change from a positively charged amino acid (Arginine) to a non-polar noncharged amino acid (Alanine). Its location is near the end of a beta sheet, but it does not seem to be involved in the acutal structure of the sheet since it is not a common amino acid to be found in beta sheets. Thus, it may have a slight impact on folding just due to the replacement of a charged amino acid with a non polar one.  
+The initial mutation at residue 35 is interesting primarily due to its change from a positively charged amino acid (Arginine) to a non-polar non-charged amino acid (Alanine). Its location is near the end of a beta sheet, but it does not seem to be involved in the actual structure of the sheet since it is not a common amino acid to be found in beta sheets. Thus, it may have a slight impact on folding just due to the replacement of a charged amino acid with a non polar one.  
   
 Threonine to Alanine Residue 62  
 This mutation is very detrimental to the folding nature and shape of the protein. Threonine is a polar amino acid and has involvements in the stability of the protein -- as seen in pymol where in is in the center of an alpha helix. The change from a polar molecule to a non-polar molecule could end up changing the secondary structure of the alpha helix and prevent it from forming -- thus causing the protein to be misformed.  
@@ -58,20 +58,20 @@ This mutation is very detrimental to the folding nature and shape of the protein
 
 - The addition of a non-polar molecule to the outer edges of a protein can affect how the residue interacts with the cytoplasm and water present in cells -- which could affect the structure of the protein.  
   
-- The changing of an amino acid within a secondary structure, such as the alpha helix, can cause the bonds and interactions therein to cease. This may end up causing the protein to improperly fold, which would impead the ability for the protein to fold in a proper fashion which could drastically afect the fuction of the protein.   
+- The changing of an amino acid within a secondary structure, such as the alpha helix, can cause the bonds and interactions therein to cease. This may end up causing the protein to improperly fold, which would impead the ability for the protein to fold in a proper fashion which could drastically affect the function of the protein.   
   
   
 ##2. Alanine at site 42 in drummondase is beneficial relative to all other amino acids. Each of those other amino acids cause the bacterium to grow at a constant instantaneous rate of 1 generation per hour. How fast must the alanine-bearing variant grow in order to cause A42 to be found fixed in the population half of the time? Assume N = 1000. How will this answer change if N is larger?  
   
 For this answer we assume that N = 1000 is the effective population size where $N_e = 1000$. We also have to assume that there is no selection since it was not given. Without these assumptions it is hard to get an accurate answer.   
   
-The rate of replication must be one replication every thirty minutes in order to fix faster in the population than the other vairants. 
+The rate of replication must be one replication every thirty minutes in order to fix faster in the population than the other variants. 
   
 $T_{fix} = 4*N_e = 4 *1000 = 4000$ generations  
 Therefore the time required to fixation will be;  
 $4000~gen * 0.5 \frac{hours}{gen} = 2000~hours$ for it to become fixed in a population.  
   
-If the population was increased (assuming it is the same number as the effective population size) it would take longer for the the mutation to fix in the population if only genentic drift was acting upon it.  
+If the population was increased (assuming it is the same number as the effective population size) it would take longer for the the mutation to fix in the population if only genetic drift was acting upon it.  
     
 ###3. Growth rate r for E. allania depends on the cellular level of free drummondase [D], r = α[D] where α = 1 (h·µM)-1 captures the proportionality. The drummondase variant you’re studying is expressed at an intracellular concentration of 1µM. A potent inhibitor to the drummondase variant you’re studying is the secreted peptide thorntonin (T):  
   
@@ -102,7 +102,7 @@ $r_a = 0.5~h^{-1}$
 $K_{a2} = \frac{K_{on}}{K_{off}} = \frac{1*10^{-9}}{10} = 10^{-11}$
 $[D] = \frac{[DT]}{[T]K_{a2}} = \frac{0.5}{0.01*10^{-11}} = 5*10^{12} \mu M$  
 
-$S_{ba} = 5*10^{12} - 0.5 = 5*10^{12}$ [Only one sig fig]  
+$S_{ba} = 5*10^{12} - 0.5 = 5*10^{12}$ [Only one significant fig]  
   
   
   
@@ -124,7 +124,7 @@ $r_f = \alpha * (0.9998) * 1 \mu M = 0.9998$
 $s_{as} = 1- 0.9999 = 0.0001$  
 $s_{af} = 1- 0.9998 = 0.0002$  
   
-Since the seleciton coefficent is so small we use the equation $P_{fix} = 2s$ because it will give us the expected frequency.  
+Since the selection coefficient is so small we use the equation $P_{fix} = 2s$ because it will give us the expected frequency.  
 $P_{as} = 2 * 0.0001 = 0.0002$  
 $P_{af} = 2 * 0.0002 = 0.0004$
 $P_a = 1 - (0.0004+0.0002) = 0.9994$  

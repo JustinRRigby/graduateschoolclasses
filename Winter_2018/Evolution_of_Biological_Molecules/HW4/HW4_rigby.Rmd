@@ -15,7 +15,62 @@ output: html_document
   
   
   
-a)  
+a)
+N = 10, N = 1000, and N = $10^6$
+```{r}
+# split a string into characters
+charlist <- function(x,sep='') {
+t(sapply(x, function(m) {unlist(strsplit(m,sep))})) }
+#
+pfold <- function(dGu) {
+1/(1+e^(-dGu/))
+  # you can crib this from earlier...
+}
+# Equilibrium fixed levels, given many competing alleles.
+eq.fix <- function(ddGu.i, dGu, N){
+r.i <- (pfold*5)
+# equilbrium proportions, given the log fitnesses r.i
+eq.props <- sapply(r.i, function(r) {
+# r will take each of the r.i values in turn.
+# the current code is wrong; you need to
+# replace it with the actual calculation of
+# equilibrium proportions, based on what was
+# covered in class.
+r - mean(r.i) # THROWAWAY
+})
+return(eq.props)
+}
+dgu.wt <- 5.0
+ddgus <- seq(0,-9.5,-0.5)
+# Calculate results
+n10 <- eq.fix(ddgus, dgu.wt, 10)
+n1000 <- eq.fix(ddgus, dgu.wt, 1000)
+n1e6 <- eq.fix(ddgus, dgu.wt, 1e6)
+aas <- charlist('ACDEFGHIKLMNPQRSTVWY')
+# Plot results
+# 1:20 puts each amino acid at the numbers 1 through 20
+plot(1:20, n10, col='blue', type='l', ylim=c(0,1),
+las=1, log='', xaxt='n', xlab='',
+ylab='Frequency of allele')
+lines(1:20, n1000, col='red')
+lines(1:20, n1e6, col='black')
+mtext(aas, 1, at=1:20, line=1)
+
+```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

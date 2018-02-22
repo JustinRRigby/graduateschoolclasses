@@ -1,0 +1,90 @@
+---
+title: "Untitled"
+author: "Justin Rigby"
+date: "18 February 2018"
+output: html_document
+---
+1.  
+  
+Known Quantities
+P(Polar) = 0.4  
+$\mu_0 = 10^{-6}$  
+$\mu_n = 10^{-6} * 30 = 3*10^{-5}$
+$S_{NP} = 0.1$  
+$\mu_{pol} = 0.4 * 3*10^{-5} = 1.2*10^{-5}$  
+  
+$q = \sqrt{\frac{\mu_{pol}}{S{np}}} = \sqrt{\frac{1.2*10^{-5}}{0.1}} = 0.01095445$    
+  
+  
+2.  
+  
+  
+  
+a)
+N = 10, N = 1000, and N = $10^6$
+```{r}
+# split a string into characters
+charlist <- function(x,sep=''){
+t(sapply(x, function(m) {unlist(strsplit(m,sep))}))}
+  #Apply Amino Acid Letters to List
+  aas <- charlist('ACDEFGHIKLMNPQRSTVWY')
+
+#Adding the Delta G for Wildtype
+dgu.wt <- 5.0
+#Adding the Delta Delta G's for each Amino Acid
+ddgus <- seq(0,-9.5,-0.5)
+
+#Function to calculate the folding ratio
+pfold <- function(ddgus, dgu.wt) {p.i <-      (1/(1+exp(-(dgu.wt+ddgus)/0.582489)))
+  return(p.i)}
+
+#Creating Vector of Growth Rates for Each Amino Acid Sub.
+r.i <- pfold(ddgus, dgu.wt)
+
+#Creating the growth rate for wildtype
+r <- pfold(dgu.wt, 0)
+
+# Function to calculate the frequency of the various Amino Acid Subs.
+eq.fix <- function(n){
+    eq.props <- sapply(r.i, function(r) {
+      (exp(2*n*(r - r.i))/(sum(exp(2*n*(r - r.i)))-(exp(2*n*(r - r.i)))))
+    })
+  return(eq.props)
+}
+
+
+
+# Calculate results
+n10 <- eq.fix(10)
+n1000 <- eq.fix(1000)
+n1e6 <- eq.fix(1e6)
+
+plot(1:20, n10[,1], col='blue', type='l', ylim=c(0,1),las=1, log='', xaxt='n', xlab='', ylab='Frequency of allele') + lines(1:20, n1000[,1], col='red') + lines(1:20, n1e6[,1], col='black') + mtext(aas, 1, at=1:20, line=1)
+```
+  
+b)  
+  
+As the effective population increase in value we see a decrease in the fixation of the allele and an increase of lost alleles in the population.  
+  
+3  
+  
+a)  
+  
+RMSD = 0.832 Angstrom  
+  
+It is $\frac{0.832}{0.5} = 1.664$ the size of a hydrogen atom.  
+  
+b)  
+  
+Least Stable Substitution  
+H18K: $\Delta \Delta G^{urea}_u = 1.19 \frac{kcal}{mol}$  
+Solvent exposed residue surface = 46%  
+  
+Most Stable Substitution  
+Q15I: $\Delta \Delta G^{urea}_u = -0.96 \frac{kcal}{mol}$
+Solvent exposed residue surface = 31%  
+  
+c)  
+  
+It is surprising to see that these amino acid changes are eliciting almost equal numbers of stabilizing and destalizing substituions (8 Stabilizing and 9 destabilizing) in the protein itself. Seeing as it is a relatively small protein (only about 110 amino acids in length) one would be even more surpirsed to see that these mutations have close to equal rates of stabilizing and destabilizing effects. Generally, I think that a larger protein would have an equal mixture of destabilizing and stabilizing proteins since there are more amino acids to work with and that overall it should not have a major impact in stability of the structure unless it was in the critical portions of the protein.  
+That being said, it would have been nice to see the activity of the protein for eahc mutant in order to see the actual effects it has on the mechanism.  

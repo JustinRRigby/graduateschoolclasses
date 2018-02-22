@@ -7,12 +7,13 @@ output: html_document
 1.  
   
 Known Quantities
-P(Polar) = 0.4
+P(Polar) = 0.4  
 $\mu_0 = 10^{-6}$  
+$\mu_n = 10^{-6} * 30 = 3*10^{-5}$
 $S_{NP} = 0.1$  
-$\mu_{pol} = 0.4 * 10^{-6} = 4*10^{-7}$  
+$\mu_{pol} = 0.4 * 3*10^{-5} = 1.2*10^{-5}$  
   
-$q = \sqrt{\frac{\mu_{pol}}{S{np}}} = \sqrt{\frac{4*10^{-7}}{0.1}} = 0.0063$    
+$q = \sqrt{\frac{\mu_{pol}}{S{np}}} = \sqrt{\frac{1.2*10^{-5}}{0.1}} = 0.01095445$    
   
   
 2.  
@@ -23,68 +24,49 @@ a)
 N = 10, N = 1000, and N = $10^6$
 ```{r}
 # split a string into characters
-charlist <- function(x,sep='') {
-t(sapply(x, function(m) {unlist(strsplit(m,sep))})) }
-#
-pfold <- function(dGu) {
-1/(1+e^(-dGu/))
-  # you can crib this from earlier...
-}
-# Equilibrium fixed levels, given many competing alleles.
-eq.fix <- function(ddGu.i, dGu, N){
-r.i <- (pfold*5)
-# equilbrium proportions, given the log fitnesses r.i
-eq.props <- sapply(r.i, function(r) {
-# r will take each of the r.i values in turn.
-# the current code is wrong; you need to
-# replace it with the actual calculation of
-# equilibrium proportions, based on what was
-# covered in class.
-r - mean(r.i) # THROWAWAY
-})
-return(eq.props)
-}
-dgu.wt <- 5.0
-ddgus <- seq(0,-9.5,-0.5)
-# Calculate results
-n10 <- eq.fix(ddgus, dgu.wt, 10)
-n1000 <- eq.fix(ddgus, dgu.wt, 1000)
-n1e6 <- eq.fix(ddgus, dgu.wt, 1e6)
-aas <- charlist('ACDEFGHIKLMNPQRSTVWY')
-# Plot results
-# 1:20 puts each amino acid at the numbers 1 through 20
-plot(1:20, n10, col='blue', type='l', ylim=c(0,1),
-las=1, log='', xaxt='n', xlab='',
-ylab='Frequency of allele')
-lines(1:20, n1000, col='red')
-lines(1:20, n1e6, col='black')
-mtext(aas, 1, at=1:20, line=1)
+charlist <- function(x,sep=''){
+t(sapply(x, function(m) {unlist(strsplit(m,sep))}))}
+  #Apply Amino Acid Letters to List
+  aas <- charlist('ACDEFGHIKLMNPQRSTVWY')
 
+#Adding the Delta G for Wildtype
+dgu.wt <- 5.0
+#Adding the Delta Delta G's for each Amino Acid
+ddgus <- seq(0,-9.5,-0.5)
+
+#Function to calculate the folding ratio
+pfold <- function(ddgus, dgu.wt) {p.i <-      (1/(1+exp(-(dgu.wt+ddgus)/0.582489)))
+  return(p.i)}
+
+#Creating Vector of Growth Rates for Each Amino Acid Sub.
+r.i <- pfold(ddgus, dgu.wt)
+
+#Creating the growth rate for wildtype
+r <- pfold(dgu.wt, 0)
+
+# Function to calculate the frequency of the various Amino Acid Subs.
+eq.fix <- function(n){
+    eq.props <- sapply(r.i, function(r) {
+      (exp(2*n*(r - r.i))/(sum(exp(2*n*(r - r.i)))-(exp(2*n*(r - r.i)))))
+    })
+  return(eq.props)
+}
+
+
+
+# Calculate results
+n10 <- eq.fix(10)
+n1000 <- eq.fix(1000)
+n1e6 <- eq.fix(1e6)
+
+plot(1:20, n10[,1], col='blue', type='l', ylim=c(0,1),las=1, log='', xaxt='n', xlab='', ylab='Frequency of allele') + lines(1:20, n1000[,1], col='red') + lines(1:20, n1e6[,1], col='black') + mtext(aas, 1, at=1:20, line=1)
 ```
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 b)  
   
-  
-  
+As the effective population increase in value we see a decrease in the fixation of the allele and an increase of lost alleles in the population.  
   
 3  
-  
   
 a)  
   

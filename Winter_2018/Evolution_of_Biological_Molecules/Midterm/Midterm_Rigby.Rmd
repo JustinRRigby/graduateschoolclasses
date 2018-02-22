@@ -97,22 +97,26 @@ $K_a = \frac{[DT]}{[D][T]} => [T] = \frac{[DT]}{[D]K_a} = \frac{0.5 \mu M}{0.5 \
   
 ###(b) A mutant arises which has kon = 10-9 (µM·s)-1. What is the selection coefficient for this mutation in the presence of thorntonin?  
   
-$r_a = 0.5~h^{-1}$   
+$r_a = 1~h^{-1} = [D]*\alpha = > [D] = 1 \mu M$   
   
-$K_{a2} = \frac{K_{on}}{K_{off}} = \frac{1*10^{-9}}{10} = 10^{-11}$
-$[D] = \frac{[DT]}{[T]K_{a2}} = \frac{0.5}{0.01*10^{-11}} = 5*10^{12} \mu M$  
-
-$S_{ba} = 5*10^{12} - 0.5 = 5*10^{12}$ [Only one significant fig]  
+$K_{a2} = \frac{K_{on}}{K_{off}} = \frac{1*10^{-9}}{10} = 10^{-11}$  
+$[DT] = [D]*[T]*K_{a2} = 1*0.01*10^{-11} = 1*10^{-13} \mu M$  
+  
+$S_{ba} = 0.5 - 1*10^{-13} = 0.5$ [Only one significant fig]  
   
   
   
 (c) Estimate the probability that this mutation will go to fixation in a haploid E. allania population of size N = 10; 000 when the inhibitor is present.  
   
-$P_{fix} = \frac{1 - e^{-2s}}{1 - e^{-4Ns}} = \frac{1- e^{-2*5*10^{12}}}{1 - e^{-4*5*10000*10^{12}}} = 1$  
+$P_{fix} = \frac{1 - e^{-2s}}{1 - e^{-4Ns}} = \frac{1- e^{-2*0.5}}{1 - e^{-4*10000*0.5}} = 0.6321206$  
+```{r}
+P <- (1-exp(-2*0.5))/(1-exp(-4*10000*0.5))
+P
+```
   
 (d) What is the ratio of the probability that this mutation fixes in the thorntonin-infused environment compared to an environment in which there is no thorntonin?  
   
-$Ratio = \frac{1}{\frac{1}{2N}} = \frac{1}{\frac{1}{20000}} = 0.0005$  
+$Ratio = \frac{1}{\frac{1}{2N}} = \frac{0.6321206}{\frac{1}{20000}} = 12642.41$  
   
 (e) The mutations A22S and A22F decrease the proportion of free drummondase by 0.01% and 0.02%, respectively, in the presence of the inhibitor. All 17 other amino acids cause complete unfolding of the protein. What is the expected frequency of these mutations and the wild type (A22) to be found fixed in a population of size 10,000 at evolutionary steady state, in the presence of thorntonin?  
   
@@ -144,3 +148,7 @@ Confirmation using $p = \frac{1-e^{-2s}}{1-e^{-4Ns}}$
 $Ratio = \frac{\frac{\mu}{s}}{\frac{1}{2N}2N\mu} = \frac{\frac{\mu}{s}}{\mu} = \frac{s}{\mu^2}$  
   
 4. Choose a hard concept that you did not understand (or understand well) at the beginning of the course (such as fitness, Michaelis-Menten kinetics, fixation, free energy of unfolding, selection coefficient, ...). Clearly describe that concept in one paragraph using the 1000 most-common words in English, using the text editor at http://splasho.com/upgoer5/ to write/check your description. (The site also includes the list of words, and examples.)   
+  
+One of the things which was cleared up for me in the class was the idea of neutral theory. The neutral theory is the idea that changes in the building blocks of our DNA are not always changed for a reason, but can happen by chance. In the case of proteins, we see that these neutral mutation are found a lot near the outside of proteins since those places are not used in the actual job of it. This is because these building blocks of DNA are not being forced to stay in the same state, so they have the chance to change into a different building block that may not be used in the job of the protein. Over time, these changes can build up and cause the protein to become less strong to the point where it may become so different that it may not be able to do its job.
+  
+  

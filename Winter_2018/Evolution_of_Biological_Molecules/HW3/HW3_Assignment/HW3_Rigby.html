@@ -36,7 +36,7 @@ if (window.hljs) {
   hljs.configure({languages: []});
   hljs.initHighlightingOnLoad();
   if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+    window.setTimeout(function() { hljs.initHighlightingOnLoad(); }, 0);
   }
 }
 </script>
@@ -174,8 +174,12 @@ Log-likelihood value = 4.6045</p>
 Ln-likelihood = -5232.71569</p>
 <p>JC69<br />
 Ln-likelihood = -5455.90164</p>
-<p><span class="math inline">\(LR~=~\frac{L(M_{HYK85}}{M_{JC69}} = \frac{-5232.71671}{-5455.90164} = 0.9590929\)</span></p>
-<p>The simpilar model (JC69) is more likely since the ratio is less than 1.</p>
+<p><span class="math inline">\(LRS~=~2ln((M_{HYK85})-ln(M_{JC69})) = 2ln(-5232.71671 - (-5455.90164)) = 10.816\)</span><br />
+Degrees of Freedom = 1</p>
+<pre class="r"><code>p_value &lt;- (1-pchisq(10.816, df = 1))
+p_value</code></pre>
+<pre><code>## [1] 0.001006267</code></pre>
+<p>The alternative model (HYK85) is more likely due to the significant p-value which rejects the null.</p>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>What is the sister-group of chimps in this analysis? What is the value of the approximate likelihood ratio statistic supporting this grouping (1pt)?</li>
 </ol>
@@ -192,23 +196,29 @@ f(T)= 0.28565</p>
 <li>How does this model differ from the model you used in the last problem? How many extra degrees of freedom does it have (2pt)?</li>
 </ol>
 <p>It differs due to the use of a gamma distrubution in conjunction with a standard HKY85 model. It also gains 2 additional degree of freedom.</p>
-<p>b . Calculate the LRS and evaluate whether which of the three models you have evaluated is the best model (1pt).</p>
+<p>b . Calculate the LRS and evaluate whether which of the three models you have evaluated is the best model (1pt).<br />
+<span class="math inline">\(LRS = -2ln(\frac{M_{Null~Model}}{M_{Alt~Model}}) = 2ln(\frac{M_{Alt~Model}}{M_{Null~Model}}) = 2(ln(M_{Alt~Model}) - ln(M_{Null~Model}))\)</span></p>
 <p>HYK85<br />
 Ln-likelihood = -5232.71569</p>
 <p>JC69<br />
 Ln-likelihood = -5455.90164</p>
 <p>HYK85 Gamma<br />
 Ln-likelihood = -5042.90027</p>
-<p><span class="math inline">\(LR~=~\frac{L(M_{HYK85}}{M_{JC69}} = \frac{-5232.71671}{-5455.90164} = 0.9590929\)</span></p>
-<p><span class="math inline">\(LR~=~\frac{L(M_{HYK85_Gamma}}{M_{JC69}} = \frac{-5042.90027}{-5455.90164} = 0.9243019\)</span></p>
-<p><span class="math inline">\(LR~=~\frac{L(M_{HYK85}}{M_{HYK85_Gamma}} = \frac{-5232.71671}{-5030.81367} = 1.040133\)</span></p>
-<p>From the log likelihood ratios we can see that the best model for this systems is the JC69 model</p>
+<p><span class="math inline">\(LRS~=~2ln((M_{HYK85})-ln(M_{JC69})) = 2ln(-5232.71671 - (-5455.90164)) = 10.816\)</span><br />
+Degrees of Freedom = 1</p>
+<pre class="r"><code>p_value &lt;- (1-pchisq(10.816, df = 1))
+p_value</code></pre>
+<pre><code>## [1] 0.001006267</code></pre>
+<p><span class="math inline">\(LRS~=~2ln(M_{HYK85~Gamma} - M_{JC69}) = 2ln(- 5042.90027 - (-5455.90164)) = 12.0469\)</span><br />
+Degrees of Freedom = 4</p>
+<pre class="r"><code>p_value &lt;- (1-pchisq(12.0469, df = 4))
+p_value</code></pre>
+<pre><code>## [1] 0.01700589</code></pre>
+<p>From the log likelihood ratio statistic we can see that the best model for this systems is the HYK85 model due to its lower p-value.</p>
 <ol start="3" style="list-style-type: lower-alpha">
-<li>What is the sister-group of chimps in this analysis? What is the support for this grouping (1pt)?</li>
-</ol>
-<p>The sister group for chimps is humans with a ln-likelihood of 12.2718.</p>
-<ol start="4" style="list-style-type: lower-alpha">
-<li>Examine the _stat file. What is the estimate of alpha, the shape parameter of the gamma distribution? What is the approximate shape of the distribution? (You can use a reference here or plot the distribution given alpha. An approximate shape is sufficient.) (1pt)</li>
+<li><p>What is the sister-group of chimps in this analysis? What is the support for this grouping (1pt)?<br />
+The sister group for chimps is humans with a ln-likelihood of 12.2718.</p></li>
+<li><p>Examine the _stat file. What is the estimate of alpha, the shape parameter of the gamma distribution? What is the approximate shape of the distribution? (You can use a reference here or plot the distribution given alpha. An approximate shape is sufficient.) (1pt)</p></li>
 </ol>
 <p><span class="math inline">\(\alpha = 0.411\)</span></p>
 <pre class="r"><code>r &lt;- seq(-0.01, 1, length =10000)
@@ -218,38 +228,55 @@ plot(r, xr, xlab = 'X-Value', ylab = 'Probability')</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>From all the models you have compared, what do you consider the best model of sequence evolution to be (1pt)?</li>
 </ol>
-<p>From the log-likelihood ratios I find that the JC69 is best suited for this particular data set – which ends up being the simplest model.</p>
+<p>From the log-likelihood ratios I find that the non-gamma HYK85 is best suited for this particular data set.</p>
 <ol start="7" style="list-style-type: decimal">
 <li>Based on these analyses, would you conclude that gorillas or humans are the sister group of chimps? Justify your answer (1pt)</li>
 </ol>
-<p>In every tree created in this analysis we have seen that humans and chimpanzees are found to be sister taxa. However, the bootstrap values for the relationship are poor (sub 0.100) so the relationship is not that strong.</p>
+<p>The null model (JC69) was rejected with each comaprision of the models, so I am more inclined to say that the sister group to chimps is humans rather than gorillas.</p>
 <ol style="list-style-type: decimal">
 <li>At sites in the DNA-binding domain, what is the mean posterior probability across sites for AncSR1? And for AncSR2? (Hint: this information is labeled as “Overall accuracy of the 204 ancestral sequences … for a site” near the bottom of the rst file) (1pt).</li>
 </ol>
-<p>AncSR1 = 0.87747<br />
-AncSR2 = 0.90754</p>
+<p>AncSR1<br />
+Node Label = 220<br />
+Site Location = 14</p>
+<p>AncSR2<br />
+Node Label = 308<br />
+Site Location = 102</p>
+<p>AncSR1 = 0.90754<br />
+AncSR2 = 0.98881</p>
 <ol start="2" style="list-style-type: decimal">
 <li>What is the posterior probability of the entire sequence for AncSR1 and for AncSR2? That is, given the model, data, and tree, what is the probability that these are the correct sequences? How does this number relate numerically to the mean PP across sites reported in question 1? (Hint: this information is labeled as “Overall accuracy of the 204 ancestral sequences … for the sequence” near the bottom of the rst file) (1pt).</li>
 </ol>
-<p>AncSR1 = 0.0012<br />
-AncSR2 = 0.00134</p>
+<p>AncSR1 = 0.00012<br />
+AncSR2 = 0.36840</p>
+<p>It is lower than the posterior probability for the site with the AncSR1 being very small.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>AncSR1 has 7 ambiguously reconstructed sites and AncSR2 has 1 ambiguous site, if we define ambiguous as having a second-best reconstruction with posterior probability &gt;0.2. Which position in AncSR2 is ambiguously reconstructed, and what are the two ancestral states with reasonable statistical support? (Hint: the “Prob distribution at node xxx, by site”block lists the PP of each of the 20 amino acids at each position in the reconstructed sequence) (1pt).</li>
 </ol>
 <p>Ancr2<br />
-Site 38 is the site at which there is more than P&gt;0.2 where p = 1.0000. Sites 1 and 2 both have very low p’s sitting around zero so they have resonable statistical support.</p>
+Site 62 is the site at which there is more than P&gt;0.2 for two residues. The residues are;<br />
+Phenylalanine (F): 0.582<br />
+Tyrosine (Y): 0.308</p>
 <ol start="4" style="list-style-type: decimal">
 <li>How many replacements occurred in the DBD between AncSR1 and AncSR2? (Hint: this information is nicely summarized in the section of the rst file designated by Branch xxx:yyy..zzz where yyy represents the node label of AncSR1, and zzz represents the node label of AncSR2) (1pt).</li>
 </ol>
-<p>There was a total of six amino acid substituions between the two sequences.</p>
+<p>There was a total of 34 amino acid substituions between the two sequences.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>How many of these are conserved in one state in most or all of the descendants of AncSR2? (Hint: this can most easily be diagnosed by opening the SR220.phy file in an alignment editor such as Seaview, Aliview, Jalview or Mesquite, or even by writing a simple script given the Python tools you have used previously) (2pt)</li>
 </ol>
-<p>Sites 16 and 62 are more conserved in the proteins than the other sites.</p>
+<p>Sites conserved in most of AncSR2 Sequences; 3, 7, 11, 16, 20, 28, 29, 30, 32, 33, 34, 36, 39, 40, 42, 44, 48, 52, 62, 63, 64, 67, 68, 70, 71, 72, 73, 74, 75</p>
+<p>Sites conserved in All of AncSR2 Sequences; 17, 19, 23, 38, 54</p>
 <ol start="6" style="list-style-type: decimal">
 <li>Load 2C7A.pdb into pymol. This is the structure of the progesterone receptor DNA-binding domain bound to DNA (as a dimer, on a palindromic response element). Show the structure as a cartoon. Make an object consisting of the residues that changed between AncSR1 and AncSR2; show these side chains and give them a unique color (2pt).</li>
 </ol>
-<p>See Folder</p>
+<p>Residues;<br />
+3+7+11+16+17+19+20+23+28+29+30+32+33+34+36+38+39+40+42+44+48+52+54+62+63+64+67+68+70+71+72+73+74+75</p>
+<p>hide everything<br />
+bg_color white<br />
+show cartoon, 2C7A<br />
+color gray70, 2C7A<br />
+select resi 3+7+11+16+17+19+20+23+28+29+30+32+33+34+36+38+39+40+42+44+48+52+54+62+63+64+67+68+70+71+72+73+74+75<br />
+show spheres, sele; color green, sele</p>
 <ol start="7" style="list-style-type: decimal">
 <li>Formulate a hypothesis for which replacements caused the shift in specificity. Justify your answer (3pt).</li>
 </ol>

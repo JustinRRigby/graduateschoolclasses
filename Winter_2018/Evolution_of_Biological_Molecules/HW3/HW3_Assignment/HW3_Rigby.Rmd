@@ -61,9 +61,14 @@ Ln-likelihood = -5232.71569
 JC69  
 Ln-likelihood = -5455.90164  
   
-$LR~=~\frac{L(M_{HYK85}}{M_{JC69}} = \frac{-5232.71671}{-5455.90164} = 0.9590929$  
+$LRS~=~2ln((M_{HYK85})-ln(M_{JC69})) = 2ln(-5232.71671 - (-5455.90164)) = 10.816$  
+Degrees of Freedom = 1  
+```{r}
+p_value <- (1-pchisq(10.816, df = 1))
+p_value
+```
   
-The simpilar model (JC69) is more likely since the ratio is less than 1.  
+The alternative model (HYK85) is more likely due to the significant p-value which rejects the null.  
   
 c. What is the sister-group of chimps in this analysis? What is the value of the approximate likelihood ratio statistic supporting this grouping (1pt)?  
   
@@ -84,7 +89,8 @@ a. How does this model differ from the model you used in the last problem? How m
 It differs due to the use of a gamma distrubution in conjunction with a standard HKY85 model. It also gains 2 additional degree of freedom.  
   
 b . Calculate the LRS and evaluate whether which of the three models you have evaluated is the best model (1pt).  
-  
+$LRS = -2ln(\frac{M_{Null~Model}}{M_{Alt~Model}}) = 2ln(\frac{M_{Alt~Model}}{M_{Null~Model}}) = 2(ln(M_{Alt~Model}) - ln(M_{Null~Model}))$
+    
 HYK85  
 Ln-likelihood = -5232.71569  
   
@@ -95,18 +101,25 @@ HYK85 Gamma
 Ln-likelihood = -5042.90027  
   
   
-$LR~=~\frac{L(M_{HYK85}}{M_{JC69}} = \frac{-5232.71671}{-5455.90164} = 0.9590929$  
+$LRS~=~2ln((M_{HYK85})-ln(M_{JC69})) = 2ln(-5232.71671 - (-5455.90164)) = 10.816$  
+Degrees of Freedom = 1  
+```{r}
+p_value <- (1-pchisq(10.816, df = 1))
+p_value
+```
+
   
-$LR~=~\frac{L(M_{HYK85_Gamma}}{M_{JC69}} = \frac{-5042.90027}{-5455.90164} = 0.9243019$  
+$LRS~=~2ln(M_{HYK85~Gamma} - M_{JC69}) = 2ln(- 5042.90027 - (-5455.90164)) = 12.0469$  
+Degrees of Freedom = 4  
+```{r}
+p_value <- (1-pchisq(12.0469, df = 4))
+p_value
+```
+     
+From the log likelihood ratio statistic we can see that the best model for this systems is the HYK85 model due to its lower p-value.   
   
-$LR~=~\frac{L(M_{HYK85}}{M_{HYK85_Gamma}} = \frac{-5232.71671}{-5030.81367} = 1.040133$  
-    
-From the log likelihood ratios we can see that the best model for this systems is the JC69 model  
-  
-c. What is the sister-group of chimps in this analysis? What is the support for this grouping (1pt)?  
-  
+c. What is the sister-group of chimps in this analysis? What is the support for this grouping (1pt)?   
 The sister group for chimps is humans with a ln-likelihood of 12.2718.  
-  
   
 d. Examine the _stat file. What is the estimate of alpha, the shape parameter of the gamma distribution? What is the approximate shape of the distribution? (You can use a reference here or plot the distribution given alpha. An approximate shape is sufficient.) (1pt)  
   
@@ -121,43 +134,64 @@ plot(r, xr, xlab = 'X-Value', ylab = 'Probability')
   
 6. From all the models you have compared, what do you consider the best model of sequence evolution to be (1pt)?
   
-From the log-likelihood ratios I find that the JC69 is best suited for this particular data set -- which ends up being the simplest model.  
+From the log-likelihood ratios I find that the non-gamma HYK85 is best suited for this particular data set.    
   
   
 7. Based on these analyses, would you conclude that gorillas or humans are the sister group of chimps? Justify your answer (1pt)  
   
-In every tree created in this analysis we have seen that humans and chimpanzees are found to be sister taxa. However, the bootstrap values for the relationship are poor (sub 0.100) so the relationship is not that strong.  
-  
+The null model (JC69) was rejected with each comaprision of the models, so I am more inclined to say that the sister group to chimps is humans rather than gorillas.  
   
 1. At sites in the DNA-binding domain, what is the mean posterior probability across sites for AncSR1? And for AncSR2? (Hint: this information is labeled as “Overall accuracy of the 204 ancestral sequences ... for a site” near the bottom of the rst file) (1pt).   
   
-AncSR1 = 0.87747  
-AncSR2 = 0.90754   
+AncSR1  
+Node Label = 220  
+Site Location = 14  
+  
+AncSR2  
+Node Label = 308  
+Site Location = 102  
+  
+AncSR1 = 0.90754  
+AncSR2 = 0.98881    
   
   
 2. What is the posterior probability of the entire sequence for AncSR1 and for AncSR2? That is, given the model, data, and tree, what is the probability that these are the correct sequences? How does this number relate numerically to the mean PP across sites reported in question 1? (Hint: this information is labeled as “Overall accuracy of the 204 ancestral sequences ... for the sequence” near the bottom of the rst file) (1pt).  
   
-AncSR1 = 0.0012  
-AncSR2 = 0.00134  
   
+AncSR1 = 0.00012   
+AncSR2 = 0.36840  
+  
+It is lower than the posterior probability for the site with the AncSR1 being very small.  
   
 3. AncSR1 has 7 ambiguously reconstructed sites and AncSR2 has 1 ambiguous site, if we define ambiguous as having a second-best reconstruction with posterior probability >0.2. Which position in AncSR2 is ambiguously reconstructed, and what are the two ancestral states with reasonable statistical support? (Hint: the “Prob distribution at node xxx, by site”block lists the PP of each of the 20 amino acids at each position in the reconstructed sequence) (1pt).  
-  
-Ancr2  
-Site 38 is the site at which there is more than P>0.2 where p = 1.0000. Sites 1 and 2 both have very low p's sitting around zero so they have resonable statistical support.  
-  
-  
-  4. How many replacements occurred in the DBD between AncSR1 and AncSR2? (Hint: this information is nicely summarized in the section of the rst file designated by Branch xxx:yyy..zzz where yyy represents the node label of AncSR1, and zzz represents the node label of AncSR2) (1pt).  
    
-There was a total of six amino acid substituions between the two sequences.
+Ancr2  
+Site 62 is the site at which there is more than P>0.2 for two residues. The residues are;  
+Phenylalanine (F): 0.582  
+Tyrosine (Y): 0.308     
+  
+4. How many replacements occurred in the DBD between AncSR1 and AncSR2? (Hint: this information is nicely summarized in the section of the rst file designated by Branch xxx:yyy..zzz where yyy represents the node label of AncSR1, and zzz represents the node label of AncSR2) (1pt).  
+   
+There was a total of 34 amino acid substituions between the two sequences.
    
 5. How many of these are conserved in one state in most or all of the descendants of AncSR2? (Hint: this can most easily be diagnosed by opening the SR220.phy file in an alignment editor such as Seaview, Aliview, Jalview or Mesquite, or even by writing a simple script given the Python tools you have used previously) (2pt)  
-    
-Sites 16 and 62 are more conserved in the proteins than the other sites.
-  
+   
+Sites conserved in most of AncSR2 Sequences; 3, 7, 11, 16, 20, 28, 29, 30, 32, 33, 34, 36, 39, 40, 42, 44, 48, 52, 62, 63, 64, 67, 68, 70, 71, 72, 73, 74, 75  
+   
+Sites conserved in All of AncSR2 Sequences; 17, 19, 23, 38, 54  
+   
+   
 6. Load 2C7A.pdb into pymol. This is the structure of the progesterone receptor DNA-binding domain bound to DNA (as a dimer, on a palindromic response element). Show the structure as a cartoon. Make an object consisting of the residues that changed between AncSR1 and AncSR2; show these side chains and give them a unique color (2pt).  
   
-See Folder
+Residues;  
+3+7+11+16+17+19+20+23+28+29+30+32+33+34+36+38+39+40+42+44+48+52+54+62+63+64+67+68+70+71+72+73+74+75   
+  
+hide everything  
+bg_color white  
+show cartoon, 2C7A  
+color gray70, 2C7A  
+select resi 3+7+11+16+17+19+20+23+28+29+30+32+33+34+36+38+39+40+42+44+48+52+54+62+63+64+67+68+70+71+72+73+74+75  
+show spheres, sele; color green, sele  
   
 
 7. Formulate a hypothesis for which replacements caused the shift in specificity. Justify your answer (3pt).  

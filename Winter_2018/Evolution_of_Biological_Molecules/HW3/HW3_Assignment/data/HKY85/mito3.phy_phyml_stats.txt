@@ -11,26 +11,26 @@
 . Initial tree: 			BioNJ
 . Model of nucleotides substitution: 	HKY85
 . Number of taxa: 			9
-. Log-likelihood: 			-5232.71671
+. Log-likelihood: 			-5232.71540
 . Unconstrained likelihood: 		-3960.99653
 . Parsimony: 				1010
-. Tree size: 				1.35950
+. Tree size: 				1.35894
 . Discrete gamma model: 		Yes
   - Number of classes: 			1
   - Gamma shape parameter: 		1.000
   - Relative rate in class 1: 		1.00000 [freq=1.000000] 		
-. Transition/transversion ratio: 	4.187
+. Transition/transversion ratio: 	4.181
 . Nucleotides frequencies:
-  - f(A)= 0.31363
-  - f(C)= 0.29735
-  - f(G)= 0.10337
-  - f(T)= 0.28565. aLRT statistics to test branches
+  - f(A)= 0.31360
+  - f(C)= 0.29736
+  - f(G)= 0.10336
+  - f(T)= 0.28568. aLRT statistics to test branches
 
 . Run ID:				none
-. Random seed:				1518557698
+. Random seed:				1519961719
 . Subtree patterns aliasing:		no
 . Version:				20160207
-. Time used:				0h0m1s (1 seconds)
+. Time used:				0h0m0s (0 seconds)
 
  oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
  Suggested citations:

@@ -11,17 +11,14 @@
 . Initial tree: 			BioNJ
 . Model of nucleotides substitution: 	JC69
 . Number of taxa: 			9
-. Log-likelihood: 			-5455.90164
+. Log-likelihood: 			-5569.51557
 . Unconstrained likelihood: 		-3960.99653
-. Parsimony: 				1010
-. Tree size: 				1.47060
+. Parsimony: 				1008
+. Tree size: 				1.28305
 . Discrete gamma model: 		Yes
-  - Number of classes: 			4
-  - Gamma shape parameter: 		0.758
-  - Relative rate in class 1: 		0.08651 [freq=0.250000] 		
-  - Relative rate in class 2: 		0.38949 [freq=0.250000] 		
-  - Relative rate in class 3: 		0.94448 [freq=0.250000] 		
-  - Relative rate in class 4: 		2.57952 [freq=0.250000] 		
+  - Number of classes: 			1
+  - Gamma shape parameter: 		1.000
+  - Relative rate in class 1: 		1.00000 [freq=1.000000] 		
 . Nucleotides frequencies:
   - f(A)= 0.25000
   - f(C)= 0.25000
@@ -29,10 +26,10 @@
   - f(T)= 0.25000. aLRT statistics to test branches
 
 . Run ID:				none
-. Random seed:				1518556896
+. Random seed:				1519962674
 . Subtree patterns aliasing:		no
 . Version:				20160207
-. Time used:				0h0m2s (2 seconds)
+. Time used:				0h0m1s (1 seconds)
 
  oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
  Suggested citations:

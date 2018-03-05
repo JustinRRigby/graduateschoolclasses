@@ -63,9 +63,17 @@ This mutation is very detrimental to the folding nature and shape of the protein
   
 ##2. Alanine at site 42 in drummondase is beneficial relative to all other amino acids. Each of those other amino acids cause the bacterium to grow at a constant instantaneous rate of 1 generation per hour. How fast must the alanine-bearing variant grow in order to cause A42 to be found fixed in the population half of the time? Assume N = 1000. How will this answer change if N is larger?  
   
-For this answer we assume that N = 1000 is the effective population size where $N_e = 1000$. We also have to assume that there is no selection since it was not given. Without these assumptions it is hard to get an accurate answer.   
+
+For this answer we assume that N = 1000 is the effective population size where $N_e = 1000$. Alongside that we also must assume that the initial amino acid substituion has a selection coefficent of $S_1 = 0$ while the Alanine variant has a seleciton coefficent of $S_A$.  
   
-The rate of replication must be one replication every thirty minutes in order to fix faster in the population than the other variants. 
+$0.5 = \frac{e^{2N_eS_{A}}}{e^{2N_eS_{A}} + 18 e^{2N_e*0}} = \frac{e^{2N_eS_{A}}}{e^{2N_eS_{A}} + 18}$  
+$9+0.5e^{2N_e} = e^{2NS_A} => 9 = 0.5*e^{2NS_A}$  
+$18 = e^{2NS_A} => ln(18) = 2NS_Aln(e) => \frac{ln(18)}{2N} = S_A$  
+  
+```{r}
+S_A <- log(18)/(2*1000)
+S_A
+```
   
 $T_{fix} = 4*N_e = 4 *1000 = 4000$ generations  
 Therefore the time required to fixation will be;  
@@ -120,27 +128,34 @@ $Ratio = \frac{1}{\frac{1}{2N}} = \frac{0.6321206}{\frac{1}{20000}} = 12642.41$
   
 (e) The mutations A22S and A22F decrease the proportion of free drummondase by 0.01% and 0.02%, respectively, in the presence of the inhibitor. All 17 other amino acids cause complete unfolding of the protein. What is the expected frequency of these mutations and the wild type (A22) to be found fixed in a population of size 10,000 at evolutionary steady state, in the presence of thorntonin?  
   
-Where $\alpha = 1 (\mu M h)^{-1}$  
-$r_a = \alpha * 1 \mu M = 1.00$  
-$r_s = \alpha * (0.9999) * 1 \mu M = 0.9999$  
-$r_f = \alpha * (0.9998) * 1 \mu M = 0.9998$  
+Where;  
+$W_{A22} = 1$  
+$W_{A22S} = 0.9999$ or is worse by 0.01%   
+$W_{A22F} = 0.9998$ or is worse by 0.02%   
   
-$s_{as} = 1- 0.9999 = 0.0001$  
-$s_{af} = 1- 0.9998 = 0.0002$  
+$S_{A22} = 0$  
+$S_{A22S} = -0.0001$  
+$S_{A22F} = -0.0002$  
   
-Since the selection coefficient is so small we use the equation $P_{fix} = 2s$ because it will give us the expected frequency.  
-$P_{as} = 2 * 0.0001 = 0.0002$  
-$P_{af} = 2 * 0.0002 = 0.0004$
-$P_a = 1 - (0.0004+0.0002) = 0.9994$  
-  
-Confirmation using $p = \frac{1-e^{-2s}}{1-e^{-4Ns}}$  
-  
-```{r}
-(1-exp(-0.0002))/(1-exp(-40000*0.0001))
-(1-exp(-0.0004))/(1-exp(-40000*0.0002))
+$N_e = 10,000$  
 
-```  
-  
+```{r}
+S_A22 <- 0
+S_A22S <- -0.0001 #Due to the negative effects on fitness
+S_A22F <- -0.0002 #Due to the negative effects on fitness
+
+denominator <- (exp(20000*(S_A22))+exp(20000*(S_A22S))+exp(20000*(S_A22F)))
+
+pi_A22 <- exp(20000*0)/denominator
+pi_A22
+
+pi_A22S <- exp(20000*S_A22S)/denominator
+pi_A22S
+
+pi_A22F <- exp(20000*S_A22F)/denominator
+pi_A22F
+
+```
   
   
 (f) Mutations between each of these amino acids (A, S and F) occur with equal rates. What is the expected rate of amino-acid substitutions at site 22 in the presence of thorntonin relative to the substitution rate in the absence of the inhibitor?  
@@ -149,6 +164,7 @@ $Ratio = \frac{\frac{\mu}{s}}{\frac{1}{2N}2N\mu} = \frac{\frac{\mu}{s}}{\mu} = \
   
 4. Choose a hard concept that you did not understand (or understand well) at the beginning of the course (such as fitness, Michaelis-Menten kinetics, fixation, free energy of unfolding, selection coefficient, ...). Clearly describe that concept in one paragraph using the 1000 most-common words in English, using the text editor at http://splasho.com/upgoer5/ to write/check your description. (The site also includes the list of words, and examples.)   
   
-One of the things which was cleared up for me in the class was the idea of neutral theory. The neutral theory is the idea that changes in the building blocks of our DNA are not always changed for a reason, but can happen by chance. In the case of proteins, we see that these neutral mutation are found a lot near the outside of proteins since those places are not used in the actual job of it. This is because these building blocks of DNA are not being forced to stay in the same state, so they have the chance to change into a different building block that may not be used in the job of the protein. Over time, these changes can build up and cause the protein to become less strong to the point where it may become so different that it may not be able to do its job.
+One of the things which was cleared up for me in the class was the idea of neutral theory. The neutral theory is the idea that changes in the building blocks of our bodies are not always changed for a reason, but can happen by chance.  
+In the case of things made out of these building blocks, we see that these by chance changes in the building blocks are found a lot near the outside of the things built from these building blocks --  since those places are not used in the actual job of it. This is because these building blocks are not being forced to stay in the same state, so they have the chance to change into a different building block that may not be used in the job of the things built from the building blocks. However, they may also appear in less important places in the built thing. Over time, these changes can build up and cause the built thing to become less strong to the point, where it may become so different, that it may not be able to do its job. 
   
   

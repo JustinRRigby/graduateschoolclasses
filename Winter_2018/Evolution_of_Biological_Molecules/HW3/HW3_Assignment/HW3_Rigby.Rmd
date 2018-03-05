@@ -40,7 +40,7 @@ $L(JC69) = (\pi_{A,T,G,C})^{N}$
   
 Log-likelihood = -5569.51577  
   
-The very small value for the log-likelihood just indicates that the model used was not appropiate for the situation -- thus the negative large value.
+The very small value for the log-likelihood just indicates that the model used was not appropriate for the situation -- thus the negative large value.
   
 b. What is the sister-group of chimpanzee in this analysis? What is the value of the approximate likelihood ratio statistic supporting this grouping (1pt)?  
   
@@ -75,7 +75,7 @@ c. What is the sister-group of chimps in this analysis? What is the value of the
 The sister group to chimpanzees is Humans. The likelihood ratio statistic is 3.2092.  
   
   
-d. Examine the _stat file. What is the maximum likelihood estimate of the frequency of the four nucleotides in the dataset (1pt)?  
+d. Examine the _stat file. What is the maximum likelihood estimate of the frequency of the four nucleotides in the data set (1pt)?  
   
 f(A)= 0.31363  
 f(C)= 0.29735  
@@ -86,7 +86,7 @@ f(T)= 0.28565
   
 a. How does this model differ from the model you used in the last problem? How many extra degrees of freedom does it have (2pt)?  
   
-It differs due to the use of a gamma distrubution in conjunction with a standard HKY85 model. It also gains 2 additional degree of freedom.  
+It differs due to the use of a gamma distribution in conjunction with a standard HKY85 model. It also gains 2 additional degree of freedom.  
   
 b . Calculate the LRS and evaluate whether which of the three models you have evaluated is the best model (1pt).  
 $LRS = -2ln(\frac{M_{Null~Model}}{M_{Alt~Model}}) = 2ln(\frac{M_{Alt~Model}}{M_{Null~Model}}) = 2(ln(M_{Alt~Model}) - ln(M_{Null~Model}))$
@@ -139,7 +139,7 @@ From the log-likelihood ratios I find that the non-gamma HYK85 is best suited fo
   
 7. Based on these analyses, would you conclude that gorillas or humans are the sister group of chimps? Justify your answer (1pt)  
   
-The null model (JC69) was rejected with each comaprision of the models, so I am more inclined to say that the sister group to chimps is humans rather than gorillas.  
+The null model (JC69) was rejected with each comparison of the models, so I am more inclined to say that the sister group to chimps is humans rather than gorillas.  
   
 1. At sites in the DNA-binding domain, what is the mean posterior probability across sites for AncSR1? And for AncSR2? (Hint: this information is labeled as “Overall accuracy of the 204 ancestral sequences ... for a site” near the bottom of the rst file) (1pt).   
   
@@ -172,9 +172,9 @@ Tyrosine (Y): 0.308
   
 4. How many replacements occurred in the DBD between AncSR1 and AncSR2? (Hint: this information is nicely summarized in the section of the rst file designated by Branch xxx:yyy..zzz where yyy represents the node label of AncSR1, and zzz represents the node label of AncSR2) (1pt).  
    
-There was a total of 34 amino acid substituions between the two sequences.
+There was a total of 34 amino acid substitutions between the two sequences.
    
-5. How many of these are conserved in one state in most or all of the descendants of AncSR2? (Hint: this can most easily be diagnosed by opening the SR220.phy file in an alignment editor such as Seaview, Aliview, Jalview or Mesquite, or even by writing a simple script given the Python tools you have used previously) (2pt)  
+5. How many of these are conserved in one state in most or all of the descendants of AncSR2? (Hint: this can most easily be diagnosed by opening the SR220.phy file in an alignment editor such as Sea-view, Aliview, Jalview or Mesquite, or even by writing a simple script given the Python tools you have used previously) (2pt)  
    
 Sites conserved in most of AncSR2 Sequences; 3, 7, 11, 16, 20, 28, 29, 30, 32, 33, 34, 36, 39, 40, 42, 44, 48, 52, 62, 63, 64, 67, 68, 70, 71, 72, 73, 74, 75  
    
@@ -196,9 +196,12 @@ show spheres, sele; color green, sele
 
 7. Formulate a hypothesis for which replacements caused the shift in specificity. Justify your answer (3pt).  
   
-It is possible that these residues actually confered a more stable confirmation for the double helix portion of the protein which reduced the amount of time that it spent in the other confirmations.  
+It is possible that these residues actually conferred a more stable confirmation for the double helix portion of the protein which reduced the amount of time that it spent in the other confirmations.  This lack of staying in the stable conformation could prevent the protein to change its specificity for its substrate.  
+Most of the residues lie at the beginning, middle, and end of the double helix. The middle portion of residues lie at opposite ends of the helix, and may be connected to one via salt bridges or through electrostatic interactions (Hydrogen Bonding and Van De Waals). The change of these residues could prevent these interactions from occurring and its time spent in the confirmation.    
   
   
 8. Propose an experiment (or experiments) to test that hypothesis (3pt).  
   
-First, the sequences should be tranformed into a plasmid junctioned by an overexpressing promoter. The next step would be to change those residues by exposing the plasmids to a mutagenizing agent in order to cause single basepair changes in the sequences. Afterwhich, using PCR and sanger sequencing, identify the proteins which had mutations occur in the same region as the residues (may require multiple mutagenizing events). Once that is done and you have the proper mutate sequences the next step is to purify the protein and analyze its crystal structure. From there you can decifer if the mutations are casuing a confirmation change from the crystal strucutres recorded -- or you could just run a folidng algorythym on the sequences on a cluster.
+First, the sequences should be transformed into a plasmid alongside an over expressing promoter. The next step would be to change those residues by exposing the plasmids to a mutagenizing agent in order to cause single base-pair changes in the sequences. After-which, using PCR and Sanger sequencing, identify the proteins which had mutations occur in the same region as the residues (may require multiple mutagenizing events) and focus on getting mutations in the regions related to the double helix residues in the middle of the protein where there are residues on both sides of the double helix.  
+Once that is done and you have the proper mutate sequences the next step is to purify the protein and analyze its crystal structure. From there you can decipher if the mutations are causing a confirmation change from the crystal structures recorded -- or you could just run a folding algorithm on the sequences on a cluster. Once the folding confirmations are confirmed you can add the different experimental proteins and exposed them to their respective substrate and record the activity of them.  
+  

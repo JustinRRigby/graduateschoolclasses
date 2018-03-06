@@ -4,3 +4,16 @@ author: "Justin Rigby"
 date: "5 March 2018"
 output: html_document
 ---
+  
+1.  
+a)  
+cd /home/justin/Desktop/graduateschoolclasses/Winter_2018/Evolution_of_Biological_Molecules/HW5/data  
+load TEM1-imipenem-from-1BT5.pse  
+hide everything  
+bg_color white  
+show cartoon, TEM-1  
+show cartoon, imipenem  
+color gray70, TEM-1  
+color black, imipenem   
+cd ../src  
+python getRelativeSolventAccessibility.py  

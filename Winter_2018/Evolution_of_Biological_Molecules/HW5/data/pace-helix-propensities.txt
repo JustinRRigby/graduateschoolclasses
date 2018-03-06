@@ -1,22 +1,22 @@
-# From Pace et al. Biophysical Journal 1998
 residue	code	aa	ddg
 Alanine	Ala	A	0.0
-Arginine	Arg	R	-0.21
-Asparagine	Asn	N	-0.65
-Aspartic acid	Asp	D	-0.69
+Aspartic_acid	Asp	D	-0.69
 Cysteine	Cys	C	-0.68
-Glutamic acid	Glu	E	-0.40
-Glutamine	Gln	Q	-0.39
+Glutamic_acid	Glu	E	-0.40
+Phenylalanine	Phe	F	-0.54
 Glycine	Gly	G	-1
 Histidine	His	H	-0.61
 Isoleucine	Ile	I	-0.41
-Leucine	Leu	L	-0.21
 Lysine	Lys	K	-0.26
+Leucine	Leu	L	-0.21
 Methionine	Met	M	-0.24
-Phenylalanine	Phe	F	-0.54
+Asparagine	Asn	N	-0.65
 Proline	Pro	P	-3.16
+Glutamine	Gln	Q	-0.39
+Arginine	Arg	R	-0.21
 Serine	Ser	S	-0.5
 Threonine	Thr	T	-0.66
+Valine	Val	V	-0.61
 Tryptophan	Trp	W	-0.49
 Tyrosine	Tyr	Y	-0.53
-Valine	Val	V	-0.61
+

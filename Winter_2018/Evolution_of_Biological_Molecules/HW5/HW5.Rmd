@@ -110,9 +110,103 @@ $\Delta G_u = 21 \frac{kJ}{mol}$
 $\Delta G = -RTln(K_{eq})=> K_{eq} = e^{-\frac{\Delta G}{RT}}$  
   
 a)  
-$K_eq = e^{-\frac{21}{2.478956}} = e^{-8.471308} = 0.0002093908$  
-$\therefore K_{eq} = 0.0002093908$  
-
+$K_eq = e^{-\frac{5}{0.5961611}} = e^{-8.386995} = 0.0002093908$  
+$\therefore K_{eq} = 0.0002278108$  
   
+  
+d)  
+  
+```{r}
+
+dd_gu <- seq(-4, 1, by = 0.1)
+
+k_eq <- function(dd_gu){
+  
+k_eqs <- exp(-(5+dd_gu)/0.5961611)
+return(k_eqs)
+}
+
+k_eq_results <- k_eq(dd_gu)
+
+plot(dd_gu, k_eq_results, xlab ='Delta Delta Gu', ylab = 'K_eq', main = 'K_eq as a Function of Delta Delta Gu')
+  
+```  
+  
+  
+4.  
+  
+a)  
+  
+$\beta = \alpha [P]_0 k_{cat = 1 h^-1}$  
+$r = \alpha [P]_0 Pr_{fold}k_{cat} \Delta G_u = \beta \Delta G_uPr_{fold}$  
+  
+$Pr_{fold} = \frac{1}{1+e^{-\frac{\Delta G*\Delta \Delta G_{u D->E}}{RT}}}$  
+  
+$r = 1 * (\Delta G*\Delta \Delta G_{u D->E})*\frac{1}{1+e^{-\frac{\Delta G*\Delta \Delta G_{u D->E}}{RT}}} = \frac{(\Delta G*\Delta \Delta G_{u D->E})}{1+e^{-\frac{\Delta G*\Delta \Delta G_{u D->E}}{RT}}}$
+  
+  
+  
+b)  
+  
+```{r}
+d_gu <- 5
+dd_gu <- 0
+
+
+
+s_i <- function (d_gu, dd_gu){
+s_u <- (1-
+(exp(
+  (d_gu+dd_gu)/
+    (1+exp(-(d_gu+dd_gu)/(0.5961611)
+      
+      
+      
+      )))))
+return(s_u)
+}  
+  
+s_i(d_gu, dd_gu)  
+```
+  
+c)  
+  
+```{r}
+
+dGu <- 0
+
+pfold <- function(dGu){
+k_eq <- exp(-(dGu)/2.478956)
+return(k_eqs)
+}
+
+pfix.naive <- function(s,N){
+((1-exp(-2*s))/(1-exp(-2*N*s)))
+}
+
+pfix <- function(s,N){
+p <- sapply(s, function(the.s){
+if (abs(the.s) > .Machine$double.eps){
+  p = ((1-exp(-2*the.s))/(1-exp(-2*N*the.s)))
+}  
+else {
+  p = 1/N
+}  
+})
+p  
+}
+
+eq.fix <- function(ddGu, dGu, N){
+  
+  
+}
+
+
+
+
+
+
+```
+
   
   

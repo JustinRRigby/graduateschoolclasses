@@ -1,0 +1,22 @@
+B_distachyon, ,0.005,3.513,-0.106,-0.159,-0.149,-0.018,-1.719,-1.258,-2.419,-3.213,-2.057
+O_brachyantha,0.996, ,2.612,-0.296,-0.513,-0.734,-0.39,-1.796,-2.025,-3.025,-3.794,-2.229
+O_longistaminata,0.001,0.01, ,2.08,1.901,1.911,2.091,0.646,0.171,-0.231,-0.908,0.834
+O_glaberrima,0.915,0.768,0.04, ,-0.104,-1.156,2.004,-1.822,-1.534,-2.131,-2.739,-1.597
+O_barthii,0.874,0.609,0.06,0.917, ,-2.008,-0.103,-1.818,-1.542,-2.153,-2.761,-1.617
+O_nivara,0.882,0.464,0.058,0.25,0.047, ,-1.156,-1.829,-1.476,-2.107,-2.798,-1.573
+O_glumaepatula,0.986,0.697,0.039,0.047,0.918,0.25, ,-1.859,-1.515,-2.138,-2.715,-1.604
+A.trichopoda,0.088,0.075,0.519,0.071,0.071,0.07,0.065, ,-4.729,-3.968,-4.463,-4.185
+P_trichocarpa,0.211,0.045,0.865,0.128,0.126,0.142,0.133,0, ,-3.432,-2.657,-3.02
+B_rapa_2,0.017,0.003,0.817,0.035,0.033,0.037,0.035,0,0.001, ,-3.516,-2.303
+A_thailiana,0.002,0,0.366,0.007,0.007,0.006,0.008,0,0.009,0.001, ,-3.37
+B_rapa_1,0.042,0.028,0.406,0.113,0.108,0.118,0.111,0,0.003,0.023,0.001
+
+Table. Codon-based Test of Neutrality for analysis between sequences. 
+
+The probability of rejecting the null hypothesis of strict-neutrality (dN = dS) (below diagonal) is shown. Values of P less than 0.05 are considered significant at the 5% level and are highlighted. The test statistic (dN - dS) is shown above the diagonal. dS and dN are the numbers of synonymous and nonsynonymous substitutions per site, respectively. The variance of the difference was computed using the analytical method. Analyses were conducted using the Nei-Gojobori method [1]. The analysis involved 12 nucleotide sequences. All positions containing gaps and missing data were eliminated. There were a total of 522 positions in the final dataset. Evolutionary analyses were conducted in MEGA7 [2]. 
+
+
+
+1. Nei M. and Gojobori T. (1986). Simple methods for estimating the numbers of synonymous and nonsynonymous nucleotide substitutions. Molecular Biology and Evolution 3:418-426. 
+2. Kumar S., Stecher G., and Tamura K. (2016). MEGA7: Molecular Evolutionary Genetics Analysis version 7.0 for bigger datasets.Molecular Biology and Evolution 33:1870-1874.
+Disclaimer: Although utmost care has been taken to ensure the correctness of the caption, the caption text is provided "as is" without any warranty of any kind. Authors advise the user to carefully check the caption prior to its use for any purpose and report any errors or problems to the authors immediately (www.megasoftware.net). In no event shall the authors and their employers be liable for any damages, including but not limited to special, consequential, or other damages. Authors specifically disclaim all other warranties expressed or implied, including but not limited to the determination of suitability of this caption text for a specific purpose, use, or application. 

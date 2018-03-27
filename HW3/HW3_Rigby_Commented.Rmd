@@ -2,7 +2,9 @@
 title: "HW3_Submission"
 author: "Justin Rigby"
 date: "11 February 2018"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 1.  
   
@@ -19,14 +21,17 @@ $L_{84} = (0.3)^3 * (0.3)^3 * (0.2)^2 * (0.2)^2 = 1.1664 * 10^{-6}$
     
 c.  
   
-$\frac{L(M_{69})}{L(M_{84})} = \frac{9.5*10^{-7}}{1.1664e-6} = 0.8144719$  
-From this we can see that the JC69 model is a better fit for the sequence.  
+$\frac{L(M_{69})}{L(M_{84})} = \frac{9.5*10^{-7}}{1.1664*10^{-6}} = 0.8144719$  
+From this we can see that the HYK85 model is a better fit for the sequence.  
   
-$-2*ln(\frac{1.664*10^{-7}}{9.5*10^{-6}}) = 3.484135$
+$-2*ln(\frac{9.5*10^{-7}}{1.664*10^{-6}}) = 0.4104307$
   
 Degrees of Freedom = 1  
-$\chi^2 : 3.484135 < 3.841 [0.05]$  
-$\therefore P-value > 0.05$  
+```{r}
+p.val <- (1-pchisq(0.4104307, df= 2))
+p.val          
+```
+
 Since the null model was not refuted the most likely model is the simplest -- the JC69 model.  
 
 Comment: Your likelihood-ratio statistic (LRS) is wrong. Check what mistake you made. -0.5
@@ -64,16 +69,16 @@ Ln-likelihood = -5232.71479
 JC69  
 Ln-likelihood = -5569.51599  
   
-$LRS = -2*ln(\frac{L_N}{L_A}) = -2*(ln(L_N) - ln(L_A))$  
+$LRS = -2*ln(\frac{L_{Null}}{L_A}) = -2*(ln(L_N) - ln(L_A))$  
   
-$LRS~=~2(ln(L_{HYK85})-ln(M_{JC69})) = 2(-5232.71671 - (-5569.51599)) = 673.5986$  
+$LRS~=~-2(ln(L_{JC69})-ln(M_{HYK85})) = -2(-5569.51599 - (-5232.71671)) = 673.5986$  
 Degrees of Freedom = 1  
 ```{r}
 p_value <- (1-pchisq(673.5986, df = 4))
 p_value
 ```
   
-The alternative model (HYK85) is more likely due to the significant p-value which rejects the null.  
+The alternative model (HYK85) is more likely due to the significant p-value which rejects the null model (JC69).  
   
 Comment: You are using wrong likelihood for JC69 (check 2.(a)), and also a wrong formula for doing likelihood-ratio test. -1.5
 
@@ -94,7 +99,7 @@ f(T)= 0.28565
   
 a. How does this model differ from the model you used in the last problem? How many extra degrees of freedom does it have (2pt)?  
   
-It differs due to the use of a gamma distribution in conjunction with a standard HKY85 model. It also gains 2 additional degree of freedom.
+It differs due to the use of a gamma distribution in conjunction with a standard HKY85 model. It also gains one additional degree of freedom.
 
 Comment: Check the gamma distribution of rate to find the extra degree of freedom. -0.5
   
@@ -111,25 +116,27 @@ Ln-likelihood = -5569.51599
   
 HYK85 Gamma  
 Ln-likelihood = -5042.90027  
-1 Degree of Freedom  
+5 Degree of Freedom  
   
   
-$LRS~=~2ln((M_{HYK85})-ln(M_{JC69})) = 2ln(-5232.71671 - (-5455.90164)) = 10.816$  
+$LRS = -2*ln(\frac{L_{Null}}{L_A}) = -2*(ln(L_N) - ln(L_A))$  
+  
+$LRS~=~-2(ln(L_{JC69})-ln(M_{HYK85})) = -2(-5569.51599 - (-5232.71671)) = 673.5986$  
 Degrees of Freedom = 1  
 ```{r}
-p_value <- (1-pchisq(11, df = 0))
+p_value <- (1-pchisq(673.5986, df = 1))
 p_value
 ```
 
   
-$LRS~=~2ln(M_{HYK85~Gamma} - M_{HYK85~Gamma}) = 2ln(- 5042.90027 - (-5232.71479  )) = 12.0469$  
+$LRS~=~2ln(M_{HYK85} - M_{HYK85~Gamma}) = -2*(-5232.71479  - (-5042.90027 )) = 379.629$  
 Degrees of Freedom = 4  
 ```{r}
-p_value <- (1-pchisq(12.0469, df = 4))
+p_value <- (1-pchisq(379.629, df = 2))
 p_value
 ```
      
-From the log likelihood ratio statistic we can see that the best model for this systems is the HYK85 model due to its lower p-value.
+From the log likelihood ratio statistic we can see that the best model for this systems is the HYK85-Gamma model due to its lower p-value.
 
 Comment: Again, you are using a wrong formula for likelihood-ratio test. Also, the likelihood values are slightly different from the answers. -1
 
@@ -142,16 +149,22 @@ d. Examine the _stat file. What is the estimate of alpha, the shape parameter of
 $\alpha = 0.411$
   
 ```{r}
-r <- seq(-0.01, 1, length =10000)
-xr <- dgamma(r, 0.411)
-plot(r, xr, xlab = 'X-Value', ylab = 'Probability')
+library(ggplot2)
+  library(MASS)
+r <- seq(0, 3, length =10000)
+xr <- rgamma(r, shape = 0.364)
+den <- density(xr)
+dat <- data.frame(x = den$x, y = den$y)
+
+ggplot(data = dat, aes(x = x, y =y)) + geom_point(size = 3) + theme_classic() + geom_line()
+
 ```
 
 Comment: This is not the value you should be getting. Combined with the slightly different likelihood, this seems to say that you are using slightly different options for running PhyML. -0.5
   
 6. From all the models you have compared, what do you consider the best model of sequence evolution to be (1pt)?
   
-From the log-likelihood ratios I find that the non-gamma HYK85 is best suited for this particular data set.    
+From the log-likelihood ratios I find that the non-gamma HYK85-Gamma is best suited for this particular data set.    
 
 Comment: If you get the right answers and do correct test, this will not be your answer. -1
   

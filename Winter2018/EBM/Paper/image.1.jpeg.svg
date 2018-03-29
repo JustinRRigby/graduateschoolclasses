@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="714px" height="612px" viewBox="0 0 714 612"
+xmlns="http://www.w3.org/2000/svg" version="1.1">
+<rect x="0" y="0" width="714" height="612" fill="none" stroke="rgb(192,192,192)" stroke-width="1"/>
+<text x="528" y="608" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">Oryza_nivara</text>
+<text x="529" y="551" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">Oryza_glumaepatula</text>
+<text x="528" y="493" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">Oryza_barthii</text>
+<text x="524" y="515" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">71</text>
+<text x="504" y="436" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">Oryza_longistaminata</text>
+<text x="446" y="572" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">100</text>
+<text x="569" y="378" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">Oryza_brachyantha</text>
+<text x="432" y="507" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">69</text>
+<text x="468" y="320" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">Triticum_aestivum</text>
+<text x="538" y="263" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">Brachypodium_distachyo</text>
+<text x="329" y="446" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">100</text>
+<text x="329" y="285" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">67</text>
+<text x="569" y="205" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">Amborella_trichopoda</text>
+<text x="500" y="148" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">A_Thailiana_TAIR10</text>
+<text x="497" y="90" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">B_rapa</text>
+<text x="478" y="33" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">B_rapa_1</text>
+<text x="376" y="54" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">51</text>
+<text x="64" y="98" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">100</text>
+<text x="13" y="260" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">100</text>
+<line x1="525" y1="546" x2="527" y2="546" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="525" y1="488" x2="526" y2="488" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="525" y1="546" x2="525" y2="488" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="524" y1="604" x2="526" y2="604" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="524" y1="517" x2="525" y2="517" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="524" y1="604" x2="524" y2="517" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="446" y1="560" x2="524" y2="560" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="446" y1="431" x2="502" y2="431" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="446" y1="560" x2="446" y2="431" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="432" y1="496" x2="446" y2="496" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="432" y1="373" x2="567" y2="373" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="432" y1="496" x2="432" y2="373" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="350" y1="316" x2="465" y2="316" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="350" y1="258" x2="536" y2="258" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="350" y1="316" x2="350" y2="258" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="329" y1="435" x2="432" y2="435" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="329" y1="287" x2="350" y2="287" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="329" y1="435" x2="329" y2="287" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="380" y1="86" x2="495" y2="86" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="380" y1="28" x2="475" y2="28" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="380" y1="86" x2="380" y2="28" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="376" y1="143" x2="498" y2="143" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="376" y1="57" x2="380" y2="57" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="376" y1="143" x2="376" y2="57" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="64" y1="201" x2="567" y2="201" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="64" y1="100" x2="376" y2="100" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="64" y1="201" x2="64" y2="100" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="11" y1="361" x2="329" y2="361" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="11" y1="150" x2="64" y2="150" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="11" y1="361" x2="11" y2="150" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<text x="7" y="15" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">BioNJ 2661 sites J-C 100 repl.</text>
+<line x1="617" y1="13" x2="678" y2="13" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="617" y1="17" x2="617" y2="9" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<line x1="678" y1="17" x2="678" y2="9" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:butt" />
+<text x="634" y="11" font-family="Times" font-size="12" xml:space="preserve"  fill="rgb(0,0,0)">0.05</text>
+</svg>

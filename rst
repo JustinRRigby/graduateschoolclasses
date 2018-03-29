@@ -1,1 +1,0 @@
-Supplemental results for CODEML (seqf: /home/justin/Desktop/graduateschoolclasses/Winter_2018/Evolution_of_Biological_Molecules/Paper/FLS2_multisp.phy  treef: /home/justin/Desktop/graduateschoolclasses/Winter_2018/Evolution_of_Biological_Molecules/Paper/sample.tree)

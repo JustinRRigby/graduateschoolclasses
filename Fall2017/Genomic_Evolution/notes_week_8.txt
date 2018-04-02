@@ -1,0 +1,32 @@
+Notes for Week 8
+-----------------------------------------------------------------------------
+Hunter
+- Main issue with this paper is that they take a reducitonist view of the pathway -- but then try and move backwards.
+	- Creates bias in the way the pathway would be viewed.
+	- "Common Molecular Biology problem -- taking the reductionist view" - Chung-I
+
+- Think of this as when the economy was infused with cash (in 2008 for $500)
+- Think about how 
+##############################################################################
+Ecsedi et al
+[In vivo work of miRNA in a C. Elegans host]
+
+-Many genes working towards one goal -- epistasis.
+
+-Gene interactions are the rules of an organism (think of strerility that occurs in the cross between a horse and a donkey). 
+	- Thus we assume there are no bad genes and that it is a complex network.
+
+- Knocking out one gene to check the development is a viable option, but it does not show everything.
+	- Single gene approaches do not meet the requirement of human society since it is more complicated than that.
+
+
+##############################################################################
+Pinzon
+
+Overconservation: The conservation of more bp than are needed.
+	- COnservaiton happens over many many species in order to be valid -- chimps and humans are way too close!!!
+
+- Pop gen only looks at one phenotype -- fitness.
+- Quantative Genetics look at the various phenotypes and do not attribute fitness!.
+
+

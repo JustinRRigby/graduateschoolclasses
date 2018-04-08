@@ -1,0 +1,86 @@
+---
+title: "NetworkLab2"
+author: "Justin Rigby"
+date: "April 6, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Try to calculate these metrics (Connectance, Clustering, and Node Strength)
+
+```{r}
+#Loading the necessary packages
+library(igraph, quietly=T, verbose = F)
+  library(bipartite, quietly=T, verbose = F)
+    library(ggplot2, quietly=T, verbose = F)
+
+data(memmott1999) # Loading the data into R
+memmott.bin.df <- 1*(memmott1999 > 0)#Creating a binary dataframe from the existing emperical data (1* is to stop NAs)
+
+#Calculating the Metrics
+I <- nrow(memmott.bin.df) #Number of host species
+  J <- ncol(memmott.bin.df) #Number of non-host species (parasites, pollinators, ect)
+S = I + J #Network size (Number of species in the network)
+  L = sum(memmott.bin.df) #Adding the '> 0' is redundant due to it being binary
+    A_i <- rowSums(memmott.bin.df) #Degree of hosts
+      A_j <- colSums(memmott.bin.df) #Degree of non-host species
+#Metrics
+#Connectance
+C <- L/(I*J)
+  C 
+#Clustering Coefficent
+  #Higher Level (Host species)
+cc_host <- A_j / nrow(memmott.bin.df)
+ cc_host
+  #Lower level (non-host)
+cc_nonhost <- A_i / ncol(memmott.bin.df)
+  cc_nonhost
+```
+  
+2. Can you plot the degree and strength distrubutions?  
+```{r}
+
+#Degree of Host Distrubution
+hist(A_i, xlab = 'Host Degrees', main = 'Distribution of Host Degrees', breaks = 20, col = 'black')
+
+#Degree of Non-Host Distrubution
+hist(A_j, xlab = 'Non-Host Degrees', main = 'Distribution of Non-Host Degrees', breaks = 20, col = 'black')
+
+#Distribution of Host Clustering
+hist(cc_host,  xlab = 'Host Clustering',main = 'Distribution of Host Degrees', breaks = 20, col = 'black')
+
+#Distribution of Non-Host Clustering
+hist(cc_nonhost, xlab = 'Non-Host Clustering', main = 'Distribution of Host Degrees', breaks = 20, col = 'black')
+
+
+
+
+
+
+```
+
+3. What other metrics can you calculate which are not here? Where do you find them?  
+The missing metrics are the degrees of centrality, closeness centrality, betweeness centrality, and eigenvector centrality. The missing value needed to calculate these is the distance between nodes and the eigenvectors and their values which require additional information.  
+  
+  
+4. Try to calculate and access metrics at the species level (e.g. host assemblage or parasite assemblage) level. Use the help to discover which metrics bipartite has implemented.
+
+5. Try to calculate and access metrics at the species level (e.g. host assemblage or parasite assemblage) level. Use the help to discover which metrics bipartite has implemented.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

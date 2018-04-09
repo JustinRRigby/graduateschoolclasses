@@ -67,13 +67,66 @@ The missing metrics are the degrees of centrality, closeness centrality, between
   
   
 4. Try to calculate and access metrics at the species level (e.g. host assemblage or parasite assemblage) level. Use the help to discover which metrics bipartite has implemented.
+  
+```{r}
+library(bipartite)
+sl_metrics <- specieslevel(memmott1999)
+sl_metrics
+```
+  
+5. Try to calculate and access metrics at the guild level (e.g. host assemblage or parasite assemblage) level. Use the help to discover which metrics bipartite has implemented.
 
-5. Try to calculate and access metrics at the species level (e.g. host assemblage or parasite assemblage) level. Use the help to discover which metrics bipartite has implemented.
+```{r}
+library(vegan)
+gl_metrics <- grouplevel(memmott1999)
+gl_metrics
+```
+  
+6.  Read the description or the metric Interaction Strength Asymmetry in Dormann et al. 2009 (page 10). This can be calculated in bipartite like this:  specieslevel(memmott1999, index='interaction push pull') Can you program that metric yourself and get the same results?  
+  
+```{r}
+library(psych)
+fart <- specieslevel(memmott1999, index='interaction push pull')
+fart
+View(fart)
+
+a_ij <- prop.table(memmott1999)
+a_ij
+A_i <- rowSums(memmott1999)
+  A_j <- colSums(memmott1999)
+
+b_ij <- (a_ij)/A_i
+b_ji <- t(t(a_ij)/A_j)
+
+top <- (b_ij - b_ji)
+top
+bot <- (b_ij + b_ji)
+bot
+
+top%/%bot
+
+meow <- ((b_ij - b_ji)/(b_ij + b_ji))
+head(meow)
+View(meow)
+
+asd <- colSums(meow)
+asd
+dsa <- rowSums(meow)
+dsa
+```
 
 
+7.  
 
-
-
+```{r}
+polli_proje <- crossprod(memmott1999>0)
+polli_proje
+diag(polli_proje) <- 0
+g <- graph.adjacency(polli_proje, mode = 'undirected', weighted = T)
+par(mar=c(0,0,0,0))
+plot(g, vertex.size=6, vertex.label=NA, edge.color='black', edge.width=log(E(g)$weight), layout=layout.circle)
+qplot(E(g)$weight)
+```
 
 
 

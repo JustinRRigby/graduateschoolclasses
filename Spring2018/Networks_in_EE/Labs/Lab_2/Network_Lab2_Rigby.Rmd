@@ -1,0 +1,139 @@
+---
+title: "NetworkLab2"
+author: "Justin Rigby"
+date: "April 6, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Try to calculate these metrics (Connectance, Clustering, and Node Strength)
+
+```{r}
+#Loading the necessary packages
+library(igraph, quietly=T, verbose = F)
+  library(bipartite, quietly=T, verbose = F)
+    library(ggplot2, quietly=T, verbose = F)
+
+data(memmott1999) # Loading the data into R
+memmott.bin.df <- 1*(memmott1999 > 0)#Creating a binary dataframe from the existing emperical data (1* is to stop NAs)
+
+#Calculating the Metrics
+I <- nrow(memmott.bin.df) #Number of host species
+  J <- ncol(memmott.bin.df) #Number of non-host species (parasites, pollinators, ect)
+S = I + J #Network size (Number of species in the network)
+  L = sum(memmott.bin.df) #Adding the '> 0' is redundant due to it being binary
+    A_i <- rowSums(memmott.bin.df) #Degree of hosts
+      A_j <- colSums(memmott.bin.df) #Degree of non-host species
+#Metrics
+#Connectance
+C <- L/(I*J)
+  C 
+#Clustering Coefficent
+  #Higher Level (Host species)
+cc_host <- A_j / nrow(memmott.bin.df)
+ cc_host
+  #Lower level (non-host)
+cc_nonhost <- A_i / ncol(memmott.bin.df)
+  cc_nonhost
+```
+  
+2. Can you plot the degree and strength distrubutions?  
+```{r}
+
+#Degree of Host Distrubution
+hist(A_i, xlab = 'Host Degrees', main = 'Distribution of Host Degrees', breaks = 20, col = 'black')
+
+#Degree of Non-Host Distrubution
+hist(A_j, xlab = 'Non-Host Degrees', main = 'Distribution of Non-Host Degrees', breaks = 20, col = 'black')
+
+#Distribution of Host Clustering
+hist(cc_host,  xlab = 'Host Clustering',main = 'Distribution of Host Degrees', breaks = 20, col = 'black')
+
+#Distribution of Non-Host Clustering
+hist(cc_nonhost, xlab = 'Non-Host Clustering', main = 'Distribution of Host Degrees', breaks = 20, col = 'black')
+
+
+
+
+
+
+```
+
+3. What other metrics can you calculate which are not here? Where do you find them?  
+The missing metrics are the degrees of centrality, closeness centrality, betweeness centrality, and eigenvector centrality. The missing value needed to calculate these is the distance between nodes and the eigenvectors and their values which require additional information.  
+  
+  
+4. Try to calculate and access metrics at the species level (e.g. host assemblage or parasite assemblage) level. Use the help to discover which metrics bipartite has implemented.
+  
+```{r}
+library(bipartite)
+sl_metrics <- specieslevel(memmott1999)
+sl_metrics
+```
+  
+5. Try to calculate and access metrics at the guild level (e.g. host assemblage or parasite assemblage) level. Use the help to discover which metrics bipartite has implemented.
+
+```{r}
+library(vegan)
+gl_metrics <- grouplevel(memmott1999)
+gl_metrics
+```
+  
+6.  Read the description or the metric Interaction Strength Asymmetry in Dormann et al. 2009 (page 10). This can be calculated in bipartite like this:  specieslevel(memmott1999, index='interaction push pull') Can you program that metric yourself and get the same results?  
+  
+```{r}
+library(psych)
+fart <- specieslevel(memmott1999, index='interaction push pull')
+fart
+View(fart)
+
+a_ij <- prop.table(memmott1999)
+a_ij
+A_i <- rowSums(memmott1999)
+  A_j <- colSums(memmott1999)
+
+b_ij <- (a_ij)/A_i
+b_ji <- t(t(a_ij)/A_j)
+
+top <- (b_ij - b_ji)
+top
+bot <- (b_ij + b_ji)
+bot
+
+top%/%bot
+
+meow <- ((b_ij - b_ji)/(b_ij + b_ji))
+head(meow)
+View(meow)
+
+asd <- colSums(meow)
+asd
+dsa <- rowSums(meow)
+dsa
+```
+
+
+7.  
+
+```{r}
+polli_proje <- crossprod(memmott1999>0)
+polli_proje
+diag(polli_proje) <- 0
+g <- graph.adjacency(polli_proje, mode = 'undirected', weighted = T)
+par(mar=c(0,0,0,0))
+plot(g, vertex.size=6, vertex.label=NA, edge.color='black', edge.width=log(E(g)$weight), layout=layout.circle)
+qplot(E(g)$weight)
+```
+
+
+
+
+
+
+
+
+
+

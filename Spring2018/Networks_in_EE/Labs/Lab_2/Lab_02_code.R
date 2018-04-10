@@ -7,7 +7,7 @@ library(bipartite)
 library(ggplot2)
 
 ## ------------------------------------------------------------------------
-data(olesen2002flores) # Check out the help for information on this data set!
+data(olesen2002flores) # Check out the help for information on this data set
 olesen2002flores_binary <- 1 * (olesen2002flores > 0) # Make the data binary (unweighted)
 I <- nrow(olesen2002flores_binary) # Number of lower level species (e.g., hosts, plants)
 J <- ncol(olesen2002flores_binary) # Number of higher level species (e.g., parasites, pollinators)
@@ -32,6 +32,7 @@ sl_metrics$`higher level`$degree # The degree of flower visitors
 # Group level:
 gl_metrics <- grouplevel(olesen2002flores)
 gl_metrics
+
 
 # Network level
 nl_metrics <- networklevel(olesen2002flores)

@@ -127,7 +127,13 @@ par(mar=c(0,0,0,0))
 plot(g, vertex.size=6, vertex.label=NA, edge.color='black', edge.width=log(E(g)$weight), layout=layout.circle)
 qplot(E(g)$weight)
 ```
+  
+  
+8.  
+  
+```{r}
 
+```
 
 
 

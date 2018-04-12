@@ -20,7 +20,7 @@ E(ches_web_unweighted)$weight <- 1
 cl <- cluster_louvain(ches_web_unweighted) # Can also use the weights = NULL argument
 class(cl) # the result is of class communities
 module_membership <- membership(cl)
-cols <- data.frame(mem=unique(module_membership), col= brewer.pal(length(unique(module_membership)), 'Set1'))
+cols <- data.frame(mem=unique(module_membership), col= brewer.pal(length(unique(module_membership)), 'Set2'))
 V(ches_web_unweighted)$module_membership <- module_membership
 V(ches_web_unweighted)$color <- cols$col[match(V(ches_web_unweighted)$module_membership, cols$mem)]
 plot(ches_web_unweighted, vertex.color=V(ches_web_unweighted)$color, vertex.size=5, vertex.label=NA, edge.arrow.width=0.3, edge.arrow.curve=0.5)
@@ -32,7 +32,7 @@ module_membership_wt <- membership(cl_wt)
 cols <- data.frame(mem=unique(module_membership_wt), col= brewer.pal(length(unique(module_membership_wt)), 'Set1'))
 V(ches_web)$module_membership_wt <- module_membership_wt
 V(ches_web)$color_wt <- cols$col[match(V(ches_web)$module_membership_wt, cols$mem)]
-plot(ches_web, vertex.color=V(ches_web)$color_wt, vertex.size=5, vertex.label=NA, edge.arrow.width=0.3, edge.arrow.curve=0.5)
+plot(as.undirected(ches_web), vertex.color=V(ches_web)$color_wt, vertex.size=5, vertex.label=NA, edge.arrow.width=0.3, edge.arrow.curve=0.5)
 
 ## ------------------------------------------------------------------------
 mod <- computeModules(memmott1999)

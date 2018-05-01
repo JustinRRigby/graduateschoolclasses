@@ -37,6 +37,31 @@ The differences between the two null models may actually explain why there is a 
   
 2. Nestedness has been shown to be correlated with network density and the number of species. That rencers comparisons of nestedness scores across many network statistically inappropriate. How can we comapre valuse of nestedness across networks?  
   
+We use z-score transformations of the data in order to allow us to compare otherwise incomparable data sets.  
+  
+  
+3. What can you say about the tolerance of the network to difference extinction regimes? REpeat that excersise, now removing pollinators. Is the tolerance of hte network diffrerent?  
+  
+2.1
+  
+Pseudocode  
+#----------------------------------------------------------------------------------------------
+1.Choose node  
+2.identify non-zero entries  
+LOOP{  
+3. Set entry to zero  
+4. Calculate sum of row 
+  If zero, plant is extinct  
+}  
+
+
+```{r}
+matrix <-  memmott1999_binary
+max(names(colSums(matrix)))
+colSums(matrix)
+
+```
+  
 
 
   

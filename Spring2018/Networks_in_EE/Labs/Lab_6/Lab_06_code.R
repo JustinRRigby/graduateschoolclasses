@@ -9,6 +9,7 @@ library(reshape2)
 library(dplyr)
 
 ## ------------------------------------------------------------------------
+#In order to create state nodes
 df2matrix <- function(df,binary=F){
   rownames(df) <- df[,1]
   df <- df[,-1]
@@ -29,9 +30,12 @@ attach(dat)
 
 # Step 1: Build the six layers
 hostAbundYear <- as.matrix(table(Host, YearCollected)) # abundance of hosts in different years
-parasiteAbundanceYear <- aggregate(.~dat$YearCollected,data = dat[,3:ncol(dat)], FUN = sum) # abundance of parasites in each year (across hosts)
+parasiteAbundanceYear <- aggregate(.~dat$YearCollected,data = dat[,3:ncol(dat)], FUN = sum) # abundance of parasites in each year (across hosts) Destroys the matrix in the process -- output is a dataframe.
 names(parasiteAbundanceYear)[1] <- 'YearCollected'
 parasiteAbundanceYear <- df2matrix(parasiteAbundanceYear)
+
+hostAbundYear
+  parasiteAbundanceYear
 
 ## Create network layers
 data_matrices <- list()

@@ -1,0 +1,62 @@
+Notes for May 8th
+
+General Notes
+- It is useful to label your specific aims and to add the methodology underneathe that subject line. It makes it more cohesive and organized.
+
+- Adding a section for 'Anticipated Result' is not a good idea according to the professors. 
+
+- Making the project seem feasible to the reader is an important trait to have in your proposal -- you want the readers to know how this project can be done in a reasonable amount of time.
+
+- Remember that the readers of these proposals will be going through dozens of them at a time -- make sure that you stand out.
+
+- Make sure to blatently list the questions you have for the specific aims. It is also important to make it specific enough that it cannot be torn apart, but also not too specific that it can not be understood by a wider audience.
+	= Also make sure that the specific aims are independent from one another in order to prevent the project from failing if one of the aims is not confirmed.
+
+-** Would it be possible for me to include a figure in my researcher proposal? It is really helpful with explain complex ideas and their methodology. Not sure what it would be though.  
+	= Make sure to not to leave any 'white space' on the research proposal -- huge pet peave for reviewers.
+
+- Do not say that 'I am going to make my data fit hte model' it is not the best
+
+- Do not use 'realitively' unless there is something direct you can compare it to.
+
+- Next week we need to have a figure with a legend -- it is what they want -- similar to Anna's.
+
+Nadya Ali
+- 27 Years: 25% drop in normal sperm.
+
+- Looking at BFFs sperm levels due to dietary changes and manipulations. 
+	= Trying to tie it into the the idea that epigenetics are having an impact on this -- already started a feeding study which will be continued for two generations (F2) 
+
+JD Laurence-Chasen
+- Primate tongues involvement in normal activities -- from the perspective of a bio-physics.
+
+- Is having a broader impact that helps develop soft-body robots?
+	= The opinion of the professors was that this was a bad idea for broader impacts -- which is a fair opinion since JD said he grabbed it from another proposal. (should really speak with JD on how he intends on doing for his broader impacts.
+
+- The 'Anticipated Results' secitons was not a popular section among the professors. They are concerned that it will imply that you have a presuppsitiion that you will get these results. May lead the idea that it is a cooked experiment.
+	= I still think it is a good idea for the proposal, but they insist that it is not hte place for it, and it is better to be seen in longer grant proposals.
+
+- Emphasis on soft robotics is currently 'in' right now for the NSF
+
+Keven Dooley
+- Looking at the role of extracellular vesicles produced by Prochlorococcus and other cyanobacterium and if they have a role in phage targetting
+	= I.E. Are the vesicles acting like a decoy?
+
+Rossy Natale
+- Charadriiform macroevolutionary trajectory. 
+	= Using clade sorting vs species sorting -- a different way of determining the species tree (I literally have no idea what this is).
+
+- Taking a biomechanical approach to this problem by looking at the skull/beaks ability to open its' jaw, ect.
+
+Zach Miller
+- The focus of this project is to create a trophic level theory of island biogeography.
+- It would be good to go over the paper again before I begin to work on mine again -- it is written well but needs headers.
+- 
+
+Daniel Smith
+- Another theoretical proposal focused on metacommunities -- specifically looking at seasonal drought rivers.
+	= Has a figure in his paper reflecting the change in communities -- or gene flow -- when the river bed dries up.
+
+Anna Petrosky
+- Getting the 
+

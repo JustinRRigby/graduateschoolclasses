@@ -1,0 +1,269 @@
+---
+title: "Rigby_HW5"
+author: "Justin Rigby"
+date: "11 May 2018"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+  
+1.  
+  
+$F_{81} = (\pi_A)^3 = 0.3 ~~~ (\pi_T)^3 = 0.3 ~~~ (\pi_G)^2 =0.2 ~~~ (\pi_C)^2 = 0.3$  
+Sequence = AAAGGCCTTT  
+  
+```{r}
+F_81 <- ((0.3^3) * (0.3^3) * (0.2^2) * (0.3^2))
+F_81
+```
+
+2.  
+  
+$\pi_A = 0.25 ~~~ \pi_T = 0.25 ~~~ \pi_G =0.25 ~~~ \pi_C = 0.25$  
+  
+```{r}
+JC69 <- ((0.25)^3 * (0.25)^3 * (0.25)^2 * (0.25)^2)
+JC69
+```
+  
+3.    
+    
+The F81 model has more degrees of freedom than the JC69 model. The F81 model has one degree of freedom while the JC69 model has zero degrees of freedom.  
+  
+  
+4.    
+  
+$2 ln(\frac{F_{81}}{JC69}) = 2 ln( \frac{2.6244e-06}{9.536743e-07})$  
+  
+```{r}
+
+LLR <- 2*log((2.6244e-06)/(9.536743e-07))
+LLR
+```
+  
+5.  
+  
+```{r}  
+chi2 <- dchisq(2.024571, 1)
+chi2
+```
+The F81 model is not significantaly better than the JC69 model. It has a p-value of 0.1018858 which is more than the 0.05 needed for it to be considered significantly different. Thus the simpler model (JC69) is the most likely model.  
+  
+  
+6.  
+a.  
+  
+$Model = JC69$
+$ln-likelihood = -5569.51323$  
+  
+b.  
+  
+$L(JC69) = (\pi_{A,T,G,C})^{N}$  
+  
+c.  
+  
+Gorillas are the sister group to chimps in this this analysis with a 54 for the bootstrap.  
+  
+d.  
+  
+$Log~~Likelihood = -5569.51323$  
+  
+$Gorilla + Chimpanzee LRS = 4.5929$  
+  
+$Gorilla + Chimpanzee LR = e^{\frac{4.5929}{2}} = 9.938837$  
+  
+The LRS for Gorilla and Chimpanzee has the lowest likelihood of all of the tree nodes, but the sister to the Gorilla nad Chimpanzee has the largest likelihood (110.4225) of all nodes. The lkelihood ratio statistic is 9.938837 which indicates that the model JC69 is appropiate for the data provided.  
+  
+7.  
+  
+a.  
+  
+This model, like the JC69 model, both have equal base pair frequencies. However the K80 model contains an additional parameter which accounts for the transitions and transversions that occur between the sequences. Thus it has one free parameter more than the JC69 model.  
+  
+b.  
+  
+$ln-likelihood = -5239.14949$  
+  
+c.  
+  
+$2 * (L_1 - L_0) = LRS$  
+```{r}
+L_JC69 <- -5239.14949  
+  L_K80 <- -5569.51323
+#Function for the ln-likelihood ratio statistic
+LRS <- function(L_1, L_0){
+LRS_a <-2*(L_1 - L_0)
+return(LRS_a)
+}
+
+LRS_1 <- LRS(L_K80, L_JC69)
+
+chi2 <- dchisq(LRS_1, 1)
+chi2
+```
+The better model is the JC69 model due to the smaller negative value.
+  
+d.  
+  
+The sister group of chimpanzees are humans.  
+The boot strap support is 78.  
+The likelihood ratio for the support of the clade is 11.1358.  
+  
+e.  
+  
+8.  
+a.  
+  
+This model differs from the JC69 model since it has unequal frequencies of basepairs -- meaning each base pair has its own frequency. It has one extra degree of freedom. 
+  
+b.  
+  
+ln-likelihood = -5042.70804  
+    
+c.  
+  
+$2 * (L_1 - L_0) = LRS$  
+```{r}
+df <- (4-1)
+L_HKY85 <- -5042.70804  
+  L_K80 <- -5569.51323
+
+LRS_2 <- LRS(L_HKY85, L_K80)
+
+chi2 <- dchisq(LRS_2, df)
+chi2
+```
+The better model is the HKY85 model.
+  
+  
+d.  
+  
+The sister group of chimpanzees are humans.  
+The boot strap support is 84.  
+The likelihood ratio for the support of the clade is 12.1598.  
+  
+e.  
+  
+$f(A)= 0.32195$  
+$f(C)= 0.30443$  
+$f(G)= 0.10761$  
+$f(T)= 0.26602$  
+  
+9.  
+a.  
+  
+Similar to the HKY85 model there are 4 free parameters for the basepairs, and an additional free parameter from the calculation of alpha.  
+  
+b.  
+  
+ln-likelihood = -5042.88856  
+    
+c.  
+  
+```{r}
+df <- (5-4)
+L_HKY85G <- -5042.88856 
+  L_HKY85 <- -5042.70804  
+
+LRS_3 <- LRS(L_HKY85G, L_HKY85)
+
+LRS_3
+
+chi2 <- dchisq(LRS_3, df)
+chi2
+```
+The HKY85 model is better than the HKY85G due to the $\chi^2$ statistic.  
+  
+d.  
+  
+The sister group of chimpanzees are humans.  
+The boot strap support is 90.  
+The likelihood ratio for the support of the clade is 12.3321.  
+   
+e.  
+  
+$\alpha = 0.408$
+  
+It confers the distrubution from which the model draws from. It is a low number which indicates that the density fo the curve of the gamma distrubtuion and indicates that the rate of subsituion is low for a majority of the sites.  
+  
+  
+f.  
+    i)  
+    ii)  
+    iii)  
+    I have checked the PhyML manual (3.1) and there is no mention of _lk files being produced as output. I am not sure how to go about these questions.  
+
+10.  
+a.  
+  
+2  
+```{r}
+df <- (5-4)
+LRS_HKY85GAML <- -5030.80355
+  LRS_HKY85ML <- -5042.70804
+  
+LRS_4 <- LRS(LRS_HKY85GAML, LRS_HKY85ML)
+
+LRS_4
+
+chi2 <- dchisq(LRS_4, df)
+chi2
+```  
+The best model supported is the HKY85 Gamma model, and it is also significantly different from HKY85.  
+  
+b.  
+  
+LRS_CH = 12.3321
+  
+c.    
+  
+LRS_CHG = 39.3588
+  
+d.  
+  
+```{r}
+LRS_CH <- 12.331
+  LRS_CHG <- 39.3588
+
+LRS_LR <- function(LRS_in){
+LR_out <- exp(LRS_in/2)
+return(LR_out)
+}
+
+#Likelihood ratio for Chimpanzee and Humans
+LR_CH <- LRS_LR(LRS_CH)
+LR_CH
+
+#Likelihood ratio for Chimpanzee, Humans, and Gorilla's
+LR_CHG <- LRS_LR(LRS_CHG)
+LR_CHG
+
+
+```
+  
+e.    
+  
+These measurements are the likelihood that the model has placed the correct taxa in the correct clade. From the likelihood ratio of CHG (Chimpanzee, Human, and Gorilla) we can see that it is exponentially larger than the CH likelihood (Chimpanzee and Humans) indicating that these three species are closely related to one another in terms of the gene provided.  
+  
+11.  
+  
+From the results of the tests I consider the best model of sequence evolution for this data set is the HKY85 Gamma mode due to it being the better model across the board beating out all models.  
+  
+12.  
+  
+I believe that humans are the sister group to chimpanzees and not gorillas. This is because the most basic model used (JC69) was the only model that included gorillas as sister taxa to chimpanzees. That being said, another reason is because every HKY85 model showed that humans are the sister taxa to chimpanzees, and have been shown to have a higher likelihood than the JC69 model.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

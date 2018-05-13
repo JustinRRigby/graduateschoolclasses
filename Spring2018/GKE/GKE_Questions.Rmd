@@ -1,0 +1,167 @@
+---
+title: "GKE_Study_Guide"
+author: "Justin Ryan Rigby"
+date: "May 12, 2018"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+  
+##GKE questions for Justin Rigby, from Greg Dwyer  
+  
+###Question 1  
+  
+####Compare the behavior of the continuous time logistic-growth model to the discrete-generation logistic model of May.  
+
+$N_t:$ The starting popualtion size  
+$N_{t+1}:$ The number of individuals in the populations after one generation.  
+$r:$ The populaiton growth rate -- the maximum is used for these models.  
+$K:$ The carrying capacity of the population.  
+  
+Discrete Generational Logistic Model (May 74): $N_{t+1} = N_t(1+r(\frac{K-N_t}{K}))$  
+  
+The discrete generational logisitic model was introduced by may in order to combine multiple ideas at the time into one cohesive package that accounts both for population size, the growth of the population, and the carrying capicity of the population. Where it gains its strength is that it can take into account the change in reproduction as the number of individuals in the population begins to reach its carrying capacity. As it reaches the carrying capcity of the population, the reproduction rate of the population decreases as it steadily makes its way to the carrying capacity where it will begin to imitate a geometric sequence which always yields the same numnber of individuals in the population -- the carrying capacity. After reaching the carrying capacity however it deos not decrease or increase each subsequential generation unless the parameters are modified. IT also does not have an OVERLAP OF GENERATIONS meaning that it is similar to monpary reproducing organisms.
+  
+Would be best applied in lab populations due to the reduced amount of outside influence (predation, ect).  
+```{r}
+N <- 140
+  r <- 2.8
+    K <- 180
+dis_mod <- function(N, r, K){
+N_t <- (N*(1+r*((K-N)/K)))
+return(N_t)
+}
+
+N <- dis_mod(N, r, K)
+N
+
+```  
+  
+Continous time logistic growth model: $N_{t+1} = (N_t*r)(1-\frac{N}{K})$  
+  
+The continous time logistical growth model is a model where continous time is taken into account, meaning the popualtion can reproduce more than once in a yea, and that each individual reproduces at a rate that decreases as a linear function of the population size. This specific difference, in terms of when mating occurs, confers a continous level of births and deaths in the model which are represented by the outcomes of the model. It also has demograpjic events (birht, death, predation, etc) occuring continously in the population -- which is not accounted for in the discrete model. More like a real population with iteropathic tendencies.  
+  
+```{r}
+N <- 80
+  r <- 2.6
+    K <- 100
+dis_mod <- function(N, r, K){
+N_t <- ((N*r)*((K-N)/K))
+return(N_t)
+}
+
+
+dis_mod(N, r, K)
+N
+```
+  
+  
+####How does the behavior of the two models differ, and why does this difference occur?   
+  
+The different behaviour of the models is primarily caused by the continous model taking into account births and deaths associated with the population while the discrete model does not take into account continous births and deaths in the population alogn with other demographic effects. Along with this, chaos in the growth model also occurs at different levels of growth rates for each model. 
+
+For the discrete model chaos begins around the r = 2.570   
+For the continous model choas begins around the r = 2.692  
+  
+Alongside this, there is no generational overlap in the discrete model -- thus it may exclude long lived species and those whom reproduce more than once in a popualtion. Best example of the discrete model is spider reproduction.  
+  
+####What does the complex behavior of the discrete-generation logistic model imply for our efforts to understand population dynamics in nature?   
+  
+It implies that without taking into account demogrpahic conditions in the population we end up with a model that does not accurately characterize the dynamics of a population. It is a toy model that cannot be applied to many populations due to its constraints and it will not give a valid picture of the projected history of a population. It also reduces the chance of extinction by these demographic covariates.  However, the choatic nature of populations modeled using the discrete logistic model allows for a dynamic system to occur, but not many species have this high of a growth rate unless they have a big bang reproductive cycle.  . 
+  
+###Question 2
+
+####Briefly summarize the argument of Hassell, May and Lawton.  
+  
+The work of Hassell, May, and Lawton (1976) is a meta-analysis of various population density studies -- with a particular focus on populations with density dpeendence -- isolated to a single species population. They derive additional parameters for the discrete generational logistical growth while ignoring the continous model. These additional parameters ($\alpha , \beta, and ~\lambda$) have different associations from their counterparts in the MAy 1974 paper. The parameters $\alpha ~and ~\beta$ are constantance associated with the density dependence of the population while $\lambda$ is associated with the finite net rate of increase of the population. They applied this derived model to exisiting data sets from primarily laboratory studies in order to see what kind of dynamics that these populations are experiencing.  
+  
+There are four seperate catagories for the behavior of the population in the paper: the first one is monotonic dampening of the population (a log gamma shape curve), dampened oscillations, stable limit cycles (with varying degrees of fluxuation denoted by 2, 4, 8, ect.), and choas. As there are increases in both $\beta$ and $\lambda$ we will see a population begin to skirt towards more uncertiantity and fluxuation due to the increase in these parameters. The main catagory of data obtained was for insects and not mammals or birds due to them having overlapping generations not suitible for use of the discrete model (a continous model must be used).  
+  
+Their results show that there is not much oscilitory population growth in the insects investigated, and that only one species was found to have chaotic growth (bloat flies). The rest of the species (22 out of the 27) showed monotonic damping growth, two had dampening oscillation grwoth, 1 had a stable limit cycle, and 1 had chaotic growth. They hypothesize that the chaotic outlier is there due to the 'scrambling' of resources that occur due to their very high $\lambda$ and $\beta$ which are cuased by the high fecundity of the population.  
+  
+The authors conclude that the discrete model is appropiate for population with non-overlapping generations and grown in a stable enviorment, but using results from the field could be an error since there are a lot of demographic effects which could skew the results and would require a continous model to accurately model them. They also conclude that chaotic growth is a rare occurence in the wild and that many cases of choatic growth could be hidden due to gene flow and that the popualtions would have to be very abundant.  
+  
+####What is the relevance of their work for the May papers in question 1?   
+  
+It is an application of the equations supplamented from the papers, and it is also a test to investigate the different population growth dynamics that were found in the paper (monotonic growth, choas, ect.). In the papers, May is explicit when he talks about how the discrete model cannot be easily applied in nature and is more applicable for single species populations with little to no demographic influences. In order to gather data for these types of populations he turned to using data from various labaratory studies in order to reduce the amount of bias that can happened and removed any species with overlapping genreations.  
+  
+His resutls have shown that the discrete model is applicable to labaratory datasets, but was surprised to find a little population dynamics outside of the monotonic dampening. The authors concluded that population flucuations outside of monotonic dampening are rare for single species populations and that if there are flucuations besides the monotonic dampoening that this may be caused by the lack of gene flow and that there may be an abundance of populations for these species that reduces the chances of anything but monotonic dampening.  
+  
+####What are some caveats?  
+  
+- The application of the disrete growth model is suffient for modeling labaratory speices growth, but one must be sure that the species is applicable (low rates of dispersal due to gene flow, non-abundant populations)  
+  
+- Mammals and other multigenerational species are not appropiate for this discrete model and a continous one should be used in its place.  
+  
+- Choatic fluxuation may be explained by constraining the population from geneflow or by constraining it to a single population where by the overgorwth and decline, due to density dependence, is exentuated.  
+  
+
+##GKE questions for Justin Rigby, from Joe Thornton  
+  
+###1.  Phylogenetics  
+  
+####Explain the justification for using maximum parsimony as a criterion for evaluating hypotheses of phylogeny.  
+   
+####Explain the justification for using maximum likelihood as a criterion for choosing phylogenies.    
+  
+####Formally define the likelihood of a phylogeny and describe how it is calculated.   
+  
+####Review arguments for and against MP vs. ML — the strengths and liabilities of each approach, and techniques and arguments to mitigate those liabilities.  
+  
+###2.  The neutral theory  
+   
+####Articulate its major tenets.     
+  
+####Summarize the central arguments (both population genetic and biochemical) on which it was based (and still is).   
+  
+  
+  
+  
+  
+####Describe  its current status given the evidence about molecular evolutionary patterns and processes.  
+  
+  
+  
+###3. Epistasis  
+####Define the term.  
+  
+####Describe how it can be detected.   
+  
+####Discuss the implications of epistasis for evolutionary processes.  
+
+####Give an overview of mechanisms that can cause general and specific epistasis within and between loci.  Use examples in these discussions.   
+  
+  
+  
+  
+##GKE questions for Justin Rigby, from Marcus Kronfurst  
+  
+####What forms of selection can be inferred from population genetic data?
+  
+  
+####How are different forms of selection detected and measured from population genetic data?  
+  
+  
+  
+  
+####How much of the genome is shaped by adaptive evolution?  
+  
+  
+####What is the neutral theory of molecular evolution?  
+  
+  
+  
+####Currently, there is debate as to whether genome evolution is largely neutral or not.  
+  
+What is the evidence in favor or neutrality?  
+  
+What is the evidence in favor of selection?  
+  
+Is one interpretation better supported by available data?  
+  
+####What data, other than population genetic data, can be brought to bear on this debate?  
+  

@@ -149,15 +149,38 @@ Against: It can be very computationally intensive to create every possible tree 
 ###2.  The neutral theory  
 ####Articulate its major tenets.     
   
+Initial frequency of a new mutations is $\frac{1}{2N}$  
   
+In a population undergoing genetic drift the probability of fixing the neutral mutation/allele is simply equal to its initial frequency in the population (for a new allele it is $p_0 = \frac{1}{2N}$)  
+   
+The chance of any allele to receive a mutation is equal to $\mu_0$ (or in other words what is the rate of substituion?).  
+  - Derived: $\lambda = \mu_0 * p_0 = (2N\mu)*p_0 = (2N\mu)(\frac{1}{2N}) = \mu$  
+    $p_0: Probability of Fixation$  
+    $\lambda: Rate of Substitution$  
+    $\mu: Rate of Mutation$  
+    
+The major tenets of the neutral theory (Kimura 1968) are that:  
   
+(1) Neutral alleles/mutations are mutations within the genetic code of an organism which do not confer advantage or disadvantage to survival and reproduciton.   
+  
+(2) Most evolutionary changes that occur in the genome are the result of 'neutral mutations' which occur due to the redundency in the genentic code for encoding amino acids and propegate throughout the population through genetic drift.  
+  
+(3) Most of the variation seen in populations is the results of neutral mutations segregating throughout the population leading to polymorphisms with no effects on fitness or survival.  
+  
+(4) These mutations themselves are a source of confirmation for the molecular clock theory due to the predictability of the substitutions.  
   
   
 ####Summarize the central arguments (both population genetic and biochemical) on which it was based (and still is).   
   
+Population Genetic Level:  
   
+A mutation may be considered to be neutral if the inequality ($|s| < 0.001$) (Nei 2005) is satisfied. Neutral mutations are defined as mutaitons which cause either no, or a very minor, impact on the fitness of the indiviual. This is due to Tomako Ohta's (1973) work on the nearly neutral mutation positing that mutations which confer a miniscule deleterious effect may themselves behave as a neautral mutation and may fix in smaller popualtions due to genetic drift.   
+  - Previously, Kimura designated the inequality to be: $|2Ns| < 0.001$ (Kimura 1968), but it was found to be too strigent and can be subjected to false negatives.  
+  - From Drosophila population data we have determined that the molecular clock hypothesis is best explained by the advent of neautral mutations occuring throughout a population over time -- including meioses based mutations and UV ect. -- and that itbest explains why there can be so many mutations occuring in long lived species which are not deleterious and explains why the genome is not overrun with deleterious mutations.  
   
+Biochemical Level:  
   
+
   
 ####Describe  its current status given the evidence about molecular evolutionary patterns and processes.  
   

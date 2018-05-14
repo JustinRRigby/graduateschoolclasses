@@ -17,16 +17,16 @@ knitr::opts_chunk$set(echo = TRUE)
   
 ####Compare the behavior of the continuous time logistic-growth model to the discrete-generation logistic model of May.  
 
-$N_t:$ The starting popualtion size  
+$N_t:$ The starting population size  
 $N_{t+1}:$ The number of individuals in the populations after one generation.  
-$r:$ The populaiton growth rate -- the maximum is used for these models.  
+$r:$ The population growth rate -- the maximum is used for these models.  
 $K:$ The carrying capacity of the population.  
   
 Discrete Generational Logistic Model (May 74): $N_{t+1} = N_t(1+r(\frac{K-N_t}{K}))$  
   
-The discrete generational logisitic model was introduced by may in order to combine multiple ideas at the time into one cohesive package that accounts both for population size, the growth of the population, and the carrying capicity of the population. Where it gains its strength is that it can take into account the change in reproduction as the number of individuals in the population begins to reach its carrying capacity. As it reaches the carrying capcity of the population, the reproduction rate of the population decreases as it steadily makes its way to the carrying capacity where it will begin to imitate a geometric sequence which always yields the same numnber of individuals in the population -- the carrying capacity. After reaching the carrying capacity however it deos not decrease or increase each subsequential generation unless the parameters are modified. IT also does not have an OVERLAP OF GENERATIONS meaning that it is similar to monpary reproducing organisms.
+The discrete generational logistic model was introduced by may in order to combine multiple ideas at the time into one cohesive package that accounts both for population size, the growth of the population, and the carrying capacity of the population. Where it gains its strength is that it can take into account the change in reproduction as the number of individuals in the population begins to reach its carrying capacity. As it reaches the carrying capacity of the population, the reproduction rate of the population decreases as it steadily makes its way to the carrying capacity where it will begin to imitate a geometric sequence which always yields the same number of individuals in the population -- the carrying capacity. After reaching the carrying capacity however it does not decrease or increase each sub sequential generation unless the parameters are modified. IT also does not have an OVERLAP OF GENERATIONS meaning that it is similar to monpary reproducing organisms.
   
-Would be best applied in lab populations due to the reduced amount of outside influence (predation, ect).  
+Would be best applied in lab populations due to the reduced amount of outside influence (predation, etc).  
 ```{r}
 N <- 140
   r <- 2.8
@@ -41,9 +41,9 @@ N
 
 ```  
   
-Continous time logistic growth model: $N_{t+1} = (N_t*r)(1-\frac{N}{K})$  
+Continuous time logistic growth model: $N_{t+1} = (N_t*r)(1-\frac{N}{K})$  
   
-The continous time logistical growth model is a model where continous time is taken into account, meaning the popualtion can reproduce more than once in a yea, and that each individual reproduces at a rate that decreases as a linear function of the population size. This specific difference, in terms of when mating occurs, confers a continous level of births and deaths in the model which are represented by the outcomes of the model. It also has demograpjic events (birht, death, predation, etc) occuring continously in the population -- which is not accounted for in the discrete model. More like a real population with iteropathic tendencies.  
+The continuous time logistical growth model is a model where continuous time is taken into account, meaning the population can reproduce more than once in a yea, and that each individual reproduces at a rate that decreases as a linear function of the population size. This specific difference, in terms of when mating occurs, confers a continuous level of births and deaths in the model which are represented by the outcomes of the model. It also has demographic events (birth, death, predation, etc) occurring continuously in the population -- which is not accounted for in the discrete model. More like a real population with iteropathic tendencies.  
   
 ```{r}
 N <- 80
@@ -62,42 +62,42 @@ N
   
 ####How does the behavior of the two models differ, and why does this difference occur?   
   
-The different behaviour of the models is primarily caused by the continous model taking into account births and deaths associated with the population while the discrete model does not take into account continous births and deaths in the population alogn with other demographic effects. Along with this, chaos in the growth model also occurs at different levels of growth rates for each model. 
+The different behavior of the models is primarily caused by the continuous model taking into account births and deaths associated with the population while the discrete model does not take into account continuous births and deaths in the population along with other demographic effects. Along with this, chaos in the growth model also occurs at different levels of growth rates for each model. 
 
 For the discrete model chaos begins around the r = 2.570   
-For the continous model choas begins around the r = 2.692  
+For the continuous model chaos begins around the r = 2.692  
   
-Alongside this, there is no generational overlap in the discrete model -- thus it may exclude long lived species and those whom reproduce more than once in a popualtion. Best example of the discrete model is spider reproduction.  
+Alongside this, there is no generational overlap in the discrete model -- thus it may exclude long lived species and those whom reproduce more than once in a population. Best example of the discrete model is spider reproduction.  
   
 ####What does the complex behavior of the discrete-generation logistic model imply for our efforts to understand population dynamics in nature?   
   
-It implies that without taking into account demogrpahic conditions in the population we end up with a model that does not accurately characterize the dynamics of a population. It is a toy model that cannot be applied to many populations due to its constraints and it will not give a valid picture of the projected history of a population. It also reduces the chance of extinction by these demographic covariates.  However, the choatic nature of populations modeled using the discrete logistic model allows for a dynamic system to occur, but not many species have this high of a growth rate unless they have a big bang reproductive cycle.  . 
+It implies that without taking into account demographic conditions in the population we end up with a model that does not accurately characterize the dynamics of a population. It is a toy model that cannot be applied to many populations due to its constraints and it will not give a valid picture of the projected history of a population. It also reduces the chance of extinction by these demographic covariates.  However, the chaotic nature of populations modeled using the discrete logistic model allows for a dynamic system to occur, but not many species have this high of a growth rate unless they have a big bang reproductive cycle.  . 
   
 ###Question 2
 
 ####Briefly summarize the argument of Hassell, May and Lawton.  
   
-The work of Hassell, May, and Lawton (1976) is a meta-analysis of various population density studies -- with a particular focus on populations with density dpeendence -- isolated to a single species population. They derive additional parameters for the discrete generational logistical growth while ignoring the continous model. These additional parameters ($\alpha , \beta, and ~\lambda$) have different associations from their counterparts in the MAy 1974 paper. The parameters $\alpha ~and ~\beta$ are constantance associated with the density dependence of the population while $\lambda$ is associated with the finite net rate of increase of the population. They applied this derived model to exisiting data sets from primarily laboratory studies in order to see what kind of dynamics that these populations are experiencing.  
+The work of Hassell, May, and Lawton (1976) is a meta-analysis of various population density studies -- with a particular focus on populations with density dependence -- isolated to a single species population. They derive additional parameters for the discrete generational logistical growth while ignoring the continuous model. These additional parameters ($\alpha , \beta, and ~\lambda$) have different associations from their counterparts in the May 1974 paper. The parameters $\alpha ~and ~\beta$ are constantance associated with the density dependence of the population while $\lambda$ is associated with the finite net rate of increase of the population. They applied this derived model to existing data sets from primarily laboratory studies in order to see what kind of dynamics that these populations are experiencing.  
   
-There are four seperate catagories for the behavior of the population in the paper: the first one is monotonic dampening of the population (a log gamma shape curve), dampened oscillations, stable limit cycles (with varying degrees of fluxuation denoted by 2, 4, 8, ect.), and choas. As there are increases in both $\beta$ and $\lambda$ we will see a population begin to skirt towards more uncertiantity and fluxuation due to the increase in these parameters. The main catagory of data obtained was for insects and not mammals or birds due to them having overlapping generations not suitible for use of the discrete model (a continous model must be used).  
+There are four separate categories for the behavior of the population in the paper: the first one is monotonic dampening of the population (a log gamma shape curve), dampened oscillations, stable limit cycles (with varying degrees of fluctuation denoted by 2, 4, 8, etc.), and chaos. As there are increases in both $\beta$ and $\lambda$ we will see a population begin to skirt towards more uncertainty and fluctuation due to the increase in these parameters. The main category of data obtained was for insects and not mammals or birds due to them having overlapping generations not suitable for use of the discrete model (a continuous model must be used).  
   
-Their results show that there is not much oscilitory population growth in the insects investigated, and that only one species was found to have chaotic growth (bloat flies). The rest of the species (22 out of the 27) showed monotonic damping growth, two had dampening oscillation grwoth, 1 had a stable limit cycle, and 1 had chaotic growth. They hypothesize that the chaotic outlier is there due to the 'scrambling' of resources that occur due to their very high $\lambda$ and $\beta$ which are cuased by the high fecundity of the population.  
+Their results show that there is not much oscillatory population growth in the insects investigated, and that only one species was found to have chaotic growth (bloat flies). The rest of the species (22 out of the 27) showed monotonic damping growth, two had dampening oscillation growth, 1 had a stable limit cycle, and 1 had chaotic growth. They hypothesize that the chaotic outlive is there due to the 'scrambling' of resources that occur due to their very high $\lambda$ and $\beta$ which are caused by the high fecundity of the population.  
   
-The authors conclude that the discrete model is appropiate for population with non-overlapping generations and grown in a stable enviorment, but using results from the field could be an error since there are a lot of demographic effects which could skew the results and would require a continous model to accurately model them. They also conclude that chaotic growth is a rare occurence in the wild and that many cases of choatic growth could be hidden due to gene flow and that the popualtions would have to be very abundant.  
+The authors conclude that the discrete model is appropriate for population with non-overlapping generations and grown in a stable environment, but using results from the field could be an error since there are a lot of demographic effects which could skew the results and would require a continuous model to accurately model them. They also conclude that chaotic growth is a rare occurrence in the wild and that many cases of chaotic growth could be hidden due to gene flow and that the populations would have to be very abundant.  
   
 ####What is the relevance of their work for the May papers in question 1?   
   
-It is an application of the equations supplamented from the papers, and it is also a test to investigate the different population growth dynamics that were found in the paper (monotonic growth, choas, ect.). In the papers, May is explicit when he talks about how the discrete model cannot be easily applied in nature and is more applicable for single species populations with little to no demographic influences. In order to gather data for these types of populations he turned to using data from various labaratory studies in order to reduce the amount of bias that can happened and removed any species with overlapping genreations.  
+It is an application of the equations supplemented from the papers, and it is also a test to investigate the different population growth dynamics that were found in the paper (monotonic growth, chaos, etc.). In the papers, May is explicit when he talks about how the discrete model cannot be easily applied in nature and is more applicable for single species populations with little to no demographic influences. In order to gather data for these types of populations he turned to using data from various laboratory studies in order to reduce the amount of bias that can happened and removed any species with overlapping generations.  
   
-His resutls have shown that the discrete model is applicable to labaratory datasets, but was surprised to find a little population dynamics outside of the monotonic dampening. The authors concluded that population flucuations outside of monotonic dampening are rare for single species populations and that if there are flucuations besides the monotonic dampoening that this may be caused by the lack of gene flow and that there may be an abundance of populations for these species that reduces the chances of anything but monotonic dampening.  
+His results have shown that the discrete model is applicable to laboratory data sets, but was surprised to find a little population dynamics outside of the monotonic dampening. The authors concluded that population fluctuations outside of monotonic dampening are rare for single species populations and that if there are fluctuations besides the monotonic dampening that this may be caused by the lack of gene flow and that there may be an abundance of populations for these species that reduces the chances of anything but monotonic dampening.  
   
 ####What are some caveats?  
   
-- The application of the disrete growth model is suffient for modeling labaratory speices growth, but one must be sure that the species is applicable (low rates of dispersal due to gene flow, non-abundant populations)  
+- The application of the discrete growth model is sufficient for modeling laboratory species growth, but one must be sure that the species is applicable (low rates of dispersal due to gene flow, non-abundant populations)  
   
-- Mammals and other multigenerational species are not appropiate for this discrete model and a continous one should be used in its place.  
+- Mammals and other multigenerational species are not appropriate for this discrete model and a continuous one should be used in its place.  
   
-- Choatic fluxuation may be explained by constraining the population from geneflow or by constraining it to a single population where by the overgorwth and decline, due to density dependence, is exentuated.  
+- Chaotic fluctuation may be explained by constraining the population from gene flow or by constraining it to a single population where by the overgrowth and decline, due to density dependence, is extenuated.  
   
 
 ##GKE questions for Justin Rigby, from Joe Thornton  
@@ -106,44 +106,44 @@ His resutls have shown that the discrete model is applicable to labaratory datas
   
 ####Explain the justification for using maximum parsimony as a criterion for evaluating hypotheses of phylogeny.  
   
-Maximum parsimony is considered to be one of the basal ways to be a tree from character data. The purpose of the maximum parsimony methodology is to construct a tree from the data which is the minimal number of steps needed in order to construct a tree (L = 120 vs L = 130) from character-states, and the minimal amount of homoplasies are used in constructing the tree. The tree itself is not statistically the best tree for the data, but it does represent the prefered hypothesis given the data.  
+Maximum parsimony is considered to be one of the basal ways to be a tree from character data. The purpose of the maximum parsimony methodology is to construct a tree from the data which is the minimal number of steps needed in order to construct a tree (L = 120 vs L = 130) from character-states, and the minimal amount of homoplasies are used in constructing the tree. The tree itself is not statistically the best tree for the data, but it does represent the preferred hypothesis given the data.  
 
-The logic behind this lies in the philosophical hypothesis of Occam's Razor wherby the simplest answer for the given hypothesis should be selected. Meaning, whichever tree takes the lowest number of steps to create is considered to be the 'best' tree. 
+The logic behind this lies in the philosophical hypothesis of Occam's Razor whereby the simplest answer for the given hypothesis should be selected. Meaning, whichever tree takes the lowest number of steps to create is considered to be the 'best' tree. 
   
-The MP is calculated through different methdologies; primarily the up-pass and down-pass methods for calculating the MP tree. Other methods can be used alongside the MP tree (bootstraps and jack knifes), but they are used in the actual calcualtion of the MP tree and are just supplamental statistics to be used in conjunction with the MP tree.  
+The MP is calculated through different methodologies; primarily the up-pass and down-pass methods for calculating the MP tree. Other methods can be used alongside the MP tree (bootstraps and jack knifes), but they are used in the actual calculation of the MP tree and are just supplemental statistics to be used in conjunction with the MP tree.  
   
-Maximum parsimony is great for quickly building a viable tree for character-data, but it also has some major flaws. The biggest flaw, pointed out by Felstein 1978, was the problem of long branch attraction conferring incorrect trees. Long branch attraction is caused by infered rapid evolution (substitution for a site) for two taxa which in turn leads them to become joined in the same clade irregardless of the other branches.  
+Maximum parsimony is great for quickly building a viable tree for character-data, but it also has some major flaws. The biggest flaw, pointed out by Felstein 1978, was the problem of long branch attraction conferring incorrect trees. Long branch attraction is caused by inferred rapid evolution (substitution for a site) for two taxa which in turn leads them to become joined in the same clade irregardless of the other branches.  
    
 ####Explain the justification for using maximum likelihood as a criterion for choosing phylogenies.    
   
-MP is justified by how it intends to find the shortest tree, using the logic of Occam's Razor, and that it also has the lowest number of homoplasy occuring in the branches of the tree. It does not posit that it finds the 'true tree' or that it is 'statistically significant' but does use the logic of reducing the amount of substituions necessary becuase they are very rare occurance -- especially to be fixed.  
+MP is justified by how it intends to find the shortest tree, using the logic of Occam's Razor, and that it also has the lowest number of homoplasy occurring in the branches of the tree. It does not posit that it finds the 'true tree' or that it is 'statistically significant' but does use the logic of reducing the amount of substitutions necessary because they are very rare occurrence -- especially to be fixed.  
   
 ####Formally define the likelihood of a phylogeny and describe how it is calculated.   
   
 The definition of likelihood is: the probability of observing the data given the model ($P(D|M) = P(D|T, M)$). The model, in the case of phylogenentics, refers to a substitution model of some kind. The final product gives a tree with the most probability
   
--Jukes-Cantor Model 1963: One of the simplest models where the frequency of each basepair substituion is equal. $L_{JC69} = (0.25)^{N_{Bp}}$  
+-Jukes-Cantor Model 1963: One of the simplest models where the frequency of each base pair substitution is equal. $L_{JC69} = (0.25)^{N_{Bp}}$  
 
--Kimura 1980: This model considers each basepair to have equal basepair frequency for all possibilities, but has an additional free parameter which considers the rate of transversions/transitions which is used a coefficent for every basepair.  
+-Kimura 1980: This model considers each base pair to have equal base pair frequency for all possibilities, but has an additional free parameter which considers the rate of transversions/transitions which is used a coefficient for every base pair.  
   
--Felstein 1981: This model allows the basepair fequencies to vary based upon their frequency in the data set.  
+-Felstein 1981: This model allows the base pair frequencies to vary based upon their frequency in the data set.  
   
-In order to calculate the likelihood one must first determine which model of substituion is the most likely by using each model to create the most likely tree indepenently. Afterwhich they are compared pairwise using the likelihood ratio statistic in order to find out which of the models best explains the data in a likelihood context. 
+In order to calculate the likelihood one must first determine which model of substitution is the most likely by using each model to create the most likely tree independently. After which they are compared pairwise using the likelihood ratio statistic in order to find out which of the models best explains the data in a likelihood context. 
   
-The trees are created by search the 'tree space' via buildign multiple itterations of possible trees pairwise -- which can be extremely computationaly intensive due to the sheer amount of trees possible to be constructed. This is reduced by using different pruning methodologies in order to determine the most likely clades give the data and model. These are called the subtree pruning and regrafting and the nearest neighbor interchange. Each one of these allows the number of trees in tree space which fit the data are drastically reduced. After the substituion model and pruning methodology is determined the algorithimn builds many different trees and calculates the likelihood for eahc tree and comapres it to the likelihood distribution. Eventually, the most likely tree, generally the tree which sits upon the maximum of the inverted parabola of all possible trees, is chosen for that particular model and pruning system.   
+The trees are created by search the 'tree space' via building multiple iterations of possible trees pairwise -- which can be extremely computationally intensive due to the sheer amount of trees possible to be constructed. This is reduced by using different pruning methodologies in order to determine the most likely clades give the data and model. These are called the sub-tree pruning and re-grafting and the nearest neighbor interchange. Each one of these allows the number of trees in tree space which fit the data are drastically reduced. After the substitution model and pruning methodology is determined the algorithm builds many different trees and calculates the likelihood for each tree and compares it to the likelihood distribution. Eventually, the most likely tree, generally the tree which sits upon the maximum of the inverted parabola of all possible trees, is chosen for that particular model and pruning system.   
   
 ####Review arguments for and against MP vs. ML — the strengths and liabilities of each approach, and techniques and arguments to mitigate those liabilities.  
   
 Maximum Parsimony  
-For: Maximum parisomony is a methodology that tries to find the most viable tree via creating the smallest tree using up/down passing and neighbor joining. This methodology is concrete, and gerneally leads to an accurate tree when compared to ML (DeBry and Abele 1995). Another positive trait of MP is that as the amount of character data increases, the better the chances are of creating the true tree of the phylogeny.  
+For: Maximum parsimony is a methodology that tries to find the most viable tree via creating the smallest tree using up/down passing and neighbor joining. This methodology is concrete, and generally leads to an accurate tree when compared to ML (DeBry and Abele 1995). Another positive trait of MP is that as the amount of character data increases, the better the chances are of creating the true tree of the phylogeny.  
   
-Against: MP can create accurate trees from data, but it has a large drawback fo long branch attraction. LBA is very common in MP trees and can lead to errors in the buildign of the tree accoridng to Felstein (1978). If there are more than two very long branches it is more than likely to have a tree returned with LBA occuring in clades. Alongside LBA, MP is not a statistical evaluation of the most probable tree, but instead relies on occums razor as an explanation as to why the MP is close to the true tree. It is an inference based upon data and the logic that substituions are rare, and that homoplasy is not a common occurance in phylogenies. This can be solved however by using the SAW method devolped by Siddall and Whiting 1998 in order to reduce the amount of LBA occuring in the phylogeny.   
+Against: MP can create accurate trees from data, but it has a large drawback of long branch attraction. LBA is very common in MP trees and can lead to errors in the building of the tree according to Felstein (1978). If there are more than two very long branches it is more than likely to have a tree returned with LBA occurring in clades. Alongside LBA, MP is not a statistical evaluation of the most probable tree, but instead relies on occums razor as an explanation as to why the MP is close to the true tree. It is an inference based upon data and the logic that substitutions are rare, and that homoplasy is not a common occurrence in phylogeny. This can be solved however by using the SAW method devolved by Siddall and Whiting 1998 in order to reduce the amount of LBA occurring in the phylogeny.   
   
   
 Maximum Likelihood.
-For: Maximum likelihood is similar to MP in that it tries to recover the true tree, but does so in a different manner. It uses an additional parameter, the rate of subsitutions, in order to guide the creation of the different trees in 'tree space'. Unlike MP it can also be used in statistical tests, the Likelihood Ratio Test, in order to determine which model of sequence substitution is the most accurate. It also does not infer the tree using up/down passes, but instead searches tree space for a tree which fits the substituion model and the data.  
+For: Maximum likelihood is similar to MP in that it tries to recover the true tree, but does so in a different manner. It uses an additional parameter, the rate of substitutions, in order to guide the creation of the different trees in 'tree space'. Unlike MP it can also be used in statistical tests, the Likelihood Ratio Test, in order to determine which model of sequence substitution is the most accurate. It also does not infer the tree using up/down passes, but instead searches tree space for a tree which fits the substitution model and the data.  
   
-Against: It can be very computationally intensive to create every possible tree -- getting up into NP hard -- and can take weeks in order to fidn the ML tree given the data. It is also constrained by the need for every sequence to be aligned, which can create NULL and wildcard sites in the sequences, and can create unintended consequences in the results.  
+Against: It can be very computationally intensive to create every possible tree -- getting up into NP hard -- and can take weeks in order to find the ML tree given the data. It is also constrained by the need for every sequence to be aligned, which can create NULL and wildcard sites in the sequences, and can create unintended consequences in the results.  
   
   
 ###2.  The neutral theory  
@@ -153,7 +153,7 @@ Initial frequency of a new mutations is $\frac{1}{2N}$
   
 In a population undergoing genetic drift the probability of fixing the neutral mutation/allele is simply equal to its initial frequency in the population (for a new allele it is $p_0 = \frac{1}{2N}$)  
    
-The chance of any allele to receive a mutation is equal to $\mu_0$ (or in other words what is the rate of substituion?).  
+The chance of any allele to receive a mutation is equal to $\mu_0$ (or in other words what is the rate of substitution?).  
   - Derived: $\lambda = \mu_0 * p_0 = (2N\mu)*p_0 = (2N\mu)(\frac{1}{2N}) = \mu$  
     $p_0: Probability of Fixation$  
     $\lambda: Rate of Substitution$  
@@ -161,9 +161,9 @@ The chance of any allele to receive a mutation is equal to $\mu_0$ (or in other 
     
 The major tenets of the neutral theory (Kimura 1968) are that:  
   
-(1) Neutral alleles/mutations are mutations within the genetic code of an organism which do not confer advantage or disadvantage to survival and reproduciton.   
+(1) Neutral alleles/mutations are mutations within the genetic code of an organism which do not confer advantage or disadvantage to survival and reproduction.   
   
-(2) Most evolutionary changes that occur in the genome are the result of 'neutral mutations' which occur due to the redundency in the genentic code for encoding amino acids and propegate throughout the population through genetic drift.  
+(2) Most evolutionary changes that occur in the genome are the result of 'neutral mutations' which occur due to the redundancy in the genetic code for encoding amino acids and propagate throughout the population through genetic drift.  
   
 (3) Most of the variation seen in populations is the results of neutral mutations segregating throughout the population leading to polymorphisms with no effects on fitness or survival.  
   
@@ -174,65 +174,120 @@ The major tenets of the neutral theory (Kimura 1968) are that:
   
 Population Genetic Level:  
   
-A mutation may be considered to be neutral if the inequality ($|s| < 0.001$) (Nei 2005) is satisfied. Neutral mutations are defined as mutaitons which cause either no, or a very minor, impact on the fitness of the indiviual. This is due to Tomako Ohta's (1973) work on the nearly neutral mutation positing that mutations which confer a miniscule deleterious effect may themselves behave as a neautral mutation and may fix in smaller popualtions due to genetic drift.   
-  - Previously, Kimura designated the inequality to be: $|2Ns| < 0.001$ (Kimura 1968), but it was found to be too strigent and can be subjected to false negatives.  
-  - From Drosophila population data we have determined that the molecular clock hypothesis is best explained by the advent of neautral mutations occuring throughout a population over time -- including meioses based mutations and UV ect. -- and that itbest explains why there can be so many mutations occuring in long lived species which are not deleterious and explains why the genome is not overrun with deleterious mutations.  
+A mutation may be considered to be neutral if the inequality ($|s| < 0.001$) (Nei 2005) is satisfied. Neutral mutations are defined as mutations which cause either no, or a very minor, impact on the fitness of the individual. This is due to Tomako Ohta's (1973) work on the nearly neutral mutation positing that mutations which confer a minuscule deleterious effect may themselves behave as a neutral mutation and may fix in smaller populations due to genetic drift.   
+  - Previously, Kimura designated the inequality to be: $|2Ns| < 0.001$ (Kimura 1968), but it was found to be too stringent and can be subjected to false negatives.  
+  - From Drosophila population data we have determined that the molecular clock hypothesis is best explained by the advent of neutral mutations occurring throughout a population over time -- including meiosis based mutations and UV etc. -- and that it best explains why there can be so many mutations occurring in long lived species which are not deleterious and explains why the genome is not overrun with deleterious mutations.  
   
 Biochemical Level:  
   
-
+The rate of amino acid substitution is equal to $r$  
+The proportion of functionally unimportant amino acids is $f$  
+The mutation rate is equal to $v$  
+  
+$\therefore~~~r = f v$  
+  
+The biochemical viewpoint posited by molecular biologists is that neutral mutations do not occur at equal frequencies among the genome, but instead occur more readily in areas of the protein which exhibit no real affect on the actual function of the protein. However, this does not say that neutral mutations do not occur in the functional sites of the protein and is instead just a mathematical definition.   
   
 ####Describe  its current status given the evidence about molecular evolutionary patterns and processes.  
   
+Currently, the status of neutral theory is that it is widely accepted as valid. However, their has been some some controversy on its validity from early studies of genomic/allele evolution which found evidence of positive selection in otherwise 'neutral' locations within many vertebrates (Studer et al. 2008). This was perplexing to researchers since their research was showing that there was bouts of positive selection occurring throughout the genome which could not be explained by the neutral theory. Alongside this, there was also new framework of studying protein evolution where researchers would also find supposed 'neutral sites' as positions that are undergoing positive selection. However, Nei  2010 showed that many of the models used to test for positive selection has drawbacks. The paper discuss 
   
+The McDonald-Remittance test was put forth by McDonald and Kreitman in 1991 in his work with drosophila evolution with the alcohol de-hydrogenous gene. One would expect not to find most of the genes are undergoing major positive selection -- however this is a result that would find multiple times (Fey et al 2001). Where the Baines and Parsch 2008 showed that slightly deleterious, or from the lens of neutral theory, a nearly neutral, will end up giving a false positive for positive selection in the genome using the MK Test. Upon correcting the model, or using an entirely new model which accounts for this, the results show that the proteins and alleles investigated are not actually undergoing positive selection and are instead nearly neutral mutations conferring no significant effect on survival or reproduction -- fitness.  
   
 ###3. Epistasis  
 ####Define the term.  
   
-  
+Episatsis is where the effect of one gene is dependent on the presence of one or more modifier genes.
+  -Remember the baldness excessive -- it is really clear and straight forward.
   
   
 ####Describe how it can be detected.   
   
+- Through the machine learning technique of Multifactor Dimensionality Reduction which takes in data of the interaction genes and runs it through an exhaustive XOR gate challenge -- using applications like the MDR packed for R (see Winham 2012).  
   
-  
+- Another approach is through brute force either by computational or hands on terms.  
   
 ####Discuss the implications of epistasis for evolutionary processes.  
    
-   
-   
-   
-   
-   
+It has a major implication for the evolutionary trajectory for individual genes due to the fact that if they cannot perform their duties properly (like an enzyme and its substrate not interacting) it can have major consequences for the signal cascade. That being said, there may be mutations that allow for protein to have higher efficiency, but it may not interact with the protein it is epistatic to -- the converse is also true. Many researchers have showed various examples of epistasis in action through genetic knock outs and knock ups.  
+  
 ####Give an overview of mechanisms that can cause general and specific epistasis within and between loci.  Use examples in these discussions.   
   
+- One example of epistasis being evolved is shown in Bridgham et al. 2006 where a gene duplication event allowed the duplicated genes to undergo neo-functionlization leading to form a glucocorticoid receptor and a mineralocortocoid receptor. They both evolved from a common ancestral gene which was responsible for an ancestral corticoid.  
   
+- Epistasis itself can also control the evolutionary path of some proteins, such as the IMDH (beta-isopropylmalate dehydrogenase) which was shown to have a specificity shift in the specificity for NAD to NADP in Miller et al 2006. It was found many different kinds of mutations switched the affinity for NAD to NADP showing that it has two paths that it could theoretically go down and can be seen as a generalist.  
   
   
 ##GKE questions for Justin Rigby, from Marcus Kronfurst  
   
 ####What forms of selection can be inferred from population genetic data?
   
+Purifying Selection:  Looking at the Dn/Ds rations, or the omega, of the sequences in questions. A ratio of less than 1 is considered to be evidence of negative selection in a population.
   
+Directional Selection: Can be found using the Tajima's D model for positive selection or the MK-Test for appropriate data sets.  
+  
+Neutral Selection: The HKA test is used for looking at the neutral effects of sequence evolution by looking at the divergences between loci and the number of polymorphisms present in order to determine if they happened by genetic drift alone, if they are neutral, and if there is balancing selection taking place.  
+  
+Balancing Selection: Again, the HKA test can determine if there is balancign seleciton occuring within a popualtion -- which is the phenomena whereby the frequency of certian alleles in a population are kept at levels which are higher than what would be predicted by genetic drift.  
+  
+Disruptive Selection: Field experiments surveying a population of organisms which are thought to have a gene of interest which is undergoing disruptive selection. Must first genotype many organisms in the population to the point of statistical power. Plot histrograms and curves for the freuqencies of each allele for that particular gene.  
+   
 ####How are different forms of selection detected and measured from population genetic data?  
   
+Purifying Selection:  Looking at the Dn/Ds rations, or the omega, of the sequences in questions. A ratio of less than 1 is considered to be evidence of negative selection in a population.
   
+Directional Selection: Can be found using the Tajima's D model for positive selection or the MK-Test for appropriate data sets.  
   
+Neutral Selection: The HKA test is used for looking at the neutral effects of sequence evolution by looking at the divergences between loci and the number of polymorphisms present in order to determine if they happened by genetic drift alone, if they are neutral, and if there is balancing selection taking place.  
+  
+Balancing Selection: Again, the HKA test can determine if there is balancign seleciton occuring within a popualtion -- which is the phenomena whereby the frequency of certian alleles in a population are kept at levels which are higher than what would be predicted by genetic drift.  
+   
+Disruptive Selection: Field experiments surveying a population of organisms which are thought to have a gene of interest which is undergoing disruptive selection. Must first genotype many organisms in the population to the point of statistical power. Plot histrograms and curves for the freuqencies of each allele for that particular gene.  
   
 ####How much of the genome is shaped by adaptive evolution?  
   
   
 ####What is the neutral theory of molecular evolution?  
   
+  Initial frequency of a new mutations is $\frac{1}{2N}$  
   
+In a population undergoing genetic drift the probability of fixing the neutral mutation/allele is simply equal to its initial frequency in the population (for a new allele it is $p_0 = \frac{1}{2N}$)  
+   
+The chance of any allele to receive a mutation is equal to $\mu_0$ (or in other words what is the rate of substitution?).  
+  - Derived: $\lambda = \mu_0 * p_0 = (2N\mu)*p_0 = (2N\mu)(\frac{1}{2N}) = \mu$  
+    $p_0: Probability of Fixation$  
+    $\lambda: Rate of Substitution$  
+    $\mu: Rate of Mutation$  
+    
+The major tenets of the neutral theory (Kimura 1968) are that:  
+  
+(1) Neutral alleles/mutations are mutations within the genetic code of an organism which do not confer advantage or disadvantage to survival and reproduction.   
+  
+(2) Most evolutionary changes that occur in the genome are the result of 'neutral mutations' which occur due to the redundancy in the genetic code for encoding amino acids and propagate throughout the population through genetic drift.  
+  
+(3) Most of the variation seen in populations is the results of neutral mutations segregating throughout the population leading to polymorphisms with no effects on fitness or survival.  
+  
+(4) These mutations themselves are a source of confirmation for the molecular clock theory due to the predictability of the substitutions.  
   
 ####Currently, there is debate as to whether genome evolution is largely neutral or not.  
   
 What is the evidence in favor or neutrality?  
   
+The main idea behind neutrality having the most effect on the size and evolution of the genome is that genome size increases in many cases due to transposable insertion and gene duplication. The transposons, both the retrotransposons and the standard transposons, both contain spaces comprising tandum repeats which can be as large as genes in some cases. Transposons can duplicate themselves in the genome via transposase and this in turn increases the size of the genome. Seeing as these are not genes, it is assumed that they are neutral and do not contribute to fitness. This alongside ploidy duplicaiton events are what are considered to be the neutral way that the genome evolves.  
+  
 What is the evidence in favor of selection?  
+  
+The idea of selection rests on the idea of speciation and evolution driving the increase in teh size of the genome. Brawand et al 2014 looked at a species of chichlid fish where a recent speciation event occured. Both genomes of fish species were sequenced and then comapred. From that data the authors concluded that subsequent events of gene duplication (and neofunctionalization) along with relaxed purifying selection was the catalyst for selection of novel genes. This alongside mass icnreases in non-coding regions, increase in novel miRNAs, and expression divergence due to relaxed purifying selecitosn were the culprite behind the increase in genome size.  
   
 Is one interpretation better supported by available data?  
   
-####What data, other than population genetic data, can be brought to bear on this debate?  
+The Brawand et al 2014 paper is a good example of selection based genome evolution. It shows evidence of relaxed purifying selection which leads inturn to increase the genome size due to gene duplicaiton events coinsiding with neo functionalization. This hypothesis also has more merit because we know that there are nearly neutral locations in the genome according to Ohta 1983 which would lead to even more sequence divergence and evolution over time.  
+  
+####What data, other than population genetic data, can be brought to bear on this debate?    
+  
+Other data can include multispecies analysis of a known lineage which ahs undergone rapid genome expansions in a short amount of time. This could be down through whole genome analysis of different species in a known lineage to first to find all homologs and paralogs of the species, then you could loook at the other regions of hte genome which are not found to be a paralog or ortholog and begin to characerize the rest of the genome looking for instances of transposon activity. 
+  
+- A good example of this is whole genome duplicaiton events which occur in plants and bacterium which increases the size of the genome by large factors.  
+- Another thing to investigate would be to see how much of the genome is comprised of transposable elements as these are another culperit of genome expansion.    
+  
   

@@ -1,0 +1,16 @@
+Multilayer Networks Kivela et al. 2014
+--------------------------------------------------------
+
+Abstract
+--------
+- The use of multilayer networks for analysis has begin to be applied to multiple disciplines in netowrk theory. The authors then begin to take a very basal look at the applications of multilayer networks.
+
+- THe authors discuss also how single-layer netowrks can be combined together, and used, in order to create multilayer networks
+	- There is an emphasis on usign extant datasets and to also do meta-analysis of networks.
+
+
+Introduciton
+------------
+- Table 1
+	- For multilayer networks, we must align the nodes of each layer in order to perform the anaylsis -- this also inc(I am not sure if this is still applicable). 
+	- Alongside that the layers must also be of equal size and have diagnals present in the matrix.  

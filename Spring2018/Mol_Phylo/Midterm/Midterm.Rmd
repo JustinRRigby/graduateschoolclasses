@@ -11,13 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 1. Cladists choose as the best inference of phylogeny the tree that requires the fewest evolutionary character changes. Why? How do they justify this criterion?  
   
-  
-  
-  
-  
-  
-  
-  
+When reconstructing phylogenies, from a cladists point of view, the intent is to return the most parsimonious tree which reflects the evolution of the species. We intend to create trees with the least amout of character changes since we assume that mutations are rare occurences and that the least amount of character changes to reconstruct the tree. They justify the tree since cladists rely on Occums Razor, which states that the simplest hypothesis is the most likely hypothesis, which in turn agrees with the idea that mutations are rare.  
   
   
 2. Please identify the following statement as true or false and justify your answer briefly.  
@@ -31,7 +25,7 @@ Bear| Valine
 Cat | Leucine  
   
 ```{r}
-library('ape')
+library(ape)
 
 tree.newick <- '((Wolf_Ala, Fox_Ala), Bear_Val, Cat_Leu);'
   tree.newick <- read.tree(text = tree.newick)
@@ -39,9 +33,7 @@ tree.newick <- '((Wolf_Ala, Fox_Ala), Bear_Val, Cat_Leu);'
 
 ```
   
-  
-  
-  
+False. These character states for the species are not phyllogenetically informative due to the fact that only two of the species (the Wolf and the Fox) share a similar character state (Alanine), but the Cat and Bear species do not share a similar character state with each other or with any other species. We can see that the tree recapitulated is one which does not resolve the actual phylogenetic relationship.  
   
   
 3. Suppose you are interested in the relationships among mammalian orders. You sequence the gene cytochrome oxidase II from species in the various orders. You calculate for every pair of DNA sequences the percent of sites that differ between the two sequences. Professor Lockhart, your molecular biology professor, proposes to use UPGMA and neighbor-joining on the resulting distance matrix to infer the mammalian phylogeny.  
@@ -49,38 +41,74 @@ tree.newick <- '((Wolf_Ala, Fox_Ala), Bear_Val, Cat_Leu);'
    
 a.  What are some reasons that UPGMA might yield a tree other than the true one as the best inference of phylogeny?
    
-   
+UPGMA has a few drawbacks when it is used to construct a tree. Namely, the trees created from the UPGMA algorithmn are ultrametric -- meaning the length  from the roots to the tips is the same. This is further compounded due to UPGMA assuming the same evolutionary speed on all lineages due to the assumption of a molecular clock dictating the rates of evolution. Both of these combine together to affect the chances of the true tree being returned, and end up causing false trees to be constructed from the data.    
    
     
 b.  What are some reasons that NJ might yield a tree other than the true one as the best inference of phylogeny?  
    
-   
+The neighbor joining algorithmn may not lead to the true tree due to the problem of negative branch lengths being assigned to taxa in the tree while the searching algorithmn tries to find the tree with the shortest $\Sigma b_{tree}$ for the entire tree. Another issue is that NJ requires the input data to be nearly additive, where the NJ algorithmn requires that each entry in the distance matrix must be less half the size of the smallest branch on the true tree. Since the true tree is not known, the abiltiy for researchers to control for this is quite small.  
   
 4. You analyze the phylogenetic relationships among rodents and rabbits using DNA sequences of the epidermal growth factor (EGF) gene. You have EGF sequences from 21 species: one guinea pig species and two from each of the other major rodent families (squirrels, beavers, mice/rats, pocket gophers, mole rats, and jerboas (jumping mice)), as well as two species of rabbit (which are lagomorphs, not rodents). In addition, you have EGF sequences from three species of bats and two primates as outgroups. As is found for many genes, the guinea pig sequence appears to be very fast-evolving. Its uncorrected pairwise differences with each of the other ingroup taxa are 50-60%, while most of the other taxa have ~20-30% pairwise differences from each other.  
   
+- 1 x Guinea Pig                                                            | Rodentia  
+- 2 x Squirrels, Beavers, Mice/Rats, Pocket Gophers, Mole Rats, and Jerboas | Rodentia  
+- 2 x Rabbits (Non-rodentia)                                                | Non-rodentia  
+- 3 x Bats (Outgroup)                                                       | Non-rodentia    
+- 2 x Primates (Outgroup)                                                   | Non-rodentia    
   
 a.  Do these observations give you reason to be concerned that the nonmonophyly of rodents is an artifact of error in the phylogenetic method rather than the true tree? Please explain why or why not.  
   
+The results for Guinea pig EGF gene is surprising, but it by itself is not a valid proxy for reconstructing the ancestral true tree. From the results gathered, the results tell us that there is >50% pair-wise difference between the guinea pig sequence and the other sequences in the analysis. Which indicates that there are differences between the sequences which are greater than expected from what was seen between the other taxa (20-30%). This large difference could be caused by a change in selection, either an icnrease in positive selection or relaxed selection (neutral or nearly neutral), which lead to differences accumulating between the sequences over time due to stochastic or ecological effects. Thus, the fast evolution of the sequences can either be caused by the relaxing of selection or positive selection affecting the guinea pig EGF locus.  
   
 b.  What can you do to investigate whether your finding is likely to be an artifact or the true phylogeny? Please suggest three strategies you can use to shed light on this problem. Be specific about how you will interpret the results of your research (i.e., result is X would provide evidence that H1 is true, because..).  
+   
+1. The first test which can be performed would be the inclusion of multiple genes instead of just the EGF gene. Previous studies have shown that phylogenies constructed from just a few genes may lead to phylogenetic errors due to differing neutral evolution rates and stochasticity in selection rates. By using more than one gene the signal to noise ratio can be reduced leading to the elucidation of a proper tree. The inclusion of more genes to be analyzed alongside the EGF would lead to a more robust dataset and can lead to the reconstruction of the true tree. We would expected to see the the nonmonophyl rodents from the original EGF tree to be collapased into a single monophyletic clade.    
   
+2. The second test would be to run the original dataset through multiple likelihood iterations using different models of sequence evolution (JC69, F81, ect.), and then to perform likelihood ratio tests to determine which substituion model is most applicable to the data set. This will yield mutliple trees due to the different substituion models used, but after the likelihood ratios are calculated we would have the most likely tree given the data and model. This in turn can lead to the collapsing of rodentia into a monophyletic group.  
   
-  
+3. Another methodology is to to perform the likelihood tests as normal, but alongside the normal tests a bootstrap support is calculated from the data. While bootstraping is useful for determining the frequency of a clade in the searched tree space, it does not give a statistical or probability for the clade being true. It instead can give the relative ratio of the frequnecy of this clade when searching tree space. A clade with >70 support is inferred from the bootstrap hypothesis to be supported as the most possible clade given the data and parameters. Although it cannot confirm the clade as being the most likely or most probable, it can show the trend of the clade.  
+   
   
 5. You are interested in determining whether the Ecdysozoa/Lophototrochozoa hypothesis for the phylogeny of bilaterally symmetric animals is correct. You address this problem using the sequences of the RNA polymerase II (RNApol) gene, which you have obtained from 75 animal taxa, including 2 cnidaria, 3 nematodes, 40 vertebrates, 20 insects, 5 mollusks, 2 echinoderms, and 3 annelids. You use both parsimony and maximum likelihood methods.  
   
+- 2 x Cnidaria  
+- 3 x Nematodes  
+- 40 x Vertabrates  
+- 20 x Insects    
+- 5 x Mollusks  
+- 2 x Echinoderms  
+- 3 x Annelids  
   
-  
-  
-  
+Maximum Parsimony and Maximum Likelihood were used to calculate/build the tree.  
+    
 a.  Please describe how you will choose a model for your analysis. Be specific and justify your approach.  
   
-  
+In order to choose the model to be used in maximum likelihood I will first run the anaylsis using the most basic model, the Jukes-Cantor 1969 model of sequence evolution, which will be the most basal model used in the analysis -- or the null model. Afterwhich, I will conduct the maximum likelihood analysis using the other possible models of sequence evolution (F81, HKY84, GTR, GTR + $\Gamma$, ect.), which will then be analyzed using the likelihood ratio formula;  
+$LR = 2*\frac{ln(H_1)}{ln(H_0)}$  
+Which will end up givng us a value to be used in the $\chi^2$ statistical test. If the LR is positive, we will be able to use this value to compute the statistical chance that the alternative model (F81, HKY84, GTR, GTR + $\Gamma$, ect.) is a better model versues the null model. If found to be statistically significant (p-value < 0.05), we can expect the alternative model to be the most likely model. It is then used as the 'null model' in the next likelihood ratio performed. This is continued until the most likely model is selected from the pool of models aplicable to the data set.  
   
 b.  Suppose you conduct both bootstrap and likelihood-ratio analyses. The ML tree contains a clade of coelomates (deuterostomes, arthropods, annelids, and mollusks), to the exclusion of nematodes and Cnidaria. You find that the node that contains coelomates is labeled with the number 66 for bootstrap, and with 3.8 for the likelihood ratio statistic. Explain what each of these results means. Also, explain and justify how much confidence you now have that Ecdysozoa is a true clade.    
+[Ecdysozoa = Coelmates]  
   
+Bootstrap  
+The bootstrap value of 66 indicates that 66% of the trees constructed showed these two species as a clade. The bootstrap methodology is not a statistical or likelihood test, but it is considered to be a very conservative test where any value >70 is considered to be a possible clade. Seeing as this clade has a value of 66, we can assume that the support for this clade is not very supported from the bootstrap method.  
   
+Likelihood Ratio Statistic  
+The likelihood ratio stastic is a value which is equivalent to a $\chi^2$ input value and can be used to calculate the probability that the alternative model is true, and thtat the null model is false. Having a statistically significant likelihood ratio also gives moderate support to the clade since it indicates that this tree is more likely to be the true tree compared to the previous model.
+```{r}
+#If the degrees of freedom is at its lowest possible value -- 1
+dchisq(3.8, 1)
+```
+If the difference in the degrees of freedom for both models (eg $H_0 = 0$ and $H_1 = 1$ where, $H_1 - H_0 = 1$ then this is a statistically significant finding and the alternative hypothesis is the most likely model to show the true tree).  
   
+```{r}
+#If the degrees of freedom is 2
+dchisq(3.8, 2)
+```
+If the difference in the degrees of freedom for both models (eg $H_0 = 0$ and $H_1 = 2$ where, $H_1 - H_0 = 2$) then this is not a statistically significant finding and the null model is the most likely model to be correct.  
+  
+Synthesis  
+From the bootstrap value and the likelihood ratio statistic, I am not convince that this is the correct clade. The bootstrap value is very low for this clade, and the likelihood ratio statistic is given without the degrees of freeedom associated with it. Even if the degrees of freedom was 1, which would lead to a statistically significant result, I would still not be fully convinced due to the low bootstrap value and the p-value being barely significant.  
   
 c.  Suppose you also perform parsimony-based analysis, which also results in a clade consisting of coelomates, to the exclusion of nematodes and Cnidaria. The clade has decay index D=17 and a bootstrap value of 94. How do you interpret these results in relation to your findings in part b? Given these results, what do you conclude about this phylogenetic question?  
   

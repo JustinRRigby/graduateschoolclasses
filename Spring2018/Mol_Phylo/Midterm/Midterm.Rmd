@@ -1,0 +1,90 @@
+---
+title: "Mol_Phylo_Midterm"
+author: "Justin Rigby"
+date: "20 May 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Cladists choose as the best inference of phylogeny the tree that requires the fewest evolutionary character changes. Why? How do they justify this criterion?  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+2. Please identify the following statement as true or false and justify your answer briefly.  
+  
+The amino acid character shown below is phylogenetically informative in a cladistic framework. (Be sure you explain the meaning of "phylogenetically informative" as part of your answer).  
+  
+  
+Wolf| Alanine  
+Fox | Alanine  
+Bear| Valine  
+Cat | Leucine  
+  
+```{r}
+library('ape')
+
+tree.newick <- '((Wolf_Ala, Fox_Ala), Bear_Val, Cat_Leu);'
+  tree.newick <- read.tree(text = tree.newick)
+    plot(tree.newick)
+
+```
+  
+  
+  
+  
+  
+  
+3. Suppose you are interested in the relationships among mammalian orders. You sequence the gene cytochrome oxidase II from species in the various orders. You calculate for every pair of DNA sequences the percent of sites that differ between the two sequences. Professor Lockhart, your molecular biology professor, proposes to use UPGMA and neighbor-joining on the resulting distance matrix to infer the mammalian phylogeny.  
+   
+   
+a.  What are some reasons that UPGMA might yield a tree other than the true one as the best inference of phylogeny?
+   
+   
+   
+    
+b.  What are some reasons that NJ might yield a tree other than the true one as the best inference of phylogeny?  
+   
+   
+  
+4. You analyze the phylogenetic relationships among rodents and rabbits using DNA sequences of the epidermal growth factor (EGF) gene. You have EGF sequences from 21 species: one guinea pig species and two from each of the other major rodent families (squirrels, beavers, mice/rats, pocket gophers, mole rats, and jerboas (jumping mice)), as well as two species of rabbit (which are lagomorphs, not rodents). In addition, you have EGF sequences from three species of bats and two primates as outgroups. As is found for many genes, the guinea pig sequence appears to be very fast-evolving. Its uncorrected pairwise differences with each of the other ingroup taxa are 50-60%, while most of the other taxa have ~20-30% pairwise differences from each other.  
+  
+  
+a.  Do these observations give you reason to be concerned that the nonmonophyly of rodents is an artifact of error in the phylogenetic method rather than the true tree? Please explain why or why not.  
+  
+  
+b.  What can you do to investigate whether your finding is likely to be an artifact or the true phylogeny? Please suggest three strategies you can use to shed light on this problem. Be specific about how you will interpret the results of your research (i.e., result is X would provide evidence that H1 is true, because..).  
+  
+  
+  
+  
+5. You are interested in determining whether the Ecdysozoa/Lophototrochozoa hypothesis for the phylogeny of bilaterally symmetric animals is correct. You address this problem using the sequences of the RNA polymerase II (RNApol) gene, which you have obtained from 75 animal taxa, including 2 cnidaria, 3 nematodes, 40 vertebrates, 20 insects, 5 mollusks, 2 echinoderms, and 3 annelids. You use both parsimony and maximum likelihood methods.  
+  
+  
+  
+  
+  
+a.  Please describe how you will choose a model for your analysis. Be specific and justify your approach.  
+  
+  
+  
+b.  Suppose you conduct both bootstrap and likelihood-ratio analyses. The ML tree contains a clade of coelomates (deuterostomes, arthropods, annelids, and mollusks), to the exclusion of nematodes and Cnidaria. You find that the node that contains coelomates is labeled with the number 66 for bootstrap, and with 3.8 for the likelihood ratio statistic. Explain what each of these results means. Also, explain and justify how much confidence you now have that Ecdysozoa is a true clade.    
+  
+  
+  
+  
+c.  Suppose you also perform parsimony-based analysis, which also results in a clade consisting of coelomates, to the exclusion of nematodes and Cnidaria. The clade has decay index D=17 and a bootstrap value of 94. How do you interpret these results in relation to your findings in part b? Given these results, what do you conclude about this phylogenetic question?  
+  
+  
+  
+d.  Given all these results, what would you do next?  
+  

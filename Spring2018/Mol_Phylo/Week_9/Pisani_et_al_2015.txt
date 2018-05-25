@@ -1,0 +1,21 @@
+Introduction
+------------
+The main idea behind this paper is that the general accepted hypothesis about the most recent common anscestors to modern day animals is the sponge whihc split off from the rest of the animals that evolved complex neural systems and lead to modern day mammals. This paper, however, shows that the sponges may not acutally be the basal animal species that they were once thought to be, and instead a species of Ctenophora (comb jellies) are found to take the place of sponges in the phylogeny leading to the idea that sponges may have lost the 'complex' characters which was thought to seperate it from the animal lineage. This paper hopse to elucidate the true tree using proper analytical techniques and methods.
+
+	- Their analysis showed that the inclusion of the proper techniques for phylogenetic analaysis, using recently sequence genomes of Ctenophora, did not support the alternative hypotehsis, and instead supports the original hpyothesis that sponges are sister to the neural system animals.
+
+Potential Biases i nPhylogenetic Reconstruction
+-----------------------------------------------
+One of the biggest issues in PR is that the model of substitution used for the analysis does not always reflect nature and that certian amino acids may converge in different lineages due to biochemical constraints rather than function. This sort of error will cause unequal, and false, groupings of species.
+
+Another issue is the seleciton of an outgroup for the data. Using outgroups that are very distant from the in group (genetically) can cause the longer branches of the phylogeny (indicaitng fast rates of evolution) to be attracted to the outgroup creating artifacts in the results. In order to combat this, one method is to include additional species to 'break-up' the attraction (we saw this in the paper last week on Echinozoa where they used multiple different species in order to break up the LBA which caused an inaccurate phylogeny to be formed. 
+
+Gene loss in species is also another factor which can create artifacts in the results. Since it is impossible to determine which genes were lost, but we can account for this by using a correction that posits we cannot see this gene loss, but we must accoutn for it given the data.
+
+Results
+--------
+Used a model called the Ryan-Choano, Moroz-3D, and Whelan-6-Choano models which are models associated with site-homogenous and site-heterogenous using bayesian cross-validation. The Whelan-6-Choano model was found to have the highest likelihood given the data and also gives the sister taxa as porifera using fungi outgroups and other in order to break up long branch attraction.
+
+
+
+

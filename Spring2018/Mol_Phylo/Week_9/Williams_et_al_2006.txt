@@ -1,0 +1,22 @@
+Introduction
+------------
+
+An idea proposed by the paper is that current ARC algorithmns may actually lead to inproper conclusions about the ansceetral protein. They believe that ARC are sometimes overally conservative in how it determines which sequences are proper to add to the ARC -- particualry amino acids which would confer extra stability in the protein. The logic behind this seems that the alogorithmns assume that a reconstructed protein should be very stable since it was assuemd to be used in a particualr manner. Why this is troublesome is because it means investigators expect to find a protein with similar levels of stability in the same form -- becuase they are assuming the populaiton is undergoing nearlyneutral and neutral mutations. 
+
+- MP and ML often overestinate the thermodynamic stability of a protein -- which could prevent it from gaining novel mutaiton due to the conservation of the structure. It is also extremely difficult to control for epistatic interactions.
+
+- You may have to trade BI ability to more accurately discern which amino acid is most probable from the posterior probability instead of getting a more accurate sequence with ML of MP. Need to ask Joe and the class about this.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

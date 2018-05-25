@@ -1,0 +1,16 @@
+Introduction
+------------
+
+Multinucleotide Mutations [MNMs]: Mutations occuring during DNA replication, which is a normal occurence for Eukaryotes, but instead of causing a SNP the mutations also affect the adjacent sites which will inturn lead to a non-synomous mutation a majority of the time.
+ - This is the main idea for the paper -- how these mutations in DNA replication can cause an inobertant amount of non-synomous mutations which are NOT caused by positive selection for the site.
+
+Codons with multiple differences [CMDs]: Meaning a codon for an amino acid which has more than one polymorphism.
+	- It was found that the presence of these CMD account for almost all of the sites considered to be under positive selection from a genome wide scan. 
+
+Branch-site test [BS]: A test which allows us to determine the ratees of positive selection, if it is occuring, via the branch lengths and substitution values. It relies heavily on the concept of DN/DS = w ratios as the indicator of positive selection.
+	- It seems, from a basal look, that this test is search for the rare 'positively selected sites' (sites undergoing larges rates of non-synonomous mutations) within the branches of the cladogram. However, the explanation of MNMs as a source of error in the model may be caused by the model not accounting for these from occuring, and it instead relies on SNP being the source of non-synomous mutations -- which would over account for an increased rate of non-synomous substitutions aused by MNMs leading to a false positive. 
+
+
+
+
+

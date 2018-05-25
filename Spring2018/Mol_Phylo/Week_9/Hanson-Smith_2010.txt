@@ -1,0 +1,22 @@
+Introduction
+------------
+
+Main focus of the paper is to look at the effects of integrating over the likelihood of a phylogeny in order to determine the most likely phylogeny give the data. It is a test of methodlogies and not hypotheses.
+
+They want to find and see the causal effects of the integration on the ASR accuracy. Since the bayesian method involves the integration of the likelihoods in order to determine given the data what the most likely resulting phylogeny is. 
+Methods
+-------
+Ultrametric trees gives the most problems for ASR due to the branch length and character states being altered due to the algorithmn which leads to incorrect tree topology and ASR. 
+
+Results
+-------
+The results show that the integration over phylogenetic uncertianty rarely leads to changes in the ASR, but it does lead to changes in the tree topology in some cases. The rate of error in the reconstruction of the trees isaround 0.4 - 1.0% for each reconstructed phylogeny using single genes and a MCMC(Markov-Chain Monte Carlo) algorithmn. From this it seems that this methodlogy of integration over phylogenetic uncertainty leads to a plausible and accurate results and only leads to errorness results rarely for single gene analysis.
+ - This result is different for ultrametric and non-ultrametric trees however. In ultrametric trees we see an error rate of 0.4% while non-ultrametric trees showed an error rate of 0.7%. In the largest data sets the results only differed for ML and TEB at a rate of 1%.
+
+Discussion
+----------
+From the results it shows that there is not a real difference in the ARS's when you use TEB with integration vs ML without integration. They both genrerally lead to the same outcome, and do not statistically differ from one another.
+
+One problem shown for both methodologies is that when the phylogeny has long internal branches the resolved phylogeny is not always accurate, and can be erorroness. 
+
+This study only showed that the integration methods in bayesian inferrence does not have a major effect on ancestral state reconstruction, but it does not show the effects thtat branch lengths, substitution model, or other parameteres have on the results. That being said, the ML generally will return the most accurate tree even when the support is low for the tree. That being said, bayesian approaches are still valid and useful, but the computational costs for the analysis is not worth the results it gives sicne the ML methodlogies generally returns the best tree given the data for ASR. One must also always rigoressly test their results using statistical tests. 

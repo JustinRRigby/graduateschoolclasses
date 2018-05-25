@@ -1,0 +1,22 @@
+Introduction
+----------
+
+
+Clique: When two nodes share a common neighbor.
+	- cliques are rare in randomly simualted networks -- meaning that cliques must be a by-product of another force besides stochiametry.
+	- As the rewiring parameter (p) fluxuates, it does not affect cliques greatly until it undoes the highly connective nodes.
+Mutuality: When more than one clique are connected by loops of length.
+
+Path lengths are shorter as the system becomes more connected. [See figure 2b]
+	- The shorter the distance the quicker the rates of infection.
+
+
+
+
+
+
+
+
+
+
+

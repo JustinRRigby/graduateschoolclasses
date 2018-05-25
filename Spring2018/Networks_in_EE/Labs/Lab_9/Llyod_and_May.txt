@@ -1,0 +1,24 @@
+Introduction
+------------
+Not much is said in the beginning. The most striking comment is that viruses (bash or bacterial) are easily spread even at low infection probabilities. 
+
+ - Clique behavior: Pairs of connected individuals sharing many common neighbors. So this is basically analogous to a module. 
+	-- alongside this, it is also saying that these clusters of people, cliques, cause the transmission of disease to slow down and relax. 
+	-- These clusters become hubs for the disease where it will slowly die down due to immunity arising in the population (no post infeciton innoculation), but the spread of the disease will increase dramatically once contact with an outside node.
+
+Scale-free Netowork: I.E. New nodes in the network preferentially connnect to nodes with the most connections. The probability for a node to be connected to k other nodes follows the distribution P(k) ~ k^-(gamma) where gamma is equal to the rate at which these connections occur
+
+The SIS model (susceptible-infected-susceptible) is more applicable to the beginning of the infection due to the sharp uptick in infection before the population is saturated. This is especially aparent in netowrks with clique behavior -- or islands of refuge which do not have that many edges coming in from the outside. Then the transmission of infecitons/viruses follows the complex netork: R_0 = p_0(1+(CV)^2) moreso than it does the SIS model.
+	- The SIS model also does not account for immunity to occur in the population.
+Prostitutes are a good example of a highly connected node 		
+	
+
+
+
+
+
+
+
+
+
+

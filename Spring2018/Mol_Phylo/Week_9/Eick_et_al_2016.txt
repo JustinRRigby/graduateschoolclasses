@@ -1,0 +1,18 @@
+Notes for 'Robustness of Reconstructed Ancestral Protein functions to Statistical Uncertainty'
+--------------------------------------------------------------------------------------------------------------
+
+Abstract
+--------
+Anscestral Protein Reconstruction (APR): Phylogenetically inferred ancestral sequence is created form extant species DNA, this sequence is then synthesized and characterized via emperical studies.
+
+Three proteins were reconstructed, each with unique functions and roles they play, in order to show a proof of concept that this is a viable option for testing and understanding APR's. That being said, when APR methodology is applied it sometimes has more than one statistical pluasible state for the ancestral protein. Eick et al have tried to reduce the effects of having more than one possible state by sampling amino acid states from the posterior distribution at each site and incorporating the alternative amino acid state at every ambiguous site in the sequence into a single “worst plausible case” protein. This acutally worked in some cases where the 'worst plausible case' protein was able to perform ancestral inferred funcitons even when the ambigious amino acids were shift to and fro, but experimental quantification and qualatative studies of the protein characterization is needed for these proteins. However, that is not say that every reconstructed protein was viable. There were instances of nonfunctional proteins for sequences reconstructed with 'substancial' ambiguity.  
+
+Introduction
+------------
+
+The AltAll test is a very conservative test to investigate the function of a possible ancestral protein.
+
+Results
+-------
+
+

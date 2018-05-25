@@ -1,0 +1,22 @@
+Introduction
+------------
+
+This paper also focuses on the idea and concepts of infering ancestral sequences -- it is from 1995 so it is one of the first papers to talk about this methodology.
+	- Previous research showed that there was other ways, through parsimony, which allowed early investigators to research reconstructed proteins, and decided that confirmation of the protein is related to the extant proteins by quantifying the levels of structure and the abilities of its catalytic action -- no real research was looking into possible neo-functionalizations of the proteins.
+
+Uses emperical data sets in order to show the plausibility of this methodlogy of econstruction.
+
+The parismony reconstructions will give insight into what ancstral sequences can be possible, but it is lacking when it comes to actually giving a statistic or even soem sort of probability. For each site, there is generally 1-5 possible sequences -- with a mean of of 2.4 possible sequences -- 
+
+
+
+
+PAML software was used for this calculation, and the creator of the software is also a co-author on the paper. It seems like this particular paper was the introduction, and emperical application, of these 'new' software packages.
+
+
+
+
+
+
+
+

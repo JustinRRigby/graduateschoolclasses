@@ -1,0 +1,42 @@
+Lab Meeting: Establishing artifical microbial communities in Arabidopsis thailianaccurate strain identification is essential for anyone working with bacteria. For many species, multilocus sequence typing (MLST) is considered the “gold standard” of typing, but it is traditionally performed in an expensive and time-consuming manner. As the costs of whole-genome sequencing (WGS) continue to decline, it becomes increasingly available to scientists and routine diagnostic laboratories. Currently, the cost is below that of traditional MLST. The new challenges will be how to extract the relevant information from the large amount of data so as to allow for comparison over time and between laboratories. Ideally, this information should also allow for comparison to historical data. We developed a Web-based method for MLST of 66 bacterial species based on WGS data. As input, the method uses short sequence reads from four sequencing platforms or preassembled genomes. Updates from the MLST databases are downloaded monthly, and the best-matching MLST alleles of the specified MLST scheme are found using a BLAST-based ranking method. The sequence type is then determined by the combination of alleles identified. The method was tested on preassembled genomes from 336 isolates covering 56 MLST schemes, on short sequence reads from 387 isolates covering 10 schemes, and on a small test set of short sequence reads from 29 isolates for which the sequence type had been determined by traditional methods. The method presented here enables investigators to determine the sequence types of their isolates on the basis of WGS data. This method is publicly available at www.cbs.dtu.dk/services/MLST.
+
+Koch Postulate: The ability to determine the causal agents of infection by first isolating the bacterium, plating it, reifection, and then isolation for a second time to compare the plates to the original to determine if it is the causal agent of infeciton.
+
+Mohammad Haneef Khan 05/25/2018
+---------------------------------------------------------------------------------
+
+Koch Postulate: The ability to determine the causal agents of infection by first isolating the bacterium, plating it, reifection, and then isolation for a second time to compare the plates to the original to determine if it is the causal agent of infeciton. 
+
+H_1: What impact does the artifical microbial community assemblafe make on plant"s fitness?
+	- What impact does individual and/or combined inoculaiton of bacterial microbiota make on the plant;s fitness?
+	- Whether this impact vary with the plant genotype?
+	- Who is regulating whom?
+		- Plant genotype regulatinng inhabiting microbes or vice versa
+	- What impact microbiota have on the
+Bacterial isolates were found by taking plant material, sterilizing the in ethanol, plating.
+	- bascillus was the most common for Root & Siliques
+Gyrus B: Up to species level resolution for bacterial analysis
+
+ITS Region sequencing was used to indentify the fungi.
+
+OPRF1: Single gene copy used to measure bacterial load -- present in all (most) bacterial genomes.
+RIBH1: To quantify the plant material present -- another supper cocmmon gene.
+	
+Candidate Genes [Host/Pathogen Control Mesasures]: Haneef does not know. 64 Canidate genes are known (R-Genes) for plants that can have an impact on resisitance. The pairwise anaylsis needed to investigate these genes is not plausible due to the scale of the experiment need (64 Pairwise).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

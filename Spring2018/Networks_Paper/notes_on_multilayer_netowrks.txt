@@ -1,0 +1,39 @@
+Multilayer Networks
+===================================================
+Formal Definition: A multilayer network is defined as. M = (V_M, E_M, V, L)
+Where,
+
+L - Number of Layers Present in the Multilayer Network (eg. L = 0 for a monolayer network and L = 1 is a network with a single layer while L = 2 is a two layer network).
+
+V_M - The tuples associated with the supraadjency matrix (meaning this is reffering to the edges between layers
+
+V - The sum total of all nodes within the networks.
+
+E_M - Represents the weights associated with the edges of the network where it repesents both intralayer edges and interlayer edges.       
+
+Notes
+------------------------------
+It seems that the network I would try to create would be a triplet where; M = (V_M, V, L) and there are no edge weight present -- meaning it is an un-weighted multilayer network.
+
+Analysis
+-----------------------------
+Compare the motifs of the trilayer network to those of a randomly generated network -- which would show that these interaction were caused by evolution and interactions instead of just arising by stochametric means. 
+
+
+
+
+
+
+Hypothesis
+===============================
+1. Analysis of an herbivore-patogen secondary metabolite network will yield modules of secondary metabolites which will a trend towards more flexible defence system in planta.
+    - this analysis will require the selection of a single plant species and a record of its metabolome under different stress conditions: herbivore attack, herbivore-pathogen attack, pathogen attack, and a control where no attack occurs.
+    - 
+
+
+
+
+
+2. Highly connected plants lead to less specialized chemicals in a community due to the induced selection caused by herbivores for more general defense compounds. 
+    - I will strictly have to stay with secondary metabolites which confer herbivore resistance and not chems which work on both herbivores and pathogens. 
+    Biological Relevence: The evolution of new chemicals in plants is not a simple task due to the inccrdible amount of energy and resources that are required in order to construct the simplest molecules. Thus, it is inferred that the evolution of specific defensive compounds cannot arise via stochastic means and must have a strong effect on the fitnesss of the plant. 

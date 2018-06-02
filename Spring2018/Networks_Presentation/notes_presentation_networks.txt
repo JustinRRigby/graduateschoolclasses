@@ -1,0 +1,20 @@
+First network would be a netowrk containing plants and secondary metabolites -- primarily defensive compounds
+	- This would be a simple unidirectional network where the plants whom produce the chemicals are connected to the chemicals themselves. 
+	- Redundancy in the metabolites produced would yield clusters of metabolites -- meaning their degree centrality would be increased and they may have the most influence over the network.
+		- This also may lead to 'closeness centrality' which is when a node's distance from itself to the rest of the network is at the lowest value possible.
+	- I saw a few papers outlining the 'omics' approach to metabolomic networks where they include all sorts of data into the model. I am not sure if it is useful -- three netowrks would do.
+
+
+
+Second network would be a network containing hervbivores and secodnary metabolites -- primarily defensive compounds.
+	- This would also be a unidirectional network where the secondary metaboolites are connected to the herbivores -- indicating a negative effect.
+	- High levels of centrality would indicate secondary metabolites that are more general in the network -- meaning they are metabolites which affect multiple species. 
+	- The first network would yield information on metabolites which are common amongst plants, and connecitng the first network to the second one would show which metabolites are the most general in terms of defense. 
+		- It would be interesting to see if the more common secondary metabolites match up with the most general secondary metabolites -- which could show us if the plants are investing the proper amount of energy in specific chems.
+
+Third network would be a network containing plants and herbivores.
+	- This also would be a unidirectional network that would show which herbivores feed omn which plants -- it will be unweighted.
+		- By itself it could identify the most commonly preyed upon plant, which would have the highest centrality in the network.
+	- Connecting this network to the first may inform us if the most preyed upon plant species have the largest diversity of secondary metabolites (largest centrality)
+	- Connecting this network to the second may inform us if generalist herbivores, meaning those with high levels of centrality, are also the most suseptible to secondary metabolites (meaning that they have high levels of centrality).
+	- I am expecting to see high levels of modularity in this network due to different genera of herbivores forming guilds that cluster around specific generas of plants.

@@ -26,14 +26,12 @@ Compare the motifs of the trilayer network to those of a randomly generated netw
 
 Hypothesis
 ===============================
-1. Analysis of an herbivore-patogen secondary metabolite network will yield modules of secondary metabolites which will a trend towards more flexible defence system in planta.
-    - this analysis will require the selection of a single plant species and a record of its metabolome under different stress conditions: herbivore attack, herbivore-pathogen attack, pathogen attack, and a control where no attack occurs.
-    - 
-
-
-
-
+1. Analysis of an herbivore-patogen secondary metabolite network will yield modules of secondary metabolites which will a trend towards more flexible defence system in planta and will also reduce the energy and nutritional cost that sythesiszing these chemicals costs.
+    - this analysis will require the selection of a single plant species and a record of its metabolome under different stress conditions: herbivore attack, herbivore-pathogen attack, pathogen attack, and a control where no attack occurs. Metabolome measurements will be the baseline for the types of species which would be involved in the network.
+    - A  trilayer network, where each layer consists of the same trophic level or catogory, will need to be constructed where the secondary metabolites will sit in the middle layer and the interlayer edges are connected to the center layer this will help pin point the secondary metabolites with the greatest degree of connections -- implying that it a general chemical which confers resistance to both herbivores and pathogens.
+    Biological Relevance: Confering resistance to herbivores or pathogens in of itself is a costly measure that can take up valuable resources which otherwise could be used for the growth and maintenance of the platn itself. The consumption of resources for production of secondary metabolites is not the only costly proceedure for warding off pathogens and herbivores. The sequestration of secondary metabolites, such as glucosinolates, is a dangerous gamble due to most secondary metabolites being dangerous to the hsot plant itself and if they are not kept properly contained they can cause substancial damage to the plants cells. Thus, it would be in the plants best interest to produce chemicals with multifactorial defence properties in order to protect itself.
 
 2. Highly connected plants lead to less specialized chemicals in a community due to the induced selection caused by herbivores for more general defense compounds. 
     - I will strictly have to stay with secondary metabolites which confer herbivore resistance and not chems which work on both herbivores and pathogens. 
-    Biological Relevence: The evolution of new chemicals in plants is not a simple task due to the inccrdible amount of energy and resources that are required in order to construct the simplest molecules. Thus, it is inferred that the evolution of specific defensive compounds cannot arise via stochastic means and must have a strong effect on the fitnesss of the plant. 
+    Biological Relevence: The evolution of new chemicals in plants is not a simple task due to the inccrdible amount of energy and resources that are required in order to construct the simplest molecules. Thus, it is inferred that the evolution of specific defensive compounds cannot arise via stochastic means and must have a strong effect on the fitnesss of the plant. This does not mean that specialized chemicals do not evolve in plant species, but that they will not be as frequent and will be less than expected by chance.
+
